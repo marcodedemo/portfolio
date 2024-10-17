@@ -7,20 +7,28 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState, useMemo, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import Palettes from './data/Palettes'; 
+import Palettes, { TextPalettes } from './data/Palettes'; 
 
 function App() {
-  const [mode, setMode] = useState('dark');
-  
-  const [palette, setPalette] = useState(Palettes.find(p => p.id === 'blue'));
 
   const getSystemMode = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   };
 
+  const [mode, setMode] = useState(() => {
+    const savedMode = localStorage.getItem('themeMode');
+    return savedMode ? savedMode : getSystemMode();
+  });
+
+  const [palette, setPalette] = useState(Palettes.find(p => p.id === 'blue'));
+
   useEffect(() => {
-    setMode(getSystemMode());
-  }, []);
+    localStorage.setItem('themeMode', mode);
+  }, [mode]);
+
+  const selectedTextPalette = mode === 'dark'
+    ? TextPalettes.find(p => p.id === 'dark')
+    : TextPalettes.find(p => p.id === 'light');
 
   const theme = useMemo(() => createTheme({
     spacing: 8,
@@ -31,11 +39,15 @@ function App() {
         dark: palette.dark,
         light: palette.light,
       },
+      text: {
+        primary: selectedTextPalette.primary ,
+        secondary: selectedTextPalette.secondary,
+      }
     },
     typography: {
       fontFamily: ['Roboto'].join(','),
     },
-  }), [mode, palette]);
+  }), [mode, palette, selectedTextPalette]);
 
   return (
     <ThemeProvider theme={theme}>

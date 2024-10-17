@@ -32,4 +32,18 @@ const Palettes = [
 
 ]
 
-export default Palettes
+const TextPalettes = [
+    {
+      id: 'light',
+      primary: '#000000', 
+      secondary: '#2b2b2b', 
+    },
+    {
+      id: 'dark',
+      primary: '#ffffff',
+      secondary: '#8a949e',
+    },
+  ];
+  
+  export default Palettes;
+  export { TextPalettes };
