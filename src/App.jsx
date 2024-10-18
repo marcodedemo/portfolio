@@ -6,8 +6,11 @@ import Router from './router';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useState, useMemo, useEffect } from 'react';
-import Navbar from './components/Navbar';
 import Palettes, { TextPalettes } from './data/Palettes'; 
+
+import Navbar from './components/Navbar';
+import UtilityButton from './fragments/UtilityButton'
+import { Box } from '@mui/material';
 
 function App() {
 
@@ -52,8 +55,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar mode={mode} setMode={setMode} setPalette={setPalette} />
+      <Box sx={{position:'relative', minHeight:'100dvh'}}>
+
+      <Navbar />
       <Router />
+      <UtilityButton mode={mode} setMode={setMode} setPalette={setPalette} />
+      </Box>
     </ThemeProvider>
   );
 }
