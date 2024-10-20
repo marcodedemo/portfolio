@@ -2,23 +2,14 @@ import React, { useState } from "react";
 import { Box, Typography, Container, List, ListItem, ListItemText, ListItemIcon, Button, } from "@mui/material";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Jumbo from '../sections/Jumbo'
+import ChiSono from "../sections/ChiSono";
 
 function Homepage() {
   return (
     <>
-      Homepage
-      <Button
-        sx={(theme) => ({
-          color: "#fff",
-          backgroundColor: theme.palette.primary.main,
-          "&:hover": {
-            boxShadow: theme.shadows[3],
-            backgroundColor: theme.palette.primary.dark,
-          },
-        })}
-      >
-        Submit
-      </Button>
+      <Jumbo />
+      <ChiSono />
     </>
   );
 }

@@ -153,7 +153,7 @@ function Navbar({ ...props }) {
                     aria-label="open drawer"
                     edge="start"
                     onClick={handleDrawerOpen}
-                    sx={{ mr: 2, display: { sm: "none" } }}
+                    sx={{ display: { sm: "none" } }}
                   >
                     <FontAwesomeIcon icon="fa-solid fa-bars" />
                   </IconButton>

@@ -36,12 +36,12 @@ const TextPalettes = [
     {
       id: 'light',
       primary: '#000000', 
-      secondary: '#2b2b2b', 
+      secondary: '#8f9094', 
     },
     {
       id: 'dark',
       primary: '#ffffff',
-      secondary: '#8a949e',
+      secondary: '#8f9094',
     },
   ];
   
