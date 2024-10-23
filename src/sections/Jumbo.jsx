@@ -28,8 +28,8 @@ function Jumbo() {
         </Box>
 
         <Box sx={{paddingTop: theme.spacing(3)}}>
-            <Typography variant="p" sx={{display:'block'}}>&#128640; Attualmente specializzato in Frontend &#40; React.js &#41;</Typography>
-            <Typography variant="p">&#128293; Frontend Developer presso <Typography variant="p" sx={{color: theme.palette.primary.main}}>FourteenTEC</Typography></Typography>
+            <Typography variant="p" sx={{display:'block'}}>&#128640; Attualmente specializzato in Frontend &#40; <Typography variant="span" sx={{color: theme.palette.primary.main}}>React.js</Typography> &#41;</Typography>
+            <Typography variant="p">&#128293; Solida base conoscitiva di framework backend &#40; <Typography variant="span" sx={{color: theme.palette.primary.main}}>Laravel</Typography> &#41;</Typography>
         </Box>
 
         <Box sx={{paddingTop: theme.spacing(3), display:'flex', alignItems:'center', gap: theme.spacing(2)}}>

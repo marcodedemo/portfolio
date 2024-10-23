@@ -3,13 +3,15 @@ import { Box, Typography, Container, List, ListItem, ListItemText, ListItemIcon,
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Jumbo from '../sections/Jumbo'
-import ChiSono from "../sections/ChiSono";
+import HomeAbout from "../sections/HomeAbout";
+import HomeProjects from "../sections/HomeProjects";
 
 function Homepage() {
   return (
     <>
       <Jumbo />
-      <ChiSono />
+      <HomeAbout />
+      <HomeProjects />
     </>
   );
 }
