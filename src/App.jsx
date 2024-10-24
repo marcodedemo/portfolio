@@ -9,6 +9,7 @@ import { useState, useMemo, useEffect } from 'react';
 import Palettes, { TextPalettes } from './data/Palettes'; 
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import UtilityButton from './fragments/UtilityButton'
 import { Box } from '@mui/material';
 
@@ -20,7 +21,7 @@ function App() {
 
   const [mode, setMode] = useState(() => {
     const savedMode = localStorage.getItem('themeMode');
-    return savedMode ? savedMode : getSystemMode();
+    return savedMode ? savedMode : 'dark';
   });
 
   const [palette, setPalette] = useState(Palettes.find(p => p.id === 'blue'));
@@ -58,6 +59,19 @@ function App() {
           },
           [createTheme().breakpoints.up('md')]: {
             fontSize: '1.8rem', 
+          },
+          [createTheme().breakpoints.up('lg')]: {
+            fontSize: '24px', 
+          },
+        },
+
+        tinySpan: {
+          fontSize: '1.2rem', 
+          [createTheme().breakpoints.up('xs')]: {
+            fontSize: '.8rem', 
+          },
+          [createTheme().breakpoints.up('md')]: {
+            fontSize: '1.2rem', 
           },
           [createTheme().breakpoints.up('lg')]: {
             fontSize: '24px', 
@@ -102,6 +116,8 @@ function App() {
             fontSize: '24px', 
           },
         },
+
+        
       },
     });
     
@@ -115,6 +131,7 @@ function App() {
         <Navbar />
         <Router />
         <UtilityButton mode={mode} setMode={setMode} setPalette={setPalette} />
+        <Footer />
       </Box>
     </ThemeProvider>
   );

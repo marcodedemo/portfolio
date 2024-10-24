@@ -8,7 +8,7 @@ function Logo({ fontSize }) {
     'Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 
   const logoBrackets = {
-    fontWeight:"600",
+    fontWeight: "600",
     fontFamily,
     fontSize,
     color: theme.palette.primary.dark,

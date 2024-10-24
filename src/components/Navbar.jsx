@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -37,77 +37,77 @@ function Navbar({ ...props }) {
   };
 
   const drawer = (
-      <Box sx={{ textAlign: "center", height: '100%' }}>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: theme.spacing(1),
-          }}
-        >
-          <Logo fontSize={24} />
-          <IconButton onClick={handleDrawerClose}>
-            <FontAwesomeIcon icon="fa-solid fa-xmark" />
-          </IconButton>
-        </Box>
-        <Divider />
-        <List>
-          {Links.map((link) => (
-            <ListItem
-              key={link.id}
-              disablePadding
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <ListItemButton>
-                <Link
-                  href={link.path}
+    <Box sx={{ textAlign: "center", height: "100%" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: theme.spacing(1),
+        }}
+      >
+        <Logo fontSize={24} />
+        <IconButton onClick={handleDrawerClose}>
+          <FontAwesomeIcon icon="fa-solid fa-xmark" />
+        </IconButton>
+      </Box>
+      <Divider />
+      <List>
+        {Links.map((link) => (
+          <ListItem
+            key={link.id}
+            disablePadding
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <ListItemButton>
+              <Link
+                href={link.path}
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: theme.spacing(1),
+                  textAlign: "center",
+                  color: "inherit",
+                  textDecoration: "none",
+                  "&:hover": {
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                <ListItemIcon
+                  sx={[
+                    (theme) => ({
+                      width: "fit-content",
+                      minWidth: "unset",
+                      color: theme.palette.primary.main,
+                      ...theme.applyStyles("dark", {
+                        color: theme.palette.primary.main,
+                      }),
+                    }),
+                  ]}
+                >
+                  {link.icon}
+                </ListItemIcon>
+                <ListItemText
                   sx={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: theme.spacing(1),
-                    textAlign: "center",
-                    color: "inherit",
-                    textDecoration: "none",
-                    "&:hover": {
-                      textDecoration: "underline",
+                    flexGrow: "unset",
+                    ".MuiListItemText-primary": {
+                      width: "fit-content",
+                      fontWeight: "600",
+                      fontSize: "16px",
                     },
                   }}
                 >
-                  <ListItemIcon
-                    sx={[
-                      (theme) => ({
-                        width: "fit-content",
-                        minWidth: "unset",
-                        color: theme.palette.primary.main,
-                        ...theme.applyStyles("dark", {
-                          color: theme.palette.primary.main,
-                        }),
-                      }),
-                    ]}
-                  >
-                    {link.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{
-                      flexGrow: "unset",
-                      ".MuiListItemText-primary": {
-                        width: "fit-content",
-                        fontWeight: "600",
-                        fontSize: "16px",
-                      },
-                    }}
-                  >
-                    {link.label}
-                  </ListItemText>
-                </Link>
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+                  {link.label}
+                </ListItemText>
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 
   const container =

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Jumbo from '../sections/Jumbo'
 import HomeAbout from "../sections/HomeAbout";
 import HomeProjects from "../sections/HomeProjects";
+import Contacts from "../sections/Contacts";
 
 function Homepage() {
   return (
@@ -12,6 +13,7 @@ function Homepage() {
       <Jumbo />
       <HomeAbout />
       <HomeProjects />
+      <Contacts />
     </>
   );
 }

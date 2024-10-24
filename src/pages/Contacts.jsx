@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { Box, Typography, Container, List, ListItem, ListItemText, ListItemIcon, Button, } from "@mui/material";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import { Button } from "@mui/material";
 
 function Contacts() {
   return (

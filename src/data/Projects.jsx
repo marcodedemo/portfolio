@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 const Projects = [
   {
     slug: "b-developers",
@@ -7,6 +5,8 @@ const Projects = [
     title: "B-Developers",
     description:
       "Questa applicazione è un portale innovativo progettato per mettere in contatto sviluppatori e utenti alla ricerca di professionisti del settore tech. Gli sviluppatori possono creare un profilo dettagliato, caricare il proprio CV, inserire le proprie competenze (skill) e altre informazioni rilevanti, mentre gli utenti alla ricerca di sviluppatori possono navigare tra i profili e selezionare quello che meglio soddisfa le loro esigenze.",
+    shortDescription:
+      "Un portale che collega sviluppatori e utenti, consentendo ai primi di creare profili dettagliati e ai secondi di trovare professionisti tech in base alle esigenze.",
     functionality: {
       user: [
         "Sistema di ricerca avanzata: gli utenti possono filtrare gli sviluppatori in base a competenze specifiche e framework preferenziali.",
@@ -31,11 +31,12 @@ const Projects = [
       "bdev6.png",
       "bdev7.png",
     ],
+    mainImage: "bdev1.png",
     repositoryUrl: "",
     liveUrl: "/",
     technologies: [
-      "HTML5",
-      "CSS3",
+      "HTML",
+      "CSS",
       "JavaScript",
       "Vue.js",
       "Bootstrap",
@@ -45,6 +46,7 @@ const Projects = [
       "Laravel",
       "MySQL",
     ],
+    mainTechnologies: ["Vue.js", "Laravel", "Scss"],
     team: true,
     date: "16/06/2023",
   },
@@ -54,39 +56,24 @@ const Projects = [
     title: "Boolflix",
     description:
       "Questo progetto è una riproduzione responsive semplificata del sito di Netflix, sviluppata utilizzando un servizio API per l'acquisizione di dati su film e serie TV. Gli utenti possono esplorare il catalogo di film e serie, visualizzare i dettagli di ciascun titolo e cercare direttamente per nome utilizzando la barra di ricerca. Ogni ricerca attiva una chiamata API che restituisce i risultati pertinenti. La visualizzazione dei contenuti è organizzata in due slideshow separati: uno dedicato alle serie TV e uno per i film, offrendo un'esperienza simile a quella di Netflix ma con una struttura semplificata.",
+    shortDescription:
+      "Riproduzione responsive semplificata di Netflix, con API per film e serie TV. Gli utenti possono cercare titoli e visualizzarne i dettagli.",
     images: ["boolflix.png", "boolflix1.png"],
+    mainImage: "boolflix.png",
     repositoryUrl: "",
     liveUrl: "/",
     technologies: [
-      "HTML5",
-      "CSS3",
+      "HTML",
+      "CSS",
       "JavaScript",
       "Vue.js",
       "Bootstrap",
       "Scss",
-      "API Rest",
+      "API",
     ],
+    mainTechnologies: ["Vue.js", "Bootstrap", "API"],
     team: false,
     date: "30/03/2023",
-  },
-  {
-    slug: "discord",
-    type: "Frontend",
-    title: "Riproduzione Sito Discord",
-    description:
-      "Questo progetto è la riproduzione di una vecchia versione del sito web di Discord, sviluppata utilizzando HTML, CSS, Vue.js e Bootstrap. Il sito è completamente responsive, garantendo un'esperienza di navigazione ottimale su qualsiasi dispositivo, dai desktop ai dispositivi mobile. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre Bootstrap ha permesso di realizzare un layout flessibile e moderno, mantenendo fedeltà al design originale.",
-    images: [
-      "discord1.png",
-      "discord2.png",
-      "discord3.png",
-      "discord4.png",
-      "discord5.png",
-    ],
-    repositoryUrl: "",
-    liveUrl: "/",
-    technologies: ["HTML5", "CSS3", "Bootstrap", "Vue.js"],
-    team: false,
-    date: "24/03/2023",
   },
   {
     slug: "phlox",
@@ -94,6 +81,8 @@ const Projects = [
     title: "Phlox - Business Consulting",
     description:
       "Questo progetto consiste nella creazione di una landing page per un'azienda di business consulting, sviluppata seguendo il design di un template fornito da un web designer. Il sito è completamente responsive, garantendo un'ottima esperienza utente su tutti i dispositivi. Sono state inoltre implementate animazioni su pulsanti e card utilizzando solo CSS, per rendere l'interfaccia più interattiva e coinvolgente.",
+    shortDescription:
+      "Creazione di una landing page responsive per un'azienda di business consulting, con animazioni CSS su pulsanti e card, basata su un template fornito da un web designer.",
     images: [
       "phlox.png",
       "phlox1.png",
@@ -101,11 +90,36 @@ const Projects = [
       "phlox3.png",
       "phlox4.png",
     ],
+    mainImage: "phlox.png",
     repositoryUrl: "",
     liveUrl: "/",
-    technologies: ["HTML5", "CSS3", "Bootstrap", "Vue.js"],
+    technologies: ["HTML", "CSS", "Bootstrap", "Vue.js"],
+    mainTechnologies: ["Vue.js", "Bootstrap", "CSS"],
     team: false,
     date: "11/04/2023",
+  },
+  {
+    slug: "discord",
+    type: "Frontend",
+    title: "Riproduzione Sito Discord",
+    description:
+      "Questo progetto è la riproduzione di una vecchia versione del sito web di Discord, sviluppata utilizzando HTML, CSS, Vue.js e Bootstrap. Il sito è completamente responsive, garantendo un'esperienza di navigazione ottimale su qualsiasi dispositivo, dai desktop ai dispositivi mobile. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre Bootstrap ha permesso di realizzare un layout flessibile e moderno, mantenendo fedeltà al design originale.",
+    shortDescription:
+      "Riproduzione responsive della vecchia versione del sito Discord, sviluppata con HTML, CSS, Vue.js e Bootstrap, per una navigazione ottimale su tutti i dispositivi.",
+    images: [
+      "discord1.png",
+      "discord2.png",
+      "discord3.png",
+      "discord4.png",
+      "discord5.png",
+    ],
+    mainImage: "discord1.png",
+    repositoryUrl: "",
+    liveUrl: "/",
+    technologies: ["HTML", "CSS", "Bootstrap", "Vue.js"],
+    mainTechnologies: ["Vue.js", "Bootstrap", "CSS"],
+    team: false,
+    date: "24/03/2023",
   },
 ];
 
