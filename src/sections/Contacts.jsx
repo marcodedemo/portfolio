@@ -20,10 +20,12 @@ function Contacts() {
           Non esitare a contattarmi!
         </Typography>
 
-        <Typography variant="p">
-          Se desideri sapere di più su di me o sul mio lavoro, o semplicemente
-          vuoi salutarmi , inviami un messaggio.
-        </Typography>
+        <Box sx={{ textAlign: "center" }}>
+          <Typography variant="p">
+            Se desideri sapere di più su di me o sul mio lavoro, o semplicemente
+            vuoi salutarmi , inviami un messaggio.
+          </Typography>
+        </Box>
 
         <Box
           sx={{

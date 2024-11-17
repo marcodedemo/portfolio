@@ -9,9 +9,11 @@ import {
   CardContent,
   Divider,
   IconButton,
+  Paper
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Link as RouterLink } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
 import LaunchIcon from "@mui/icons-material/Launch";
 
@@ -59,19 +61,21 @@ function HomeProjects() {
 
         <Grid container spacing={3}>
           {Projects.slice(0, 4).map((project) => (
-            <Grid item key={project.slug}>
+            <Grid key={project.slug}  size={{xs:12, sm:6}}>
+              <Paper>
+
               <Card
                 sx={{
-                  height: theme.spacing(50),
                   border: "1px solid",
                   borderColor: "rgb(255 255 255 / 16%)",
                   borderRadius: "10px",
+                  height: {xs: 'fit-content', sm:'550px'}
                 }}
               >
                 <CardMedia
                   image={`/public/images/${project.mainImage}`}
                   sx={{
-                    height: theme.spacing(23),
+                    height: {xs:'200px', md:'300px'},
                     backgroundPosition: "top",
                     backgroundSize: "cover",
                   }}
@@ -79,7 +83,6 @@ function HomeProjects() {
                 <CardContent
                   sx={{
                     padding: `${theme.spacing(2)}`,
-                    height: theme.spacing(27),
                   }}
                 >
                   <Box
@@ -121,6 +124,7 @@ function HomeProjects() {
                   </Typography>
                 </CardContent>
               </Card>
+              </Paper>
             </Grid>
           ))}
         </Grid>

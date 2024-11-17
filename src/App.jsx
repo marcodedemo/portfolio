@@ -92,28 +92,32 @@ function App() {
         },
 
         h1: {
-          fontSize: '8rem', 
           [createTheme().breakpoints.up('xs')]: {
             fontSize: '4rem', 
           },
+          [createTheme().breakpoints.up('sm')]: {
+            fontSize: '5rem', 
+          },
           [createTheme().breakpoints.up('md')]: {
-            fontSize: '8rem', 
+            fontSize: '5.5rem', 
           },
           [createTheme().breakpoints.up('lg')]: {
-            fontSize: '24px', 
+            fontSize: '7rem', 
           },
         },
 
-        h2: {
-          fontSize: '2.5rem', 
+        h2: { 
           [createTheme().breakpoints.up('xs')]: {
             fontSize: '1.5rem', 
           },
+          [createTheme().breakpoints.up('sm')]: {
+            fontSize: '1.5rem', 
+          },
           [createTheme().breakpoints.up('md')]: {
-            fontSize: '2.5rem', 
+            fontSize: '2rem', 
           },
           [createTheme().breakpoints.up('lg')]: {
-            fontSize: '24px', 
+            fontSize: '2.2rem', 
           },
         },
 
@@ -121,7 +125,9 @@ function App() {
       },
     });
     
-    return responsiveFontSizes(createdTheme);
+    return createdTheme;
+    // return responsiveFontSize(createdTheme);
+
   }, [mode, palette, selectedTextPalette]);
 
   return (

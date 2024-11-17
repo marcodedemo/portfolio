@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, useMediaQuery } from "@mui/material";
 
 import { useTheme } from "@mui/material/styles";
 import SocialButton from "../common/SocialButton";
 
 function Jumbo() {
   const theme = useTheme();
+  const is900Screen = useMediaQuery('(min-width:900px)')
 
   return (
     <Box sx={{ paddingTop: theme.spacing(2) }}>
@@ -29,7 +30,7 @@ function Jumbo() {
               lineHeight: "95%",
             }}
           >
-            Marco <br /> De Demo.
+            Marco <br style={{display: is900Screen ? 'none' : 'block'}} /> De Demo.
           </Typography>
         </Box>
 
