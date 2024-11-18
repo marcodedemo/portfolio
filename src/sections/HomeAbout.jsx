@@ -16,7 +16,9 @@ function HomeAbout() {
           &#9889; Chi Sono
         </Typography>
 
-        <Typography variant="p" sx={{ color: theme.palette.text.secondary }}>
+        <Typography variant="p" sx={{
+          color: theme => theme.palette.mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
+        }}>
           Mi chiamo Marco De Demo, sono uno{" "}
           <Typography variant="span" sx={{ color: theme.palette.primary.main }}>
             sviluppatore web fullstack junior con 2 anni di esperienza

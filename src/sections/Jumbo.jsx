@@ -34,11 +34,11 @@ function Jumbo() {
           </Typography>
         </Box>
 
-        <Box sx={{ paddingTop: theme.spacing(3) }}>
+        <Box sx={{ paddingTop: theme.spacing(3), maxWidth: {xs:'none', sm:'75vw', md:'60vw'} }}>
           <Typography
             variant="h2"
             sx={{
-              color: theme.palette.text.secondary,
+              color: theme => theme.palette.mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
               fontWeight: "600",
               display: "inline",
             }}
@@ -48,7 +48,7 @@ function Jumbo() {
           <Typography
             variant="h2"
             sx={{
-              color: theme.palette.text.primary,
+              color: theme => theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.primary.main,
               fontWeight: "600",
               display: "inline",
             }}
@@ -58,7 +58,7 @@ function Jumbo() {
           <Typography
             variant="h2"
             sx={{
-              color: theme.palette.text.secondary,
+              color: theme => theme.palette.mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
               fontWeight: "600",
               display: "inline",
             }}

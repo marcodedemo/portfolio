@@ -64,7 +64,7 @@ function UtilityButton({ mode, setMode, setPalette }) {
       <Popup
         open={popupOpen}
         anchor={popupAnchor}
-        style={{ zIndex: "10000", borderRadius: "10px" }}
+        style={{ zIndex: "10000", borderRadius: "12px", }}
         placement="left-end"
         offset={10}
       >

@@ -8,8 +8,14 @@ import FormLabel from "@mui/material/FormLabel";
 import { IconButton } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Palettes from "../data/Palettes";
+import { useTheme } from "@mui/material/styles";
+
 
 function ThemeSettings({ mode, setMode, setPalette }) {
+
+  const theme = useTheme();
+
+
   const handleModeChange = (event) => {
     setMode(event.target.value);
   };
@@ -26,15 +32,15 @@ function ThemeSettings({ mode, setMode, setPalette }) {
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
+        gap:theme.spacing(2),
         bgcolor: "background.default",
         color: "text.primary",
-        borderRadius: 1,
+        borderRadius: '12px',
         p: 3,
         minHeight: "56px",
       }}
     >
       <FormControl>
-        <FormLabel id="theme-toggle">Theme</FormLabel>
         <RadioGroup
           aria-labelledby="theme-toggle"
           name="theme-toggle"
@@ -42,8 +48,8 @@ function ThemeSettings({ mode, setMode, setPalette }) {
           value={mode}
           onChange={handleModeChange}
         >
-          <FormControlLabel value="light" control={<Radio />} label="Light" />
-          <FormControlLabel value="dark" control={<Radio />} label="Dark" />
+          <FormControlLabel value="light" control={<Radio />} label="Chiaro" />
+          <FormControlLabel value="dark" control={<Radio />} label="Scuro" />
         </RadioGroup>
       </FormControl>
 
