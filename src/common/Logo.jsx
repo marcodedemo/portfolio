@@ -4,9 +4,11 @@ import { useTheme } from "@mui/material/styles";
 function Logo({ fontSize }) {
   const theme = useTheme();
 
+  // Font
   const fontFamily =
     'Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 
+  // Stile Parentesi
   const logoBrackets = {
     fontWeight: "600",
     fontFamily,
@@ -17,6 +19,7 @@ function Logo({ fontSize }) {
     }),
   };
 
+  // Stile Lettera
   const logoLetter = {
     fontSize: fontSize - 2,
     color: "#000000",

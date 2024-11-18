@@ -15,25 +15,31 @@ import { Box } from '@mui/material';
 
 function App() {
 
+  // Acquisizione darkMode del sistema
   const getSystemMode = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   };
 
+  // Controllo se nella cache ho il darkMode, altrimenti lo setto a dark
   const [mode, setMode] = useState(() => {
     const savedMode = localStorage.getItem('themeMode');
     return savedMode ? savedMode : 'dark';
   });
 
+  // Colore primario di default
   const [palette, setPalette] = useState(Palettes.find(p => p.id === 'blue'));
 
+  // Imposto nelle cache il darkMode quando viene definito
   useEffect(() => {
     localStorage.setItem('themeMode', mode);
   }, [mode]);
 
+  // Selezione della palette del testo
   const selectedTextPalette = mode === 'dark'
     ? TextPalettes.find(p => p.id === 'dark')
     : TextPalettes.find(p => p.id === 'light');
 
+  // Definizione del thema
   const theme = useMemo(() => {
     let createdTheme = createTheme({
       spacing: 8,

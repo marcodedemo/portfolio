@@ -9,6 +9,7 @@ import ContactPageIcon from "@mui/icons-material/ContactPage";
 function SocialButton({ text }) {
   const theme = useTheme();
 
+  // Selezione icona in base al testo
   const selectIcon = () => {
     if (text === "Github") {
       return <GitHubIcon />;
@@ -23,6 +24,7 @@ function SocialButton({ text }) {
     }
   };
 
+  // Click button Curriculum
   const handleClick = () => {
     if (text === "Curriculum") {
       const driveLink =

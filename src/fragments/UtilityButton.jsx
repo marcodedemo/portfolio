@@ -12,10 +12,12 @@ import { useTheme } from "@mui/material/styles";
 function UtilityButton({ mode, setMode, setPalette }) {
   const theme = useTheme();
 
+  // Popup
   const [popupAnchor, setPopupAnchor] = useState(null);
   const popupOpen = Boolean(popupAnchor);
   const popupRef = useRef(null);
 
+  // Popup toggle
   const handleTogglePopup = () => {
     if (popupOpen) {
       setPopupAnchor(null);
@@ -24,15 +26,15 @@ function UtilityButton({ mode, setMode, setPalette }) {
     }
   };
 
+  // Elemento Popup
   const PopupBody = styled("div")(
     ({ theme }) => `
       width: max-content;
       margin: 2px;
       border-radius: 8px;
-      box-shadow: ${
-        theme.palette.mode === "dark"
-          ? `0px 4px 8px rgb(0 0 0 / 0.7)`
-          : `0px 4px 8px rgb(0 0 0 / 0.1)`
+      box-shadow: ${theme.palette.mode === "dark"
+        ? `0px 4px 8px rgb(0 0 0 / 0.7)`
+        : `0px 4px 8px rgb(0 0 0 / 0.1)`
       };
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.875rem;

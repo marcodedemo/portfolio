@@ -20,6 +20,7 @@ import { faDatabase, faGears } from "@fortawesome/free-solid-svg-icons";
 function TechnologyLabel({ technology }) {
   const theme = useTheme();
 
+  // Selezione colore in base alla technology
   const setTextColor = () => {
     switch (technology) {
       case "HTML":
@@ -49,6 +50,7 @@ function TechnologyLabel({ technology }) {
     }
   };
 
+  // Selezione backgroundColor in base alla technology
   const setBackgroundColor = () => {
     switch (technology) {
       case "HTML":
@@ -78,6 +80,7 @@ function TechnologyLabel({ technology }) {
     }
   };
 
+  // Selezione dell'icona in base alla technology
   const setTechnologyIcon = () => {
     switch (technology) {
       case "HTML":
@@ -109,6 +112,7 @@ function TechnologyLabel({ technology }) {
     }
   };
 
+  // Abbreviazione per attribuzione colore testo
   const textColor = setTextColor();
 
   return (

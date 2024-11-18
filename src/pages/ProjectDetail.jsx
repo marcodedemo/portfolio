@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Projects from '../data/Projects';
+import Slideshow from '../fragments/Slideshow'
 
 function ProjectDetail() {
 
@@ -16,18 +17,8 @@ function ProjectDetail() {
   return (
     <>
       <Typography variant="h4">{project.title}</Typography>
-      <Button
-        sx={(theme) => ({
-          color: "#fff",
-          backgroundColor: theme.palette.primary.main,
-          "&:hover": {
-            boxShadow: theme.shadows[3],
-            backgroundColor: theme.palette.primary.dark,
-          },
-        })}
-      >
-        Submit
-      </Button>
+
+      <Slideshow imgs={project.images}/>
     </>
   );
 }

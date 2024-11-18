@@ -28,14 +28,17 @@ function Navbar({ ...props }) {
   const { window } = props;
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  // Apertura drawer
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
   };
 
+  // Chiusura drawer
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
 
+  // Elemento drawer
   const drawer = (
     <Box sx={{ textAlign: "center", height: "100%" }}>
       <Box
@@ -110,6 +113,7 @@ function Navbar({ ...props }) {
     </Box>
   );
 
+  // Definizione container drawer
   const container =
     window !== undefined ? () => window().document.body : undefined;
 

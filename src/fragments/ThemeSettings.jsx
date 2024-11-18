@@ -15,11 +15,12 @@ function ThemeSettings({ mode, setMode, setPalette }) {
 
   const theme = useTheme();
 
-
+  // Modifica darkMode
   const handleModeChange = (event) => {
     setMode(event.target.value);
   };
 
+  // Modifica colore primario
   const handlePaletteChange = (palette) => {
     setPalette(palette);
   };
@@ -32,7 +33,7 @@ function ThemeSettings({ mode, setMode, setPalette }) {
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
-        gap:theme.spacing(2),
+        gap: theme.spacing(2),
         bgcolor: "background.default",
         color: "text.primary",
         borderRadius: '12px',
