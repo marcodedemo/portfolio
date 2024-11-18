@@ -69,7 +69,7 @@ function HomeProjects() {
                   border: "1px solid",
                   borderColor: "rgb(255 255 255 / 16%)",
                   borderRadius: "10px",
-                  height: {xs: 'fit-content'}
+                  height:'fit-content'
                 }}
               >
                 <CardMedia

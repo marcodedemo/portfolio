@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { Box, Typography, Container, List, ListItem, CardMedia, CardContent, CardActionArea, Pagination, Card, InputAdornment, TextField, Divider } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -43,13 +44,13 @@ function ProjectsPage() {
           />
         </Box>
 
-        <Box>
-          <List>
+        <Box sx={{paddingTop: theme.spacing(3)}}>
+          <Grid container spacing={3}>
             {Projects.map((project) => (
-              <ListItem key={project.slug}>
+              <Grid key={project.slug}  size={{xs:12, sm:6}}>
                 <Card
                   sx={{
-                    height: theme.spacing(50),
+                    height: 'fit-content',
                     border: "1px solid",
                     borderColor: "rgb(255 255 255 / 16%)",
                     borderRadius: "10px",
@@ -63,7 +64,7 @@ function ProjectsPage() {
                     <CardMedia
                       image={`/public/images/${project.mainImage}`}
                       sx={{
-                        height: theme.spacing(20),
+                        height: {xs:'200px', md:'300px'},
                         backgroundPosition: "top",
                         backgroundSize: "cover",
                       }}
@@ -71,7 +72,7 @@ function ProjectsPage() {
                     <CardContent
                       sx={{
                         padding: `${theme.spacing(2)}`,
-                        height: theme.spacing(30),
+                        height:{xs:'280px', sm:'300px', md:'250px'}
                       }}
                     >
                       <Typography variant="h5" sx={{ fontWeight: "600" }}>
@@ -101,9 +102,9 @@ function ProjectsPage() {
                   </CardActionArea>
 
                 </Card>
-              </ListItem>
+              </Grid>
             ))}
-          </List>
+          </Grid>
 
         </Box>
       </Container>

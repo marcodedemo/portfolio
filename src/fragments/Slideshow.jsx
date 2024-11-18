@@ -75,13 +75,13 @@ function Slideshow({ imgs }) {
 
                         <Box sx={{ position: 'absolute', top: '50%', left: '10%', transform: 'translateY(-50%)' }}>
                             <IconButton onClick={handleDecreaseIndex}>
-                                <KeyboardArrowLeftIcon sx={{ color: theme.palette.primary.main }} />
+                                <KeyboardArrowLeftIcon sx={{ color: theme.palette.primary.main, fontSize:'2em' }} />
                             </IconButton>
                         </Box>
 
                         <Box sx={{ position: 'absolute', top: '50%', right: '10%', transform: 'translateY(-50%)' }}>
                             <IconButton onClick={handleIncreaseIndex}>
-                                <KeyboardArrowRightIcon sx={{ color: theme.palette.primary.main }} />
+                                <KeyboardArrowRightIcon sx={{ color: theme.palette.primary.main, fontSize:'2em' }} />
                             </IconButton>
                         </Box>
                     </Box>
@@ -101,14 +101,14 @@ function Slideshow({ imgs }) {
                 <DialogContent sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', width: '100%', height: '100%' }}>
                     <Box component="img" sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} src={`/public/images/${imgs[currentImageIndex]}`} />
                     <IconButton onClick={handlePrevImage} sx={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', left: '5%' }}>
-                        <KeyboardArrowLeftIcon sx={{ color: 'black' }} />
+                        <KeyboardArrowLeftIcon sx={{ color: 'black', fontSize:'2em' }} />
                     </IconButton>
                     <IconButton onClick={handleNextImage} sx={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', right: '5%' }}>
-                        <KeyboardArrowRightIcon sx={{ color: 'black' }} />
+                        <KeyboardArrowRightIcon sx={{ color: 'black', fontSize:'2em' }} />
                     </IconButton>
 
-                    <IconButton onClick={handleCloseViewer} sx={{ position: 'absolute', top: '5%', right: '5%' }}>
-                        <CloseIcon sx={{color:'red', fontSize:'50px'}}/>
+                    <IconButton onClick={handleCloseViewer} sx={{ position: 'absolute', top: '1%', right: '1%' }}>
+                        <CloseIcon sx={{color:'red',fontSize:'1.5em'}}/>
                     </IconButton>
                 </DialogContent>
             </Dialog>
