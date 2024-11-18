@@ -53,41 +53,38 @@ function App() {
         fontFamily: ['Roboto'].join(','),
         
         span: {
-          fontSize: '2rem', 
           [createTheme().breakpoints.up('xs')]: {
             fontSize: '1rem', 
           },
+          [createTheme().breakpoints.up('sm')]: {
+            fontSize: '1rem', 
+          },
           [createTheme().breakpoints.up('md')]: {
-            fontSize: '1.8rem', 
+            fontSize: '1rem', 
           },
           [createTheme().breakpoints.up('lg')]: {
-            fontSize: '24px', 
+            fontSize: '1.2rem', 
           },
         },
 
         tinySpan: {
-          fontSize: '1.2rem', 
           [createTheme().breakpoints.up('xs')]: {
             fontSize: '.8rem', 
-          },
-          [createTheme().breakpoints.up('md')]: {
-            fontSize: '1.2rem', 
-          },
-          [createTheme().breakpoints.up('lg')]: {
-            fontSize: '24px', 
           },
         },
 
         p: {
-          fontSize: '16px', 
           [createTheme().breakpoints.up('xs')]: {
             fontSize: '1rem', 
           },
+          [createTheme().breakpoints.up('sm')]: {
+            fontSize: '1rem', 
+          },
           [createTheme().breakpoints.up('md')]: {
-            fontSize: '24px', 
+            fontSize: '1rem', 
           },
           [createTheme().breakpoints.up('lg')]: {
-            fontSize: '24px', 
+            fontSize: '1.2rem', 
           },
         },
 
@@ -115,9 +112,6 @@ function App() {
           },
           [createTheme().breakpoints.up('md')]: {
             fontSize: '2rem', 
-          },
-          [createTheme().breakpoints.up('lg')]: {
-            fontSize: '2.2rem', 
           },
         },
 

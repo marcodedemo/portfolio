@@ -7,8 +7,8 @@ function Contacts() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(10) }}>
-      <Container maxWidth="xl">
+    <Box sx={{ paddingTop: theme.spacing(15) }}>
+      <Container maxWidth="xl" sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
         <Typography
           variant="h2"
           sx={{
@@ -20,7 +20,7 @@ function Contacts() {
           Non esitare a contattarmi!
         </Typography>
 
-        <Box sx={{ textAlign: "center" }}>
+        <Box sx={{maxWidth:'500px', textAlign:'center'}}>
           <Typography variant="p">
             Se desideri sapere di più su di me o sul mio lavoro, o semplicemente
             vuoi salutarmi , inviami un messaggio.

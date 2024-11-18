@@ -59,9 +59,9 @@ function HomeProjects() {
           </Link>
         </Box>
 
-        <Grid container spacing={3}>
-          {Projects.slice(0, 4).map((project) => (
-            <Grid key={project.slug}  size={{xs:12, sm:6}}>
+        <Grid container spacing={{xs:3, md:6, lg: 10}}>
+          {Projects.slice(0, 4).map((project, index) => (
+            <Grid key={project.slug}  size={{xs:12, sm:6}} sx={{marginTop: { xs: 0, sm: index % 2 !== 0 ? theme.spacing(6) : "0", lg: index % 2 !== 0 ? theme.spacing(10) : "0" }}}>
               <Paper>
 
               <Card
@@ -69,7 +69,7 @@ function HomeProjects() {
                   border: "1px solid",
                   borderColor: "rgb(255 255 255 / 16%)",
                   borderRadius: "10px",
-                  height: {xs: 'fit-content', sm:'550px'}
+                  height: {xs: 'fit-content'}
                 }}
               >
                 <CardMedia
@@ -118,10 +118,13 @@ function HomeProjects() {
                   </Box>
 
                   <Divider sx={{ margin: `${theme.spacing(1.5)} 0` }} />
+                  
+                  <Box sx={{height:'fit-content'}}>
 
                   <Typography variant="p">
                     {project.shortDescription}
                   </Typography>
+                  </Box>
                 </CardContent>
               </Card>
               </Paper>

@@ -12,7 +12,7 @@ function Footer() {
   }
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(20) }}>
+    <Box sx={{ paddingTop: theme.spacing(15) }}>
       <Container maxWidth="xl">
         <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
         <Typography sx={{fontSize: theme.typography.tinySpan}} variant="span">Progettato e Sviluppato da Marco De Demo</Typography>
