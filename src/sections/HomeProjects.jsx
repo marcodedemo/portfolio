@@ -26,7 +26,7 @@ function HomeProjects() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(10) }}>
+    <Box sx={{ paddingTop: theme.spacing(10) }} id='Projects'>
       <Container maxWidth="xl">
         <Typography
           variant="h2"
@@ -46,7 +46,7 @@ function HomeProjects() {
           <Typography variant="span">
             Ecco alcuni dei progetti su cui ho lavorato.
           </Typography>
-          <Link
+          {/* <Link
             sx={{
               color: theme.palette.primary.main,
               fontSize: theme.typography.span,
@@ -56,13 +56,12 @@ function HomeProjects() {
             href="/projects"
           >
             Scopri di più &#8594;
-          </Link>
+          </Link> */}
         </Box>
 
         <Grid container spacing={{xs:3, md:6, lg: 10}}>
           {Projects.slice(0, 4).map((project, index) => (
             <Grid key={project.slug}  size={{xs:12, sm:6}} sx={{marginTop: { xs: 0, sm: index % 2 !== 0 ? theme.spacing(6) : "0", lg: index % 2 !== 0 ? theme.spacing(10) : "0" }}}>
-              <Paper>
 
               <Card
                 sx={{
@@ -95,12 +94,12 @@ function HomeProjects() {
                     <Typography variant="h5" sx={{ fontWeight: "600" }}>
                       {project.title}
                     </Typography>
-                    <IconButton
+                    {/* <IconButton
                       component={RouterLink}
                       to={`/projects/${project.slug}`}
                     >
                       <LaunchIcon />
-                    </IconButton>
+                    </IconButton> */}
                   </Box>
 
                   <Box
@@ -127,7 +126,6 @@ function HomeProjects() {
                   </Box>
                 </CardContent>
               </Card>
-              </Paper>
             </Grid>
           ))}
         </Grid>

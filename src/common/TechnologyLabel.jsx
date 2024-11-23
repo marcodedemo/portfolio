@@ -19,32 +19,33 @@ import { faDatabase, faGears } from "@fortawesome/free-solid-svg-icons";
 
 function TechnologyLabel({ technology }) {
   const theme = useTheme();
+  const mode = theme.palette.mode;  // Ottieni la modalità corrente (light/dark)
 
   // Selezione colore in base alla technology
   const setTextColor = () => {
     switch (technology) {
       case "HTML":
       case "MySQL":
-        return "#ffd479";
+        return mode === "light" ? "#ff9300" : "#ffd479";
       case "CSS":
-        return "#76d6ff";
+        return mode === "light" ? "#0096ff" : "#76d6ff";
       case "Javascript":
-        return "#fffc79";
+        return mode === "light" ? "#00000090" : "#fffc79";
       case "Bootstrap":
-        return "#d783ff";
+        return mode === "light" ? "#9437ff" : "#d783ff";
       case "Vue.js":
-        return "#00f900";
+        return mode === "light" ? "#008f00" : "#00f900";
       case "Laravel":
-        return "#ff7e79";
+        return mode === "light" ? "#00000090" : "#ff7e79";
       case "Scss":
-        return "#ff8ad8";
+        return mode === "light" ? "#9437ff" : "#ff8ad8";
       case "API":
-        return "#73fdff";
+        return mode === "light" ? "#0096ff" : "#76d6ff";
       case "React.js":
       case "Paypal Braintree":
-        return "#0096ff";
+        return mode === "light" ? "#005493" : "#0096ff";
       case "Php":
-        return "#0096ff";
+        return mode === "light" ? "#011993" : "#0096ff";
       default:
         return "#ffffff";
     }
@@ -55,26 +56,26 @@ function TechnologyLabel({ technology }) {
     switch (technology) {
       case "HTML":
       case "MySQL":
-        return "#ff930060";
+        return mode === "light" ? "#ffd479" : "#ff930060";
       case "CSS":
-        return "#0096ff60";
+        return mode === "light" ? "#76d6ff" : "#0096ff60";
       case "Javascript":
-        return "#fffb0060";
+        return mode === "light" ? "#fffc79" : "#fffb0060";
       case "Bootstrap":
-        return "#9437ff60";
+        return mode === "light" ? "#d783ff" : "#9437ff60";
       case "Vue.js":
-        return "#008f0060";
+        return mode === "light" ? "#00f900" : "#008f0060";
       case "Laravel":
-        return "#ff260060";
+        return mode === "light" ? "#ff7e79" : "#ff260060";
       case "Scss":
-        return "#ff2f9260";
+        return mode === "light" ? "#ff8ad8" : "#ff2f9260";
       case "API":
-        return "#00fdff60";
+        return mode === "light" ? "#73fdff" : "#00fdff60";
       case "React.js":
       case "Paypal Braintree":
-        return "#00549360";
+        return mode === "light" ? "#0096ff" : "#00549360";
       case "Php":
-        return "#01199360";
+        return mode === "light" ? "#0096ff" : "#01199360";
       default:
         return "#4c4c4c";
     }

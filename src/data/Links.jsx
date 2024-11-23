@@ -8,6 +8,12 @@ const Links = [
     icon: <FontAwesomeIcon icon="fa-solid fa-house" />,
   },
   {
+    id: "WhoAmI",
+    label: "ChiSono",
+    path: "/",
+    icon: <FontAwesomeIcon icon="fa-solid fa-user" />,
+  },
+  {
     id: "Projects",
     label: "Progetti",
     path: "/projects",

@@ -64,7 +64,9 @@ function Navbar({ ...props }) {
           >
             <ListItemButton>
               <Link
-                href={link.path}
+                // href={link.path}
+                href={`#${link.id}`}
+                onClick={() => handleDrawerClose()}
                 sx={{
                   width: "100%",
                   display: "flex",
@@ -119,7 +121,7 @@ function Navbar({ ...props }) {
 
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex" }} id="Homepage">
         <CssBaseline />
         <AppBar component="nav">
           <Toolbar
@@ -187,13 +189,15 @@ function Navbar({ ...props }) {
                   {Links.map((link) => (
                     <Link
                       key={link.id}
-                      href={link.path}
+                      // href={link.path}
+                      href={`#${link.id}`}
                       sx={{
                         textDecoration: "none",
                         color: theme.palette.text.primary,
                         "&:hover": {
                           textDecoration: "underline",
                           textUnderlineOffset: theme.spacing(0.5),
+                          cursor:'pointer'
                         },
                       }}
                     >

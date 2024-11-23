@@ -7,7 +7,7 @@ function HomeAbout() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(10) }}>
+    <Box sx={{ paddingTop: theme.spacing(10) }} id="WhoAmI">
       <Container maxWidth="xl">
         <Typography
           variant="h2"
@@ -26,8 +26,7 @@ function HomeAbout() {
           . La mia passione per i computer e la tecnologia è nata fin da
           piccolo, quando sognavo che questo mondo potesse diventare parte della
           mia vita quotidiana. <br /> <br /> All'età di 22 anni, ho deciso di
-          seguire questo sogno e lasciare il mio precedente lavoro come tecnico
-          disinfestatore per immergermi completamente nello{" "}
+          seguire questo sogno e lasciare il mio precedente lavoro per immergermi completamente nello{" "}
           <Typography variant="span" sx={{ color: theme.palette.primary.main }}>
             sviluppo web
           </Typography>

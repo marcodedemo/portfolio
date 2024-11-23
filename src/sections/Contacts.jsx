@@ -7,7 +7,7 @@ function Contacts() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(15) }}>
+    <Box sx={{ paddingTop: theme.spacing(15) }} id="Contacts">
       <Container maxWidth="xl" sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
         <Typography
           variant="h2"

@@ -28,3 +28,7 @@
   -o-animation: rotating 8s linear infinite;
   animation: rotating 8s linear infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}

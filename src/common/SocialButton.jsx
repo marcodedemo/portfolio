@@ -30,6 +30,15 @@ function SocialButton({ text }) {
       const driveLink =
         "https://drive.google.com/file/d/166ezjcW0q-jIWJYKWTdVUOn0Zkm1BAfm/view?usp=sharing";
       window.open(driveLink, "_blank");
+    }else if (text === "LinkedIn"){
+      const linkedInLink = "https://www.linkedin.com/in/marcodedemo/";
+      window.open(linkedInLink, "_blank");
+    }else if (text === "Github"){
+      const githubLink = "https://github.com/marcodedemo";
+      window.open(githubLink, "_blank");
+    }else{
+      const emailLink = "mailto:marco.dedemo@gmail.com";
+      window.location.href = emailLink;
     }
   };
 

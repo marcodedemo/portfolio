@@ -57,7 +57,7 @@ function UtilityButton({ mode, setMode, setPalette }) {
       >
         <IconButton onClick={handleTogglePopup}>
           <SettingsIcon
-            sx={{ color: theme.palette.text.primary }}
+            sx={{ color: 'white' }}
             className="rotating"
           />
         </IconButton>
