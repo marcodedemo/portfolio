@@ -9,7 +9,7 @@ import {
   CardContent,
   Divider,
   IconButton,
-  Paper
+  Paper,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Link as RouterLink } from "react-router-dom";
@@ -26,7 +26,7 @@ function HomeProjects() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(10) }} id='Projects'>
+    <Box sx={{ paddingTop: theme.spacing(10) }}>
       <Container maxWidth="xl">
         <Typography
           variant="h2"
@@ -46,7 +46,7 @@ function HomeProjects() {
           <Typography variant="span">
             Ecco alcuni dei progetti su cui ho lavorato.
           </Typography>
-          {/* <Link
+          <Link
             sx={{
               color: theme.palette.primary.main,
               fontSize: theme.typography.span,
@@ -56,76 +56,86 @@ function HomeProjects() {
             href="/projects"
           >
             Scopri di più &#8594;
-          </Link> */}
+          </Link>
         </Box>
 
-        <Grid container spacing={{xs:3, md:6, lg: 10}}>
+        <Grid container spacing={{ xs: 3, md: 6, lg: 10 }}>
           {Projects.slice(0, 4).map((project, index) => (
-            <Grid key={project.slug}  size={{xs:12, sm:6}} sx={{marginTop: { xs: 0, sm: index % 2 !== 0 ? theme.spacing(6) : "0", lg: index % 2 !== 0 ? theme.spacing(10) : "0" }}}>
-
-              <Card
-                sx={{
-                  border: "1px solid",
-                  borderColor: "rgb(255 255 255 / 16%)",
-                  borderRadius: "10px",
-                  height:'fit-content'
-                }}
-              >
-                <CardMedia
-                  image={`/public/images/${project.mainImage}`}
+            <Grid
+              key={project.slug}
+              size={{ xs: 12, sm: 6 }}
+              sx={{
+                marginTop: {
+                  xs: 0,
+                  sm: index % 2 !== 0 ? theme.spacing(6) : "0",
+                  lg: index % 2 !== 0 ? theme.spacing(10) : "0",
+                },
+              }}
+            >
+              <Paper>
+                <Card
                   sx={{
-                    height: {xs:'200px', md:'300px'},
-                    backgroundPosition: "top",
-                    backgroundSize: "cover",
-                  }}
-                />
-                <CardContent
-                  sx={{
-                    padding: `${theme.spacing(2)}`,
+                    border: "1px solid",
+                    borderColor: "rgb(255 255 255 / 16%)",
+                    borderRadius: "10px",
+                    height: "fit-content",
                   }}
                 >
-                  <Box
+                  <CardMedia
+                    image={`/public/images/${project.mainImage}`}
                     sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                      height: { xs: "200px", md: "300px" },
+                      backgroundPosition: "top",
+                      backgroundSize: "cover",
+                    }}
+                  />
+                  <CardContent
+                    sx={{
+                      padding: `${theme.spacing(2)}`,
                     }}
                   >
-                    <Typography variant="h5" sx={{ fontWeight: "600" }}>
-                      {project.title}
-                    </Typography>
-                    {/* <IconButton
-                      component={RouterLink}
-                      to={`/projects/${project.slug}`}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
                     >
-                      <LaunchIcon />
-                    </IconButton> */}
-                  </Box>
+                      <Typography variant="h5" sx={{ fontWeight: "600" }}>
+                        {project.title}
+                      </Typography>
+                      <IconButton
+                        component={RouterLink}
+                        to={`/projects/${project.slug}`}
+                      >
+                        <LaunchIcon />
+                      </IconButton>
+                    </Box>
 
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "start",
-                      alignItems: "center",
-                      gap: theme.spacing(1),
-                      paddingTop: theme.spacing(1.5),
-                    }}
-                  >
-                    {project.mainTechnologies.map((tech) => (
-                      <TechnologyLabel technology={tech} key={tech} />
-                    ))}
-                  </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "start",
+                        alignItems: "center",
+                        gap: theme.spacing(1),
+                        paddingTop: theme.spacing(1.5),
+                      }}
+                    >
+                      {project.mainTechnologies.map((tech) => (
+                        <TechnologyLabel technology={tech} key={tech} />
+                      ))}
+                    </Box>
 
-                  <Divider sx={{ margin: `${theme.spacing(1.5)} 0` }} />
-                  
-                  <Box sx={{height:'fit-content'}}>
+                    <Divider sx={{ margin: `${theme.spacing(1.5)} 0` }} />
 
-                  <Typography variant="p">
-                    {project.shortDescription}
-                  </Typography>
-                  </Box>
-                </CardContent>
-              </Card>
+                    <Box sx={{ height: "fit-content" }}>
+                      <Typography variant="p" sx={{color: theme.palette.text.secondary}}>
+                        {project.shortDescription}
+                      </Typography>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Paper>
             </Grid>
           ))}
         </Grid>
