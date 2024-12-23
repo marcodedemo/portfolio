@@ -5,7 +5,7 @@ import Radio from "@mui/material/Radio";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import { IconButton } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Palettes from "../data/Palettes";
 import { useTheme } from "@mui/material/styles";
@@ -41,7 +41,7 @@ function ThemeSettings({ mode, setMode, setPalette }) {
         minHeight: "56px",
       }}
     >
-      <FormControl>
+      {/* <FormControl>
         <RadioGroup
           aria-labelledby="theme-toggle"
           name="theme-toggle"
@@ -52,7 +52,9 @@ function ThemeSettings({ mode, setMode, setPalette }) {
           <FormControlLabel value="light" control={<Radio />} label="Chiaro" />
           <FormControlLabel value="dark" control={<Radio />} label="Scuro" />
         </RadioGroup>
-      </FormControl>
+      </FormControl> */}
+
+      <Typography>Cambia il colore primario</Typography>
 
       <Box sx={{ display: "flex", gap: 2 }}>
         {Palettes.map((palette) => (
