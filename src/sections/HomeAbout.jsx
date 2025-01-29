@@ -7,8 +7,8 @@ function HomeAbout() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(10) }} id="WhoAmI">
-      <Container maxWidth="xl">
+    <Box sx={{ paddingTop: theme.spacing(12) }} id="WhoAmI" data-aos="fade-right">
+      <Container maxWidth="xl" >
         <Typography
           variant="h2"
           sx={{ fontWeight: "600", paddingBottom: theme.spacing(2) }}
@@ -18,10 +18,11 @@ function HomeAbout() {
 
         <Typography variant="p" sx={{
           color: theme => theme.palette.mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
+         
         }}>
           Mi chiamo Marco De Demo, sono uno{" "}
           <Typography variant="span" sx={{ color: theme.palette.primary.main }}>
-            sviluppatore web fullstack junior con 2 anni di esperienza
+            sviluppatore web fullstack con 2 anni di esperienza
           </Typography>
           . La mia passione per i computer e la tecnologia è nata fin da
           piccolo, quando sognavo che questo mondo potesse diventare parte della

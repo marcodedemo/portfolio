@@ -105,7 +105,7 @@ const Projects = [
     description:
       "Questo progetto è la riproduzione di una vecchia versione del sito web di Discord, sviluppata utilizzando HTML, CSS, Vue.js e Bootstrap. Il sito è completamente responsive, garantendo un'esperienza di navigazione ottimale su qualsiasi dispositivo, dai desktop ai dispositivi mobile. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre Bootstrap ha permesso di realizzare un layout flessibile e moderno, mantenendo fedeltà al design originale.",
     shortDescription:
-      "Riproduzione responsive della vecchia versione del sito Discord, sviluppata con HTML, CSS, Vue.js e Bootstrap, per una navigazione ottimale su tutti i dispositivi.",
+      "Riproduzione responsive della vecchia versione del sito Discord, sviluppata con HTML, CSS, Vue.js e Bootstrap, per una navigazione ottimale su tutti i dispositivi. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre per la stiluzzazione ho utilizzato SCSS.",
     images: [
       "discord1.png",
       "discord2.png",
@@ -116,10 +116,31 @@ const Projects = [
     mainImage: "discord1.png",
     repositoryUrl: "",
     liveUrl: "/",
+    technologies: ["Vue.js", "SCSS", "JavaScript"],
+    mainTechnologies: ["Vue.js", "SCSS", "JavaScript"],
+    team: false,
+    date: "24/03/2023",
+  },
+  {
+    slug: "allenovesenonpiove",
+    type: "Frontend",
+    title: "Gruppo ciclistico amatoriale",
+    description:
+      "Sito vetrina per un gruppo amatoriale di mountain-bikers. Il sito è completamente responsive, garantendo un'esperienza di navigazione ottimale su qualsiasi dispositivo, dai desktop ai dispositivi mobile. Ho utilizzato ",
+    shortDescription:
+      "Sito web per un gruppo amatoriale di Mountain-Bikers, sviluppato con Vue.js e SCSS.",
+
+    images: [
+      "allenove1.png",
+      "allenove2.png",
+    ],
+    mainImage: "allenove1.png",
+    repositoryUrl: "",
+    liveUrl: "/",
     technologies: ["HTML", "CSS", "Bootstrap", "Vue.js"],
     mainTechnologies: ["Vue.js", "Bootstrap", "CSS"],
     team: false,
-    date: "24/03/2023",
+    date: "03/10/2023",
   },
 ];
 

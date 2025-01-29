@@ -13,31 +13,23 @@ import Footer from './components/Footer';
 import UtilityButton from './fragments/UtilityButton'
 import { Box } from '@mui/material';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function App() {
 
-  // Acquisizione darkMode del sistema
-  const getSystemMode = () => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
+  useEffect(() => {
+    AOS.init();
+  },[])
 
   // Controllo se nella cache ho il darkMode, altrimenti lo setto a dark
-  const [mode, setMode] = useState(() => {
-    const savedMode = localStorage.getItem('themeMode');
-    return savedMode ? savedMode : 'dark';
-  });
+  const [mode, setMode] = useState('dark');
 
   // Colore primario di default
   const [palette, setPalette] = useState(Palettes.find(p => p.id === 'blue'));
 
-  // Imposto nelle cache il darkMode quando viene definito
-  useEffect(() => {
-    localStorage.setItem('themeMode', mode);
-  }, [mode]);
-
   // Selezione della palette del testo
-  const selectedTextPalette = mode === 'dark'
-    ? TextPalettes.find(p => p.id === 'dark')
-    : TextPalettes.find(p => p.id === 'light');
+  const selectedTextPalette = TextPalettes.find(p => p.id === 'dark');
 
   // Definizione del thema
   const theme = useMemo(() => {
@@ -126,7 +118,6 @@ function App() {
     });
     
     return createdTheme;
-    // return responsiveFontSize(createdTheme);
 
   }, [mode, palette, selectedTextPalette]);
 

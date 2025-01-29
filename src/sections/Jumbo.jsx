@@ -9,9 +9,9 @@ function Jumbo() {
   const is900Screen = useMediaQuery('(min-width:900px)')
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(2) }}>
+    <Box sx={{ paddingTop: theme.spacing(8) }}>
       <Container maxWidth="xl">
-        <Box>
+        <Box data-aos="fade-down">
           <Typography
             variant="span"
             sx={{
@@ -34,17 +34,8 @@ function Jumbo() {
           </Typography>
         </Box>
 
-        <Box sx={{ paddingTop: theme.spacing(3), maxWidth: {xs:'none', sm:'75vw', md:'60vw'} }}>
-          <Typography
-            variant="h2"
-            sx={{
-              color: theme => theme.palette.mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
-              fontWeight: "600",
-              display: "inline",
-            }}
-          >
-            Sono un{" "}
-          </Typography>
+        <Box sx={{ paddingTop: theme.spacing(3), maxWidth: {xs:'none', sm:'75vw', md:'60vw'} }} data-aos="fade-left">
+          
           <Typography
             variant="h2"
             sx={{
@@ -53,7 +44,7 @@ function Jumbo() {
               display: "inline",
             }}
           >
-            Junior FullStack Web Developer
+            FullStack Web Developer
           </Typography>
           <Typography
             variant="h2"
@@ -68,7 +59,7 @@ function Jumbo() {
           </Typography>
         </Box>
 
-        <Box sx={{ paddingTop: theme.spacing(3) }}>
+        <Box sx={{ paddingTop: theme.spacing(3) }} data-aos="fade-left">
           <Typography variant="p" sx={{ display: "block" }}>
             &#128640; Attualmente specializzato in Frontend &#40;{" "}
             <Typography
@@ -99,7 +90,7 @@ function Jumbo() {
             gap: theme.spacing(2),
           }}
         >
-          <SocialButton text="Github" />
+          <SocialButton text="Github"  />
           <SocialButton text="LinkedIn" />
           <SocialButton text="Email" />
         </Box>

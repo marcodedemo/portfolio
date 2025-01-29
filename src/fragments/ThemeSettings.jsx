@@ -54,7 +54,7 @@ function ThemeSettings({ mode, setMode, setPalette }) {
         </RadioGroup>
       </FormControl> */}
 
-      <Typography>Cambia il colore primario</Typography>
+      <Typography>Colore primario:</Typography>
 
       <Box sx={{ display: "flex", gap: 2 }}>
         {Palettes.map((palette) => (

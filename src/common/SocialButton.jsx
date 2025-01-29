@@ -44,6 +44,7 @@ function SocialButton({ text }) {
 
   return (
     <Button
+    data-aos="fade-down"
       variant="outlined"
       startIcon={selectIcon()}
       onClick={handleClick}
