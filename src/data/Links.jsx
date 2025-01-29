@@ -9,7 +9,7 @@ const Links = [
   },
   {
     id: "WhoAmI",
-    label: "ChiSono",
+    label: "Chi Sono",
     path: "/",
     icon: <FontAwesomeIcon icon="fa-solid fa-user" />,
   },

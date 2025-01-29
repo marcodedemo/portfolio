@@ -17,7 +17,7 @@ function Footer() {
       <Container maxWidth="xl">
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Typography sx={{ fontSize: theme.typography.tinySpan }} variant="span">Progettato e Sviluppato da Marco De Demo</Typography>
-          <Typography sx={{ fontSize: theme.typography.tinySpan }} variant="span">Creato con <Typography sx={highlightedStyle} variant="span">React.js</Typography> & <Typography sx={highlightedStyle} variant="span">Material UI</Typography>. Hostato su <Typography variant="span" sx={highlightedStyle}>Netlify</Typography></Typography>
+          <Typography sx={{ fontSize: theme.typography.tinySpan }} variant="span">Creato con <Typography sx={highlightedStyle} variant="span">React.js</Typography> & <Typography sx={highlightedStyle} variant="span">Material UI</Typography>. Hostato su <Typography variant="span" sx={highlightedStyle}>Vercel</Typography></Typography>
         </Box>
       </Container>
     </Box>

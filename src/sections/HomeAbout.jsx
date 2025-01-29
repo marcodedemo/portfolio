@@ -34,7 +34,7 @@ function HomeAbout() {
           <Typography variant="span" sx={{ color: theme.palette.primary.main }}>
             corso full-time
           </Typography>{" "}
-          che mi ha permesso di acquisire solide basi tecniche e una
+          della durata di sei mesi che mi ha permesso di acquisire solide basi tecniche e una
           comprensione profonda di questo settore in continua evoluzione. <br />{" "}
           <br /> Da un anno e mezzo lavoro come frontend developer presso
           un'azienda con sede a Treviso, dove continuo a crescere e perfezionare
