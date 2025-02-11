@@ -84,7 +84,7 @@ function HomeProjects() {
                   }}
                 >
                   <CardMedia
-                    image={`/public/images/${project.mainImage}`}
+                    image={`../../public/images/${project.mainImage}`}
                     sx={{
                       height: { xs: "200px", md: "300px" },
                       backgroundPosition: "top",
