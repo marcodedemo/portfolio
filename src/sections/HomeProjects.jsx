@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -10,6 +10,7 @@ import {
   Divider,
   IconButton,
   Paper,
+  CircularProgress,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -35,7 +36,8 @@ function HomeProjects() {
     },
   });
 
-  const myImage = cld.image("docs/models-2");
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <Box sx={{ paddingTop: theme.spacing(12) }} id="Projects">
       <Container maxWidth="xl">
@@ -100,19 +102,32 @@ function HomeProjects() {
                       overflow: "hidden",
                     }}
                   >
+                    {isLoading && (
+                      <Box
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <CircularProgress color="primary" />
+                      </Box>
+                    )}
+
                     <AdvancedImage
-                      cldImg={
-                        cld
-                          .image(`docs/${project.slug}`)
-                          .delivery(quality("auto"))
-                          .delivery(format("auto"))
-                      }
+                      cldImg={cld
+                        .image(`docs/${project.slug}`)
+                        .delivery(quality("auto"))
+                        .delivery(format("auto"))}
                       style={{
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
                       }}
                       loading="lazy"
+                      onLoad={() => setIsLoading(false)}
                     />
                   </Box>
 
