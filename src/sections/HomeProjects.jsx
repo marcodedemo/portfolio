@@ -14,6 +14,7 @@ import {
 import Grid from "@mui/material/Grid2";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
+import { quality, format } from "@cloudinary/url-gen/actions/delivery";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
@@ -100,15 +101,21 @@ function HomeProjects() {
                     }}
                   >
                     <AdvancedImage
-                      cldImg={cld.image(`docs/${project.slug}`)}
+                      cldImg={
+                        cld
+                          .image(`docs/${project.slug}`)
+                          .delivery(quality("auto"))
+                          .delivery(format("auto"))
+                      }
                       style={{
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
                       }}
+                      loading="lazy"
                     />
                   </Box>
-                  
+
                   <CardContent
                     sx={{
                       padding: `${theme.spacing(2)}`,
