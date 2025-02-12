@@ -22,6 +22,8 @@ function App() {
     AOS.init();
   },[])
 
+
+
   // Controllo se nella cache ho il darkMode, altrimenti lo setto a dark
   const [mode, setMode] = useState('dark');
 
@@ -120,6 +122,10 @@ function App() {
     return createdTheme;
 
   }, [mode, palette, selectedTextPalette]);
+
+  useEffect(() => {
+    AOS.refresh();
+  }, [theme]);
 
   return (
     <ThemeProvider theme={theme}>
