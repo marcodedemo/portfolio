@@ -1,6 +1,6 @@
 const Projects = [
   {
-    slug: "b-developers",
+    slug: "bdev",
     type: "Fullstack",
     title: "B-Developers",
     description:
@@ -122,7 +122,7 @@ const Projects = [
     date: "24/03/2023",
   },
   {
-    slug: "allenovesenonpiove",
+    slug: "allenove",
     type: "Frontend",
     title: "Gruppo ciclistico amatoriale",
     description:

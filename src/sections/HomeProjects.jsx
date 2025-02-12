@@ -12,6 +12,9 @@ import {
   Paper,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage } from "@cloudinary/react";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
@@ -25,13 +28,19 @@ import TechnologyLabel from "../common/TechnologyLabel";
 function HomeProjects() {
   const theme = useTheme();
 
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: "dzqk808cv",
+    },
+  });
+
+  const myImage = cld.image("docs/models-2");
   return (
     <Box sx={{ paddingTop: theme.spacing(12) }} id="Projects">
       <Container maxWidth="xl">
         <Typography
           variant="h2"
           sx={{ fontWeight: "600", paddingBottom: theme.spacing(3) }}
-          
         >
           &#128187; Progetti
         </Typography>
@@ -63,7 +72,7 @@ function HomeProjects() {
         <Grid container spacing={{ xs: 3, md: 6, lg: 8 }}>
           {Projects.map((project, index) => (
             <Grid
-            data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
+              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
               key={project.slug}
               size={{ xs: 12, sm: 6 }}
               sx={{
@@ -83,18 +92,27 @@ function HomeProjects() {
                     height: "fit-content",
                   }}
                 >
-                  <CardMedia
-                    image={`/images/${project.mainImage}`}
+                  <Box
                     sx={{
                       height: { xs: "200px", md: "300px" },
-                      backgroundPosition: "top",
-                      backgroundSize: "cover",
+                      width: "100%",
+                      overflow: "hidden",
                     }}
-                  />
+                  >
+                    <AdvancedImage
+                      cldImg={cld.image(`docs/${project.slug}`)}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+                  
                   <CardContent
                     sx={{
                       padding: `${theme.spacing(2)}`,
-                      height:'230px'
+                      height: "230px",
                     }}
                   >
                     <Box
@@ -132,7 +150,10 @@ function HomeProjects() {
                     <Divider sx={{ margin: `${theme.spacing(1.5)} 0` }} />
 
                     <Box sx={{ height: "fit-content" }}>
-                      <Typography variant="p" sx={{color: theme.palette.text.secondary}}>
+                      <Typography
+                        variant="p"
+                        sx={{ color: theme.palette.text.secondary }}
+                      >
                         {project.shortDescription}
                       </Typography>
                     </Box>
