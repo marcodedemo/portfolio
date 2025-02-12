@@ -129,6 +129,7 @@ function HomeProjects() {
                       }}
                       loading="lazy"
                       onLoad={() => setIsLoading(false)}
+                      alt="project image"
                     />
                   </Box>
 
