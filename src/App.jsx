@@ -5,16 +5,18 @@ library.add(fas);
 import Router from './router';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles'; 
 import CssBaseline from '@mui/material/CssBaseline';
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Palettes, { TextPalettes } from './data/Palettes'; 
 
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import UtilityButton from './fragments/UtilityButton'
 import { Box } from '@mui/material';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+const UtilityButton = React.lazy(() => import('./fragments/UtilityButton'));
+const Footer = React.lazy(() => import('./components/Footer'));
+
 
 function App() {
 

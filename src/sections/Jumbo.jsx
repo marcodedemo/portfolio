@@ -9,7 +9,7 @@ function Jumbo() {
   const is900Screen = useMediaQuery('(min-width:900px)')
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(8) }}>
+    <Box sx={{ paddingTop: theme.spacing(4) }}>
       <Container maxWidth="xl">
         <Box data-aos="fade-down">
           <Typography

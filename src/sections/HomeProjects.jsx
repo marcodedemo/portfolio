@@ -136,7 +136,6 @@ function HomeProjects() {
                   <CardContent
                     sx={{
                       padding: `${theme.spacing(2)}`,
-                      height: "230px",
                     }}
                   >
                     <Box
@@ -146,7 +145,7 @@ function HomeProjects() {
                         alignItems: "center",
                       }}
                     >
-                      <Typography variant="h5" sx={{ fontWeight: "600" }}>
+                      <Typography variant="h5" sx={{ fontWeight: "600", }}>
                         {project.title}
                       </Typography>
                       {/* <IconButton
@@ -173,7 +172,7 @@ function HomeProjects() {
 
                     <Divider sx={{ margin: `${theme.spacing(1.5)} 0` }} />
 
-                    <Box sx={{ height: "fit-content" }}>
+                    <Box sx={{ height: "fit-content",}}>
                       <Typography
                         variant="p"
                         sx={{ color: theme.palette.text.secondary }}

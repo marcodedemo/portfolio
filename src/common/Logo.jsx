@@ -33,13 +33,13 @@ function Logo({ fontSize }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: "2px" }}>
       {/* Parentesi sinistra */}
-      <Typography sx={logoBrackets}>&#123;</Typography>
+      <Typography variant="string" sx={logoBrackets}>&#123;</Typography>
 
       {/* Lettera M con fontSize ridotto */}
-      <Typography sx={logoLetter}>M</Typography>
+      <Typography variant="string" sx={logoLetter}>M</Typography>
 
       {/* Parentesi destra */}
-      <Typography sx={logoBrackets}>&#125;</Typography>
+      <Typography variant="string" sx={logoBrackets}>&#125;</Typography>
     </Box>
   );
 }

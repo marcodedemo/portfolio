@@ -121,7 +121,7 @@ function Navbar({ ...props }) {
 
   return (
     <>
-      <Box sx={{ display: "flex" }} id="Homepage">
+      <Box sx={{ display: "flex", maxWidth:'100vw', overflow:'hidden' }} id="Homepage">
         <CssBaseline />
         <AppBar component="nav">
           <Toolbar
