@@ -125,6 +125,7 @@ function HomeProjects() {
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
+                        objectPosition:'top'
                       }}
                       loading="lazy"
                       onLoad={() => setIsLoading(false)}
