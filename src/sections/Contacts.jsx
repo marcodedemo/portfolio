@@ -32,14 +32,15 @@ function Contacts() {
           sx={{
             paddingTop: theme.spacing(3),
             display: "flex",
+            flexDirection: {xs:'column',sm: 'row'},
             alignItems: "center",
             justifyContent: "center",
             gap: theme.spacing(2),
           }}
         >
+          <SocialButton text="Curriculum" />
           <SocialButton text="LinkedIn" />
           <SocialButton text="Email" />
-          <SocialButton text="Curriculum" />
         </Box>
       </Container>
     </Box>

@@ -11,6 +11,8 @@ function Jumbo() {
   return (
     <Box sx={{ paddingTop: theme.spacing(4) }}>
       <Container maxWidth="xl">
+        <Box maxWidth="md" sx={{margin: {xs:0, md:'0 auto'}}}>
+
         <Box data-aos="fade-down">
           <Typography
             variant="span"
@@ -94,6 +96,8 @@ function Jumbo() {
           <SocialButton text="LinkedIn" />
           <SocialButton text="Email" />
         </Box>
+        </Box>
+
       </Container>
     </Box>
   );
