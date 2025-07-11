@@ -30,51 +30,38 @@ function HomeAbout() {
                   : theme.palette.text.primary,
             }}
           >
-            Mi chiamo Marco De Demo, sono uno{" "}
-            <Typography
+            Sono uno <Typography
               variant="span"
               sx={{ color: theme.palette.primary.main }}
             >
               sviluppatore web fullstack con 2 anni di esperienza
-            </Typography>
-            . La mia passione per i computer e la tecnologia è nata fin da
-            piccolo, quando sognavo che questo mondo potesse diventare parte
-            della mia vita quotidiana. <br /> <br /> All'età di 22 anni, ho
-            deciso di seguire questo sogno e lasciare il mio precedente lavoro
-            per immergermi completamente nello{" "}
-            <Typography
-              variant="span"
-              sx={{ color: theme.palette.primary.main }}
-            >
-              sviluppo web
-            </Typography>
-            . Ho frequentato un{" "}
-            <Typography
-              variant="span"
-              sx={{ color: theme.palette.primary.main }}
-            >
-              corso full-time
-            </Typography>{" "}
-            della durata di sei mesi che mi ha permesso di acquisire solide basi
-            tecniche e una comprensione profonda di questo settore in continua
-            evoluzione. <br /> <br /> Da un anno e mezzo lavoro come frontend
-            developer presso un'azienda con sede a Treviso, dove continuo a
-            crescere e perfezionare le mie competenze. Sono sempre alla{" "}
-            <Typography
-              variant="span"
-              sx={{ color: theme.palette.primary.main }}
-            >
-              ricerca di nuove sfide
-            </Typography>{" "}
-            e opportunità per ampliare il mio bagaglio di conoscenze, con
-            l’obiettivo di creare{" "}
-            <Typography
-              variant="span"
-              sx={{ color: theme.palette.primary.main }}
-            >
-              soluzioni web moderne
-            </Typography>
-            , efficienti e intuitive.
+            </Typography>, specializzato
+            nello sviluppo di applicazioni moderne e scalabili. Attualmente
+            lavoro come fullstack developer presso un’azienda con sede a Milano.
+            <br />
+            <br />
+            Le mie competenze principali includono:
+            <ul>
+              <li>
+                <Typography variant='span' sx={{ color: theme.palette.primary.main }}>Frontend:</Typography> React, Vue.js, Bootstrap, Tailwind
+                CSS, Material UI
+              </li>
+              <li>
+                <Typography variant='span' sx={{ color: theme.palette.primary.main }}>Backend:</Typography> Laravel, Filament, REST API, MySql,
+                PHP
+              </li>
+            </ul>
+            <br />
+            Sono <Typography variant='span' sx={{ color: theme.palette.primary.main }}>autonomo nella gestione dell’intero ciclo di sviluppo</Typography>: dalla
+            progettazione dell’architettura fino al rilascio in produzione.
+            Lavoro con attenzione al codice pulito, alle performance e
+            all’accessibilità, seguendo le best practice dello sviluppo web
+            moderno.
+            <br />
+            <br />
+            <Typography variant='span' sx={{ color: theme.palette.primary.main }}>Sono alla ricerca di nuove opportunità professionali</Typography> che mi
+            permettano di crescere ulteriormente come sviluppatore fullstack,
+            contribuendo a prodotti concreti e ad alto impatto.
           </Typography>
         </Box>
       </Container>
