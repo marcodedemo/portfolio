@@ -33,7 +33,7 @@ const Projects = [
     ],
     mainImage: "bdev1.png",
     repositoryUrl: "",
-    liveUrl: "/",
+    liveUrl: "",
     technologies: [
       "HTML",
       "CSS",
@@ -55,13 +55,13 @@ const Projects = [
     type: "Frontend",
     title: "Boolflix",
     description:
-      "Questo progetto è una riproduzione responsive semplificata del sito di Netflix, sviluppata utilizzando un servizio API per l'acquisizione di dati su film e serie TV. Gli utenti possono esplorare il catalogo di film e serie, visualizzare i dettagli di ciascun titolo e cercare direttamente per nome utilizzando la barra di ricerca. Ogni ricerca attiva una chiamata API che restituisce i risultati pertinenti. La visualizzazione dei contenuti è organizzata in due slideshow separati: uno dedicato alle serie TV e uno per i film, offrendo un'esperienza simile a quella di Netflix ma con una struttura semplificata.",
+      "Questo progetto è una riproduzione semplificata del sito di Netflix in versione desktop, sviluppata utilizzando un servizio API per l'acquisizione di dati su film e serie TV. Gli utenti possono esplorare il catalogo di film e serie, visualizzare i dettagli di ciascun titolo e cercare direttamente per nome utilizzando la barra di ricerca. Ogni ricerca attiva una chiamata API che restituisce i risultati pertinenti.",
     shortDescription:
-      "Riproduzione responsive semplificata di Netflix, con API per film e serie TV. Gli utenti possono cercare titoli e visualizzarne i dettagli.",
+      "Riproduzione semplificata di Netflix in versione desktop, con API per film e serie TV. Gli utenti possono cercare titoli e visualizzarne i dettagli.",
     images: ["boolflix.png", "boolflix1.png"],
     mainImage: "boolflix.png",
-    repositoryUrl: "",
-    liveUrl: "/",
+    repositoryUrl: "https://github.com/marcodedemo/vite-boolflix",
+    liveUrl: "https://viteboolflix.netlify.app",
     technologies: [
       "HTML",
       "CSS",
@@ -80,9 +80,9 @@ const Projects = [
     type: "Frontend",
     title: "Phlox - Business Consulting",
     description:
-      "Questo progetto consiste nella creazione di una landing page per un'azienda di business consulting, sviluppata seguendo il design di un template fornito da un web designer. Il sito è completamente responsive, garantendo un'ottima esperienza utente su tutti i dispositivi. Sono state inoltre implementate animazioni su pulsanti e card utilizzando solo CSS, per rendere l'interfaccia più interattiva e coinvolgente.",
+      "Questo progetto consiste nella creazione di una landing page per un'azienda di business consulting, sviluppata seguendo il design di un template fornito da un web designer. Sono state inoltre implementate animazioni su pulsanti e card utilizzando solo CSS, per rendere l'interfaccia più interattiva e coinvolgente.",
     shortDescription:
-      "Creazione di una landing page responsive per un'azienda di business consulting, con animazioni CSS su pulsanti e card, basata su un template fornito da un web designer.",
+      "Creazione di una landing page versione desktop per un'azienda di business consulting, con animazioni CSS su pulsanti e card, basata su un template fornito da un web designer.",
     images: [
       "phlox.png",
       "phlox1.png",
@@ -91,8 +91,8 @@ const Projects = [
       "phlox4.png",
     ],
     mainImage: "phlox.png",
-    repositoryUrl: "",
-    liveUrl: "/",
+    repositoryUrl: "https://github.com/marcodedemo/proj-html-vuejs",
+    liveUrl: "https://phloxconsulting.netlify.app",
     technologies: ["HTML", "CSS", "Bootstrap", "Vue.js"],
     mainTechnologies: ["Vue.js", "Bootstrap", "CSS"],
     team: false,
@@ -103,9 +103,9 @@ const Projects = [
     type: "Frontend",
     title: "Riproduzione Sito Discord",
     description:
-      "Questo progetto è la riproduzione di una vecchia versione del sito web di Discord, sviluppata utilizzando HTML, CSS, Vue.js e Bootstrap. Il sito è completamente responsive, garantendo un'esperienza di navigazione ottimale su qualsiasi dispositivo, dai desktop ai dispositivi mobile. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre Bootstrap ha permesso di realizzare un layout flessibile e moderno, mantenendo fedeltà al design originale.",
+      "Questo progetto è la riproduzione di una vecchia versione desktop del sito web di Discord, sviluppata utilizzando HTML, CSS, Vue.js e Bootstrap.  Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre Bootstrap ha permesso di realizzare un layout flessibile e moderno, mantenendo fedeltà al design originale.",
     shortDescription:
-      "Riproduzione responsive della vecchia versione del sito Discord, sviluppata con HTML, CSS, Vue.js e Bootstrap, per una navigazione ottimale su tutti i dispositivi. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre per la stiluzzazione ho utilizzato SCSS.",
+      "Riproduzione desktop sviluppata con HTML, CSS, Vue.js e Bootstrap. Vue.js è stato utilizzato per gestire in modo dinamico l'interfaccia, mentre per la stilizzazione ho utilizzato SCSS.",
     images: [
       "discord1.png",
       "discord2.png",
@@ -114,8 +114,8 @@ const Projects = [
       "discord5.png",
     ],
     mainImage: "discord1.png",
-    repositoryUrl: "",
-    liveUrl: "/",
+    repositoryUrl: "https://github.com/marcodedemo/htmlcss-discord",
+    liveUrl: "https://replicadisc.netlify.app",
     technologies: ["Vue.js", "SCSS", "JavaScript"],
     mainTechnologies: ["Vue.js", "SCSS", "JavaScript"],
     team: false,
@@ -135,8 +135,8 @@ const Projects = [
       "allenove2.png",
     ],
     mainImage: "allenove1.png",
-    repositoryUrl: "",
-    liveUrl: "/",
+    repositoryUrl: "https://github.com/paolodedemo/allenovesenonpiove",
+    liveUrl: "https://allenovesenonpiove.it/",
     technologies: ["HTML", "CSS", "Bootstrap", "Vue.js"],
     mainTechnologies: ["Vue.js", "Bootstrap", "CSS"],
     team: false,

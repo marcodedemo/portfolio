@@ -11,6 +11,7 @@ import {
   IconButton,
   Paper,
   CircularProgress,
+  Button,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -20,7 +21,8 @@ import { fill } from "@cloudinary/url-gen/actions/resize";
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
-import LaunchIcon from "@mui/icons-material/Launch";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 import { useTheme } from "@mui/material/styles";
 
@@ -83,7 +85,7 @@ function HomeProjects() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  height: {xs:'auto', sm:'500px', md:'580px'},
+                  height: { xs: "auto", sm: "500px", md: "580px" },
                   marginTop: {
                     xs: 0,
                     sm: index % 2 !== 0 ? theme.spacing(6) : "0",
@@ -91,7 +93,7 @@ function HomeProjects() {
                   },
                 }}
               >
-                <Paper sx={{height:'100%'}}>
+                <Paper sx={{ height: "100%" }}>
                   <Card
                     sx={{
                       border: "1px solid",
@@ -182,11 +184,75 @@ function HomeProjects() {
 
                       <Box sx={{ height: "fit-content" }}>
                         <Typography
-                          variant="p"
+                          variant="body2"
                           sx={{ color: theme.palette.text.secondary }}
                         >
                           {project.shortDescription}
                         </Typography>
+
+                        <Box
+                          sx={{
+                            display: "flex",
+                            gap: theme.spacing(1.5),
+                            marginTop: theme.spacing(2),
+                          }}
+                        >
+                          {project.repositoryUrl ? (
+                            <Link
+                              href={project.repositoryUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              underline="none"
+                            >
+                              <Button
+                                color="primary"
+                                variant="outlined"
+                                aria-label="Codice sorgente"
+                                startIcon={<GitHubIcon />}
+                              >
+                                Codice
+                              </Button>
+                            </Link>
+                          ) : (
+                            <Button
+                              color="primary"
+                              variant="outlined"
+                              disabled
+                              aria-label="Codice sorgente"
+                              startIcon={<GitHubIcon />}
+                            >
+                              Codice
+                            </Button>
+                          )}
+
+                          {project.liveUrl ? (
+                            <Link
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              underline="none"
+                            >
+                              <Button
+                                color='secondary'
+                                variant="outlined"
+                                aria-label="Demo live"
+                                startIcon={<LaptopIcon />}
+                              >
+                                Sito
+                              </Button>
+                            </Link>
+                          ) : (
+                            <Button
+                              color='secondary'
+                              variant="outlined"
+                              disabled
+                              aria-label="Demo live"
+                              startIcon={<LaptopIcon />}
+                            >
+                              Sito
+                            </Button>
+                          )}
+                        </Box>
                       </Box>
                     </CardContent>
                   </Card>
