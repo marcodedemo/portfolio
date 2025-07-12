@@ -28,7 +28,7 @@ function SocialButton({ text }) {
   const handleClick = () => {
     if (text === "Curriculum") {
       const driveLink =
-        "https://drive.google.com/file/d/166ezjcW0q-jIWJYKWTdVUOn0Zkm1BAfm/view?usp=sharing";
+        "https://drive.google.com/file/d/1hZBZP0bpb7oOSPZIo9U1CBcu6ny9UEMF/view?usp=drive_link";
       window.open(driveLink, "_blank");
     }else if (text === "LinkedIn"){
       const linkedInLink = "https://www.linkedin.com/in/marcodedemo/";
