@@ -1,18 +1,21 @@
-import React, { useState } from "react";
-import { Box, Typography, Container, List, ListItem, ListItemText, ListItemIcon, Button, } from "@mui/material";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Jumbo from '../sections/Jumbo'
+import Jumbo from '../sections/Jumbo';
 import HomeAbout from "../sections/HomeAbout";
-import HomeProjects from "../sections/HomeProjects";
+import Services from "../sections/Services";
+import HowIWork from "../sections/HowIWork";
 import Contacts from "../sections/Contacts";
+import SectionDivider from "../common/SectionDivider";
 
 function Homepage() {
   return (
     <>
       <Jumbo />
+      <SectionDivider />
       <HomeAbout />
-      <HomeProjects />
+      <SectionDivider flip />
+      <Services />
+      <SectionDivider />
+      <HowIWork />
+      <SectionDivider flip />
       <Contacts />
     </>
   );
