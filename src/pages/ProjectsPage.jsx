@@ -2,7 +2,8 @@ import React, { useState, useEffect} from "react";
 import { Box, Typography, Container, List, ListItem, CardMedia, CardContent, CardActionArea, Pagination, Card, InputAdornment, TextField, Divider } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
@@ -36,7 +37,7 @@ function ProjectsPage() {
               input: {
                 endAdornment: (
                   <InputAdornment position="end">
-                    <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </InputAdornment>
                 ),
               },

@@ -254,7 +254,7 @@ function HomeProjects() {
     : Projects.filter((p) => p.type === activeCategory);
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(14) }} id="Projects">
+    <Box component="section" aria-label="Progetti" sx={{ paddingTop: theme.spacing(14), scrollMarginTop: "80px" }} id="projects">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 

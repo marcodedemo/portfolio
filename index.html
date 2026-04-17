@@ -7,16 +7,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
+    <!-- Favicon & App Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#2563EB" />
+    <meta name="msapplication-TileColor" content="#2563EB" />
 
     <!-- Primary SEO -->
     <title>Marco De Demo — Sviluppatore Web Fullstack | React & Laravel</title>
     <meta name="description" content="Sono Marco De Demo, sviluppatore web fullstack con 4+ anni di esperienza. Realizzo applicazioni web moderne con React e Laravel. Disponibile per progetti freelance." />
-    <meta name="keywords" content="sviluppatore web, fullstack developer, React, Laravel, PHP, freelance, Milano, applicazioni web, landing page" />
+    <meta name="keywords" content="sviluppatore web, fullstack developer, React, Laravel, PHP, freelance, Milano, Follina, Treviso, Veneto, applicazioni web, landing page" />
     <meta name="author" content="Marco De Demo" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://marcodedemo.netlify.app/" />
+
+    <!-- Hreflang for bilingual content -->
+    <link rel="alternate" hreflang="it" href="https://marcodedemo.netlify.app/" />
+    <link rel="alternate" hreflang="en" href="https://marcodedemo.netlify.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://marcodedemo.netlify.app/" />
 
     <!-- Open Graph (LinkedIn, Facebook, WhatsApp, Slack) -->
     <meta property="og:type" content="website" />
@@ -26,7 +34,9 @@
     <meta property="og:image" content="https://marcodedemo.netlify.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Marco De Demo — Sviluppatore Web Fullstack" />
     <meta property="og:locale" content="it_IT" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Marco De Demo Portfolio" />
 
     <!-- Twitter Card -->
@@ -34,31 +44,64 @@
     <meta name="twitter:title" content="Marco De Demo — Sviluppatore Web Fullstack" />
     <meta name="twitter:description" content="Realizzo applicazioni web moderne con React e Laravel. Disponibile per nuovi progetti." />
     <meta name="twitter:image" content="https://marcodedemo.netlify.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Marco De Demo — Sviluppatore Web Fullstack" />
 
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="YeM7lOntJM3f9GWzjC8c9-XTYEHzn5yg7HWedunDX1M" />
 
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Marco De Demo",
-      "url": "https://marcodedemo.netlify.app",
-      "email": "marco.dedemo@gmail.com",
-      "jobTitle": "Fullstack Web Developer",
-      "description": "Sviluppatore web fullstack con 4+ anni di esperienza specializzato in React e Laravel. Disponibile per progetti freelance.",
-      "knowsAbout": ["React.js", "Vue.js", "Laravel", "PHP", "MySQL", "JavaScript", "TypeScript", "HTML", "CSS", "Material UI", "Filament"],
-      "sameAs": [
-        "https://www.linkedin.com/in/marcodedemo/",
-        "https://github.com/marcodedemo"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Milano",
-        "addressCountry": "IT"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Marco De Demo Portfolio",
+        "url": "https://marcodedemo.netlify.app",
+        "description": "Portfolio professionale di Marco De Demo, sviluppatore web fullstack specializzato in React e Laravel.",
+        "inLanguage": ["it", "en"],
+        "author": {
+          "@type": "Person",
+          "name": "Marco De Demo"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marco De Demo",
+        "url": "https://marcodedemo.netlify.app",
+        "email": "marco.dedemo@gmail.com",
+        "jobTitle": "Fullstack Web Developer",
+        "description": "Sviluppatore web fullstack con 4+ anni di esperienza specializzato in React e Laravel. Disponibile per progetti freelance.",
+        "knowsAbout": ["React.js", "Vue.js", "Laravel", "PHP", "MySQL", "JavaScript", "TypeScript", "HTML", "CSS", "Material UI", "Filament"],
+        "sameAs": [
+          "https://www.linkedin.com/in/marcodedemo/",
+          "https://github.com/marcodedemo"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Follina",
+          "addressRegion": "Treviso",
+          "addressCountry": "IT"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "offers": {
+          "@type": "Offer",
+          "itemOffered": [
+            { "@type": "Service", "name": "Landing Page & Siti Vetrina", "description": "Sviluppo landing page ottimizzate per la conversione con React e Vue.js" },
+            { "@type": "Service", "name": "Applicazioni Web Frontend", "description": "Interfacce moderne e performanti con React.js o Vue.js" },
+            { "@type": "Service", "name": "Backend & API REST", "description": "API robuste con Laravel, gestione database MySQL e integrazioni terze parti" },
+            { "@type": "Service", "name": "Soluzioni Fullstack Complete", "description": "Sviluppo end-to-end dalla progettazione al deploy" }
+          ]
+        }
       }
-    }
+    ]
     </script>
 
     <!-- Google Analytics -->

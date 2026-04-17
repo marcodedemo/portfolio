@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import Jumbo from '../sections/Jumbo';
 import HomeAbout from "../sections/HomeAbout";
 import Services from "../sections/Services";
@@ -7,7 +8,7 @@ import SectionDivider from "../common/SectionDivider";
 
 function Homepage() {
   return (
-    <>
+    <Box component="main">
       <Jumbo />
       <SectionDivider />
       <HomeAbout />
@@ -17,7 +18,7 @@ function Homepage() {
       <HowIWork />
       <SectionDivider flip />
       <Contacts />
-    </>
+    </Box>
   );
 }
 

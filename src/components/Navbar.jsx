@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { Container, Link, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import Logo from "../common/Logo";
@@ -117,7 +118,7 @@ function Navbar() {
             height: 38,
           }}
         >
-          <FontAwesomeIcon icon="fa-solid fa-xmark" size="sm" />
+          <FontAwesomeIcon icon={faXmark} size="sm" />
         </IconButton>
       </Box>
 
@@ -330,7 +331,7 @@ function Navbar() {
                       height: 40,
                     }}
                   >
-                    <FontAwesomeIcon icon="fa-solid fa-bars" size="sm" />
+                    <FontAwesomeIcon icon={faBars} size="sm" />
                   </IconButton>
                 </Box>
 

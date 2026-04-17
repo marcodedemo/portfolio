@@ -96,7 +96,7 @@ function HomeAbout() {
   const whyMe = t.about.whyMe;
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="about">
+    <Box component="section" aria-label="Chi sono" sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="about">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 

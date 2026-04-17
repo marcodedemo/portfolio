@@ -154,7 +154,7 @@ function Services() {
   }));
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="services">
+    <Box component="section" aria-label="Servizi" sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="services">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 

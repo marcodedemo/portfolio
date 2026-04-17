@@ -9,10 +9,12 @@ function CustomCursor() {
   const ringPos = useRef({ x: -100, y: -100 });
   const rafRef = useRef(null);
 
+  const isTouch = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+
   useEffect(() => {
     const dot = dotRef.current;
     const ring = ringRef.current;
-    if (!dot || !ring) return;
+    if (!dot || !ring || isTouch) return;
 
     const primary = theme.palette.primary.main;
 
@@ -64,6 +66,8 @@ function CustomCursor() {
       });
     };
   }, [theme.palette.primary.main]);
+
+  if (isTouch) return null;
 
   return (
     <>

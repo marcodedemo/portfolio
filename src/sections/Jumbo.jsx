@@ -27,6 +27,8 @@ function Jumbo() {
 
   return (
     <Box
+      component="section"
+      aria-label="Hero"
       sx={{
         paddingTop: theme.spacing(4),
         position: "relative",

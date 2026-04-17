@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
@@ -17,6 +18,14 @@ const itemVariants = {
 function NotFound() {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
+
+  useEffect(() => {
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+    return () => document.head.removeChild(meta);
+  }, []);
 
   return (
     <Box

@@ -1,12 +1,7 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-library.add(fas);
-
 import Router from "./router";
 import {
   ThemeProvider,
   createTheme,
-  responsiveFontSizes,
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import React, { useState, useMemo, useEffect, Suspense } from "react";
@@ -16,14 +11,12 @@ import Navbar from "./components/Navbar";
 import { Box } from "@mui/material";
 
 import CustomCursor from "./components/CustomCursor";
-import LoadingScreen from "./components/LoadingScreen";
 import BackToTop from "./components/BackToTop";
 
 const UtilityButton = React.lazy(() => import("./fragments/UtilityButton"));
 const Footer = React.lazy(() => import("./components/Footer"));
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
   const [mode, setMode] = useState("dark");
   const [palette, setPalette] = useState(Palettes.find((p) => p.id === "blue"));
 
@@ -109,7 +102,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
       <CustomCursor />
       <BackToTop />
       <Box sx={{ position: "relative", minHeight: "100dvh" }}>

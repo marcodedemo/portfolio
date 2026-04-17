@@ -37,6 +37,8 @@ function Contacts() {
 
   return (
     <Box
+      component="section"
+      aria-label="Contatti"
       sx={{ paddingTop: theme.spacing(6), paddingBottom: theme.spacing(12), scrollMarginTop: "80px" }}
       id="contacts"
     >

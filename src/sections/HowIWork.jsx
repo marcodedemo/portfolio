@@ -38,7 +38,7 @@ function HowIWork() {
   }));
 
   return (
-    <Box sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="how-i-work">
+    <Box component="section" aria-label="Come lavoro" sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="how-i-work">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 
