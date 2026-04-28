@@ -11,7 +11,6 @@ import CodeIcon from "@mui/icons-material/Code";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 const stepNumbers = ["01", "02", "03", "04"];
-const stepColors = ["#38BDF8", "#A78BFA", "#34D399", "#FB923C"];
 const stepIcons = [
   <SearchIcon sx={{ fontSize: 28 }} />,
   <BrushIcon sx={{ fontSize: 28 }} />,
@@ -30,15 +29,17 @@ function HowIWork() {
   const lineRef = useRef(null);
   const lineInView = useInView(lineRef, { once: true, margin: "-80px" });
 
+  const primary = theme.palette.primary.main;
+
   const steps = t.howIWork.steps.map((step, i) => ({
     ...step,
     number: stepNumbers[i],
     icon: stepIcons[i],
-    color: stepColors[i],
+    color: primary,
   }));
 
   return (
-    <Box component="section" aria-label="Come lavoro" sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="how-i-work">
+    <Box component="section" aria-label="Come lavoro" sx={{ paddingTop: theme.spacing(14), scrollMarginTop: "80px" }} id="how-i-work">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 
@@ -104,7 +105,7 @@ function HowIWork() {
                 animate={lineInView ? "visible" : "hidden"}
                 style={{
                   height: "100%",
-                  background: `linear-gradient(to right, ${steps.map(s => s.color).join(", ")})`,
+                  background: primary,
                   transformOrigin: "left",
                   opacity: 0.5,
                 }}

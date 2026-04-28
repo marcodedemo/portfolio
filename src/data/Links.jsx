@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faUser, faBriefcase, faArrowsSpin, faAt } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faUser, faBriefcase, faCode, faAt } from "@fortawesome/free-solid-svg-icons";
 
 const Links = [
   {
@@ -21,10 +21,10 @@ const Links = [
     icon: <FontAwesomeIcon icon={faBriefcase} />,
   },
   {
-    id: "how-i-work",
-    label: "Come Lavoro",
+    id: "portfolio",
+    label: "Portfolio",
     path: "/",
-    icon: <FontAwesomeIcon icon={faArrowsSpin} />,
+    icon: <FontAwesomeIcon icon={faCode} />,
   },
   {
     id: "contacts",

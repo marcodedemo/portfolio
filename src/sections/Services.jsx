@@ -11,7 +11,6 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import AnimateOnView from "../common/AnimateOnView";
 import { useLang } from "../context/LanguageContext";
 
-const serviceAccents = ["#38BDF8", "#61DAFB", "#FF2D20", "#A78BFA"];
 const serviceIcons = [
   <WebIcon sx={{ fontSize: 36 }} />,
   <CodeIcon sx={{ fontSize: 36 }} />,
@@ -150,11 +149,11 @@ function Services() {
   const services = t.services.items.map((item, i) => ({
     ...item,
     icon: serviceIcons[i],
-    accent: serviceAccents[i],
+    accent: theme.palette.primary.main,
   }));
 
   return (
-    <Box component="section" aria-label="Servizi" sx={{ paddingTop: theme.spacing(6), scrollMarginTop: "80px" }} id="services">
+    <Box component="section" aria-label="Servizi" sx={{ py: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="services">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 

@@ -1,7 +1,6 @@
 import { Box, Typography, Container, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import SocialButton from "../common/SocialButton";
@@ -84,7 +83,7 @@ function Jumbo() {
               </Box>
             </motion.div>
 
-            {/* Headline principale */}
+            {/* Headline */}
             <motion.div variants={itemVariants}>
               <Typography
                 variant="h1"
@@ -115,39 +114,18 @@ function Jumbo() {
               </Typography>
             </motion.div>
 
-            {/* Sottotitolo con typewriter */}
+            {/* Sottotitolo statico */}
             <motion.div variants={itemVariants} style={{ marginTop: theme.spacing(3) }}>
-              <Box sx={{ maxWidth: { xs: "none", sm: "75vw", md: "60vw" } }}>
-                <Typography
-                  variant="h2"
-                  sx={{
-                    color:
-                      theme.palette.mode === "dark"
-                        ? theme.palette.text.secondary
-                        : theme.palette.text.primary,
-                    fontWeight: "500",
-                    display: "inline",
-                  }}
-                >
-                  {t.jumbo.typewriterPrefix}
-                </Typography>
-                <Typography
-                  variant="h2"
-                  sx={{
-                    color: primary,
-                    fontWeight: "700",
-                    display: "inline",
-                  }}
-                >
-                  <TypeAnimation
-                    key={t.jumbo.typewriterPrefix}
-                    sequence={t.jumbo.typewriter}
-                    speed={52}
-                    repeat={Infinity}
-                    style={{ display: "inline" }}
-                  />
-                </Typography>
-              </Box>
+              <Typography
+                variant="h2"
+                sx={{
+                  color: theme.palette.text.secondary,
+                  fontWeight: 500,
+                  letterSpacing: "-0.3px",
+                }}
+              >
+                {t.jumbo.subtitle}
+              </Typography>
             </motion.div>
 
             {/* Descrizione breve */}
@@ -161,7 +139,8 @@ function Jumbo() {
                   lineHeight: 1.7,
                 }}
               >
-                Sono <strong style={{ color: theme.palette.text.primary }}>Marco De Demo</strong>,{" "}
+                {t.jumbo.intro}{" "}
+                <strong style={{ color: theme.palette.text.primary }}>Marco De Demo</strong>,{" "}
                 {t.jumbo.description}
               </Typography>
             </motion.div>
@@ -195,7 +174,7 @@ function Jumbo() {
                   variant="outlined"
                   color="inherit"
                   size="large"
-                  href="#services"
+                  href="#portfolio"
                   sx={{
                     textTransform: "none",
                     fontWeight: 600,
@@ -219,7 +198,7 @@ function Jumbo() {
               </Box>
             </motion.div>
 
-            {/* Social links secondari */}
+            {/* Social links */}
             <motion.div variants={itemVariants} style={{ marginTop: theme.spacing(4) }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: "wrap" }}>
                 <SocialButton text="Github" />
@@ -230,7 +209,6 @@ function Jumbo() {
           </Box>
         </motion.div>
       </Container>
-
     </Box>
   );
 }

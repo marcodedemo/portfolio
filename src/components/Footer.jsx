@@ -212,27 +212,6 @@ function Footer() {
               © {year} Marco De Demo. {t.footer.copyright}
             </Typography>
 
-            <Typography
-              sx={{
-                fontSize: "0.75rem",
-                color: theme.palette.text.secondary,
-              }}
-            >
-              {t.footer.builtWith}{" "}
-              <Typography
-                component="span"
-                sx={{ color: primary, fontSize: "inherit", fontWeight: 600 }}
-              >
-                React
-              </Typography>{" "}
-              &{" "}
-              <Typography
-                component="span"
-                sx={{ color: primary, fontSize: "inherit", fontWeight: 600 }}
-              >
-                Material UI
-              </Typography>
-            </Typography>
 
             {/* Social icons */}
             <Box sx={{ display: "flex", gap: 1.5 }}>

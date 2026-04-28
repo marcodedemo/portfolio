@@ -52,7 +52,7 @@ function App() {
       palette: {
         mode: mode,
         primary: {
-          main: palette.main,
+          main: mode === "light" ? palette.dark : palette.main,
           dark: palette.dark,
           light: palette.light,
         },
@@ -67,7 +67,7 @@ function App() {
         },
       },
       typography: {
-        fontFamily: ["Roboto"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         span: {
           [createTheme().breakpoints.up("xs")]: { fontSize: "1rem" },
           [createTheme().breakpoints.up("sm")]: { fontSize: "1rem" },

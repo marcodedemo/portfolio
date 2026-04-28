@@ -13,15 +13,13 @@ import { useLang } from "../context/LanguageContext";
 const quickLinkIcons = [
   <EmailIcon key="email" sx={{ fontSize: 22 }} />,
   <LinkedInIcon key="linkedin" sx={{ fontSize: 22 }} />,
-  <ContactPageIcon key="cv" sx={{ fontSize: 22 }} />,
+  // <ContactPageIcon key="cv" sx={{ fontSize: 22 }} />,
 ];
 const quickLinkHrefs = [
   "mailto:marco.dedemo@gmail.com",
   "https://www.linkedin.com/in/marcodedemo/",
-  "https://drive.google.com/file/d/1bAUGRwo0uvQSR5I-21XyCH8Vm2uKdyWA/view?usp=drive_link",
+  // "https://drive.google.com/file/d/1bAUGRwo0uvQSR5I-21XyCH8Vm2uKdyWA/view?usp=drive_link",
 ];
-const quickLinkAccents = ["#38BDF8", "#0A66C2", "#A78BFA"];
-
 function Contacts() {
   const theme = useTheme();
   const { t } = useLang();
@@ -32,14 +30,14 @@ function Contacts() {
     label: link.label,
     value: link.value,
     href: quickLinkHrefs[i],
-    accent: quickLinkAccents[i],
+    accent: primary,
   }));
 
   return (
     <Box
       component="section"
       aria-label="Contatti"
-      sx={{ paddingTop: theme.spacing(6), paddingBottom: theme.spacing(12), scrollMarginTop: "80px" }}
+      sx={{ py: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }}
       id="contacts"
     >
       <Container maxWidth="xl">
