@@ -58,7 +58,7 @@ function CustomCursor() {
         backgroundColor: "white",
         mixBlendMode: "difference",
         pointerEvents: "none",
-        zIndex: 99999,
+        zIndex: 2147483647,
         transform: "translate(-100px, -100px)",
         transition: "width 0.2s ease, height 0.2s ease",
       }}
