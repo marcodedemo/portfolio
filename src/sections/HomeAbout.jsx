@@ -10,7 +10,7 @@ function HomeAbout() {
   const primary = theme.palette.primary.main;
 
   return (
-    <Box component="section" aria-label="Chi sono" sx={{ pt: 0, pb: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="about">
+    <Box component="section" aria-label="Chi sono" sx={{ pt: { xs: theme.spacing(6), md: 0 }, pb: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="about">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 

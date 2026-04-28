@@ -317,10 +317,10 @@ function Navbar() {
                 >
                   <Logo fontSize={32} />
                   <IconButton
-                    color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     sx={{
+                      color: theme.palette.text.primary,
                       border: "1px solid",
                       borderColor:
                         theme.palette.mode === "dark"
