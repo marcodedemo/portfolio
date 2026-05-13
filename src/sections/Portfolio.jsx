@@ -4,7 +4,6 @@ import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
-import { quality, format } from "@cloudinary/url-gen/actions/delivery";
 
 import AnimateOnView from "../common/AnimateOnView";
 import { useLang } from "../context/LanguageContext";
@@ -53,9 +52,7 @@ function ProjectCard({ project }) {
         >
           <AdvancedImage
             cldImg={cld
-              .image(`docs/${project.slug}`)
-              .delivery(quality("auto"))
-              .delivery(format("auto"))}
+              .image(`${project.slug}`)}
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
             alt={`${project.title} preview`}
             loading="lazy"
