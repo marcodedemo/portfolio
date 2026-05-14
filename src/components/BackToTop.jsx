@@ -31,7 +31,7 @@ function BackToTop() {
             position: "fixed",
             bottom: 80,
             right: 20,
-            zIndex: 8999,
+            zIndex: 1150,
             width: 44,
             height: 44,
             borderRadius: "12px",

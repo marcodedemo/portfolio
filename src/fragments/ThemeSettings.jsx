@@ -95,7 +95,7 @@ function ThemeSettings({ mode, setMode, setPalette }) {
                   whileHover={{ scale: 1.02 }}
                 >
                   <Box
-                    onClick={() => setMode(opt.value)}
+                    onClick={() => { setMode(opt.value); localStorage.setItem("theme-mode", opt.value); }}
                     sx={{
                       display: "flex",
                       alignItems: "center",
@@ -161,7 +161,7 @@ function ThemeSettings({ mode, setMode, setPalette }) {
                     style={{ display: "flex", justifyContent: "center" }}
                   >
                     <Box
-                      onClick={() => setPalette(palette)}
+                      onClick={() => { setPalette(palette); localStorage.setItem("theme-palette", palette.id); }}
                       sx={{
                         width: 34,
                         height: 34,

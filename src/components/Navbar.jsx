@@ -85,7 +85,7 @@ function Navbar() {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: theme.palette.mode === "dark" ? "#1a1a1a" : "#ffffff",
+        backgroundColor: theme.palette.background.default,
       }}
     >
       {/* Header */}
@@ -105,6 +105,7 @@ function Navbar() {
       >
         <Logo fontSize={26} />
         <IconButton
+          aria-label="Chiudi menu"
           onClick={handleDrawerClose}
           sx={{
             color: theme.palette.text.secondary,
@@ -208,6 +209,8 @@ function Navbar() {
           Language
         </Typography>
         <Box
+          role="button"
+          aria-label={`Cambia lingua, attuale: ${lang.toUpperCase()}`}
           onClick={toggleLang}
           sx={{
             display: "inline-flex",
@@ -317,7 +320,8 @@ function Navbar() {
                 >
                   <Logo fontSize={32} />
                   <IconButton
-                    aria-label="open drawer"
+                    aria-label="Apri menu di navigazione"
+                    aria-expanded={drawerOpen}
                     onClick={handleDrawerOpen}
                     sx={{
                       color: theme.palette.text.primary,
@@ -345,11 +349,12 @@ function Navbar() {
                   }}
                 >
                   <Logo fontSize={32} />
-                  <Box sx={{ display: "flex", alignItems: "center", gap: theme.spacing(3) }}>
+                  <Box component="nav" aria-label="Navigazione principale" sx={{ display: "flex", alignItems: "center", gap: theme.spacing(3) }}>
                     {Links.map((link) => (
                       <Link
                         key={link.id}
                         href={`#${link.id}`}
+                        aria-current={activeSection === link.id ? "true" : undefined}
                         sx={{
                           position: "relative",
                           textDecoration: "none",
@@ -378,6 +383,8 @@ function Navbar() {
                     {/* Language toggle */}
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Box
+                        role="button"
+                        aria-label={`Cambia lingua, attuale: ${lang.toUpperCase()}`}
                         onClick={toggleLang}
                         sx={{
                           display: "flex",

@@ -54,7 +54,7 @@ function ProjectCard({ project }) {
             cldImg={cld
               .image(`${project.slug}`)}
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-            alt={`${project.title} preview`}
+            alt={description}
             loading="lazy"
           />
         </motion.div>

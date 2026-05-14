@@ -17,8 +17,11 @@ const UtilityButton = React.lazy(() => import("./fragments/UtilityButton"));
 const Footer = React.lazy(() => import("./components/Footer"));
 
 function App() {
-  const [mode, setMode] = useState("dark");
-  const [palette, setPalette] = useState(Palettes.find((p) => p.id === "blue"));
+  const [mode, setMode] = useState(() => localStorage.getItem("theme-mode") || "dark");
+  const [palette, setPalette] = useState(() => {
+    const saved = localStorage.getItem("theme-palette");
+    return Palettes.find((p) => p.id === saved) || Palettes.find((p) => p.id === "blue");
+  });
 
   const selectedTextPalette = TextPalettes.find((p) => p.id === mode);
 
