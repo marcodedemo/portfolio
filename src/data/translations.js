@@ -69,7 +69,7 @@ const translations = {
       label: "Iniziamo a lavorare insieme",
       title: "Hai un progetto in mente?",
       titleAccent: "Parliamone.",
-      subtitle: "Compila il form oppure scrivimi direttamente — risponderò al più presto.",
+      subtitle: "Compila il form oppure scrivimi direttamente. Risponderò al più presto.",
       quickLinks: [
         { label: "Email", value: "marco.dedemo@gmail.com", desc: "Risponderò al più presto", cta: "Scrivimi" },
         { label: "LinkedIn", value: "/in/marcodedemo", desc: "Profilo professionale aggiornato", cta: "Connettiti" },
@@ -177,7 +177,7 @@ const translations = {
       label: "Let's work together",
       title: "Got a project in mind?",
       titleAccent: "Let's talk.",
-      subtitle: "Fill out the form or reach out directly — I'll get back to you as soon as possible.",
+      subtitle: "Fill out the form or reach out directly. I'll get back to you as soon as possible.",
       quickLinks: [
         { label: "Email", value: "marco.dedemo@gmail.com", desc: "I'll reply as soon as possible", cta: "Email me" },
         { label: "LinkedIn", value: "/in/marcodedemo", desc: "Up-to-date professional profile", cta: "Connect" },

@@ -34,7 +34,7 @@ const Palettes = [
 const TextPalettes = [
   {
     id: "light",
-    primary: "#0d0d0d",
+    primary: "#2d2d4a",
     secondary: "#6b6e75",
   },
   {

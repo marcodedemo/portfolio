@@ -38,7 +38,7 @@ function Jumbo() {
         justifyContent: "center",
       }}
     >
-      <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
+<Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 

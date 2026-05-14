@@ -65,6 +65,10 @@ function App() {
           primary: selectedTextPalette.primary,
           secondary: selectedTextPalette.secondary,
         },
+        background: {
+          default: mode === "dark" ? "#0d0d1a" : "#f0f0f8",
+          paper: mode === "dark" ? "#13131f" : "#ffffff",
+        },
       },
       typography: {
         fontFamily: ["Inter", "sans-serif"].join(","),
@@ -102,9 +106,16 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <CustomCursor />
       <BackToTop />
-      <Box sx={{ position: "relative", minHeight: "100dvh" }}>
+      <Box sx={{
+        position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
+        background: `
+          radial-gradient(ellipse 60% 40% at 80% 10%, ${theme.palette.primary.main}22 0%, transparent 70%),
+          radial-gradient(ellipse 50% 35% at 10% 40%, ${theme.palette.primary.main}15 0%, transparent 70%),
+          radial-gradient(ellipse 55% 40% at 75% 75%, ${theme.palette.primary.main}18 0%, transparent 70%)
+        `,
+      }} />
+      <Box sx={{ position: "relative", zIndex: 1, minHeight: "100dvh" }}>
         <Navbar />
         <Router />
         <Suspense fallback={null}>

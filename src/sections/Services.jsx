@@ -146,10 +146,12 @@ function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
+  const accents = ["#3b82f6", "#8b5cf6", "#10b981", "#f59e0b"];
+
   const services = t.services.items.map((item, i) => ({
     ...item,
     icon: serviceIcons[i],
-    accent: theme.palette.primary.main,
+    accent: accents[i],
   }));
 
   return (
