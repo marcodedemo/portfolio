@@ -9,12 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Nascondi cursore nativo su desktop */
-@media (pointer: fine) {
-  *, *:hover {
-    cursor: none !important;
-  }
-}
 
 /* ── Gear rotation (settings button) ── */
 @keyframes rotating {
