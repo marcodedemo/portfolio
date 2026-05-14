@@ -1,4 +1,5 @@
 import Router from "./router";
+import { Analytics } from "@vercel/analytics/react";
 import {
   ThemeProvider,
   createTheme,
@@ -109,6 +110,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Analytics />
       <BackToTop />
       <Box sx={{
         position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
