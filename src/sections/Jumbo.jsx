@@ -157,6 +157,7 @@ function Jumbo() {
                   sx={{
                     textTransform: "none",
                     fontWeight: 700,
+                    color: "#fff",
                     px: 3,
                     py: 1.4,
                     borderRadius: "10px",

@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-function BackToTop() {
+function BackToTop({ hidden = false }) {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const [visible, setVisible] = useState(false);
@@ -18,7 +18,7 @@ function BackToTop() {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && !hidden && (
         <motion.div
           initial={{ opacity: 0, scale: 0.7, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -31,7 +31,7 @@ function BackToTop() {
             position: "fixed",
             bottom: 80,
             right: 20,
-            zIndex: 1150,
+            zIndex: 1050,
             width: 44,
             height: 44,
             borderRadius: "12px",

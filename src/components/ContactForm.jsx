@@ -241,6 +241,7 @@ function ContactForm() {
           sx={{
             textTransform: "none",
             fontWeight: 700,
+            color: "#fff",
             borderRadius: "10px",
             px: 3.5,
             py: 1.4,

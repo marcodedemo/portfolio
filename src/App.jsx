@@ -20,6 +20,7 @@ const Footer = React.lazy(() => import("./components/Footer"));
 
 function App() {
   const [mode, setMode] = useState(() => localStorage.getItem("theme-mode") || "dark");
+  const [utilityOpen, setUtilityOpen] = useState(false);
   const [palette, setPalette] = useState(() => {
     const saved = localStorage.getItem("theme-palette");
     return Palettes.find((p) => p.id === saved) || Palettes.find((p) => p.id === "blue");
@@ -113,7 +114,7 @@ function App() {
       <CssBaseline />
       <Analytics />
       <SpeedInsights />
-      <BackToTop />
+      <BackToTop hidden={utilityOpen} />
       <Box sx={{
         position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
         background: `
@@ -126,7 +127,7 @@ function App() {
         <Navbar />
         <Router />
         <Suspense fallback={null}>
-          <UtilityButton mode={mode} setMode={setMode} setPalette={setPalette} />
+          <UtilityButton mode={mode} setMode={setMode} setPalette={setPalette} onOpenChange={setUtilityOpen} />
           <Footer />
         </Suspense>
       </Box>

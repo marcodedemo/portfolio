@@ -6,9 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import ThemeSettings from "../fragments/ThemeSettings";
 import { useTheme } from "@mui/material/styles";
 
-function UtilityButton({ mode, setMode, setPalette }) {
+function UtilityButton({ mode, setMode, setPalette, onOpenChange }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => { onOpenChange?.(open); }, [open]);
   const panelRef = useRef(null);
   const btnRef = useRef(null);
 
