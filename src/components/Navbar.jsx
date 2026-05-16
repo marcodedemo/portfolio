@@ -312,7 +312,7 @@ function Navbar() {
                 {/* Mobile */}
                 <Box
                   sx={{
-                    display: { xs: "flex", sm: "none" },
+                    display: { xs: "flex", md: "none" },
                     justifyContent: "space-between",
                     alignItems: "center",
                     width: "100%",
@@ -342,7 +342,7 @@ function Navbar() {
                 {/* Desktop */}
                 <Box
                   sx={{
-                    display: { xs: "none", sm: "flex" },
+                    display: { xs: "none", md: "flex" },
                     justifyContent: "space-between",
                     alignItems: "center",
                     width: "100%",
@@ -429,7 +429,7 @@ function Navbar() {
             onClose={handleDrawerClose}
             ModalProps={{ keepMounted: true }}
             sx={{
-              display: { xs: "block", sm: "none" },
+              display: { xs: "block", md: "none" },
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: "80vw",

@@ -203,14 +203,41 @@ function Footer() {
               py: 3,
             }}
           >
-            <Typography
-              sx={{
-                fontSize: "0.75rem",
-                color: theme.palette.text.secondary,
-              }}
-            >
-              © {year} Marco De Demo. {t.footer.copyright}
-            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 0.75, alignItems: { xs: "center", sm: "flex-start" } }}>
+              <Typography sx={{ fontSize: "0.75rem", color: theme.palette.text.secondary }}>
+                © {year} Marco De Demo. {t.footer.copyright}
+              </Typography>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Link
+                  href="/privacy"
+                  sx={{
+                    fontSize: "0.75rem",
+                    color: theme.palette.text.secondary,
+                    textDecoration: "none",
+                    "&:hover": { color: primary },
+                    transition: "color 0.2s",
+                  }}
+                >
+                  Privacy Policy
+                </Link>
+                <Typography
+                  component="span"
+                  onClick={() => {
+                    localStorage.removeItem("cookie-consent");
+                    window.location.reload();
+                  }}
+                  sx={{
+                    fontSize: "0.75rem",
+                    color: theme.palette.text.secondary,
+                    cursor: "pointer",
+                    "&:hover": { color: primary },
+                    transition: "color 0.2s",
+                  }}
+                >
+                  Gestisci cookie
+                </Typography>
+              </Box>
+            </Box>
 
 
             {/* Social icons */}

@@ -66,7 +66,7 @@ const translations = {
       ],
     },
     contacts: {
-      label: "Iniziamo a lavorare insieme",
+      label: "Lavoriamo insieme",
       title: "Hai un progetto in mente?",
       titleAccent: "Parliamone.",
       subtitle: "Compila il form oppure scrivimi direttamente. Risponderò al più presto.",
@@ -104,6 +104,13 @@ const translations = {
       navLabel: "Navigazione",
       contactLabel: "Contatti",
       copyright: "Tutti i diritti riservati.",
+    },
+    cookie: {
+      title: "Cookie",
+      body: "Questo sito utilizza Google Analytics per analizzare il traffico in forma anonima. Il tuo consenso mi aiuta a migliorare l'esperienza.",
+      privacy: "Privacy Policy",
+      accept: "Accetto",
+      reject: "Rifiuto",
     },
   },
 
@@ -212,6 +219,13 @@ const translations = {
       navLabel: "Navigation",
       contactLabel: "Contact",
       copyright: "All rights reserved.",
+    },
+    cookie: {
+      title: "Cookie",
+      body: "This site uses Google Analytics to analyze traffic anonymously. Your consent helps me improve the experience.",
+      privacy: "Privacy Policy",
+      accept: "Accept",
+      reject: "Decline",
     },
   },
 };

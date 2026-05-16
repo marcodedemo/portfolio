@@ -12,8 +12,8 @@ import Palettes, { TextPalettes } from "./data/Palettes";
 import Navbar from "./components/Navbar";
 import { Box } from "@mui/material";
 
-import CustomCursor from "./components/CustomCursor";
 import BackToTop from "./components/BackToTop";
+import CookieConsent from "./components/CookieConsent";
 
 const UtilityButton = React.lazy(() => import("./fragments/UtilityButton"));
 const Footer = React.lazy(() => import("./components/Footer"));
@@ -21,6 +21,7 @@ const Footer = React.lazy(() => import("./components/Footer"));
 function App() {
   const [mode, setMode] = useState(() => localStorage.getItem("theme-mode") || "dark");
   const [utilityOpen, setUtilityOpen] = useState(false);
+  const [consent, setConsent] = useState(() => localStorage.getItem("cookie-consent"));
   const [palette, setPalette] = useState(() => {
     const saved = localStorage.getItem("theme-palette");
     return Palettes.find((p) => p.id === saved) || Palettes.find((p) => p.id === "blue");
@@ -112,9 +113,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Analytics />
-      <SpeedInsights />
+      {consent === "accepted" && <Analytics />}
+      {consent === "accepted" && <SpeedInsights />}
       <BackToTop hidden={utilityOpen} />
+      <CookieConsent onConsent={setConsent} />
       <Box sx={{
         position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
         background: `
