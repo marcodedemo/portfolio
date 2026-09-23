@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
-import { Container, Link, Typography } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { ButtonBase, Container, Link, Typography } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useTheme, alpha } from "@mui/material/styles";
 
 import Logo from "../common/Logo";
 import Links from "../data/Links";
 import { useLang } from "../context/LanguageContext";
 
-import { useTheme } from "@mui/material/styles";
-
-function Navbar() {
+function Navbar({ mode, toggleMode }) {
   const theme = useTheme();
   const { lang, toggleLang, t } = useLang();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -25,70 +25,88 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  // Hide navbar on scroll down, show on scroll up
+  // Nasconde la navbar scorrendo verso il basso, la mostra verso l'alto
   useEffect(() => {
     let lastY = 0;
     const onScroll = () => {
-      const y = globalThis.scrollY;
+      const y = window.scrollY;
       setScrolled(y > 20);
       setHidden(y > lastY && y > 100);
       lastY = y;
     };
-    globalThis.addEventListener("scroll", onScroll, { passive: true });
-    return () => globalThis.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active link via IntersectionObserver
+  // Link attivo in base alla sezione visibile
   useEffect(() => {
-    const sectionIds = Links.map((l) => l.id);
-    const observers = [];
-    sectionIds.forEach((id) => {
+    const observers = Links.map(({ id }) => {
       const el = document.getElementById(id);
-      if (!el) return;
+      if (!el) return null;
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
         { threshold: 0.4 }
       );
       obs.observe(el);
-      observers.push(obs);
+      return obs;
     });
-    return () => observers.forEach((o) => o.disconnect());
+    return () => observers.forEach((o) => o?.disconnect());
   }, []);
 
-  const handleDrawerOpen = () => setDrawerOpen(true);
-  const handleDrawerClose = () => setDrawerOpen(false);
-
-  const bgColor =
-    theme.palette.mode === "dark"
-      ? scrolled ? "rgba(43,43,43,0.75)" : "rgba(43,43,43,0)"
-      : scrolled ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0)";
+  const closeDrawer = () => setDrawerOpen(false);
 
   const primary = theme.palette.primary.main;
+  const border = theme.palette.mode === "dark" ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)";
+  const divider = theme.palette.mode === "dark" ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
 
-  const navLabels = {
-    home: t.nav.home,
-    about: t.nav.whoAmI,
-    services: t.nav.services,
-    "how-i-work": t.nav.howIWork,
-    contacts: t.nav.contacts,
+  const squareButton = {
+    color: theme.palette.text.primary,
+    border: "1px solid",
+    borderColor: border,
+    borderRadius: "10px",
+    width: 40,
+    height: 40,
+    "&:hover": { color: primary, borderColor: primary },
   };
 
-  const drawer = (
-    <Box
+  const themeButton = (
+    <IconButton
+      onClick={toggleMode}
+      aria-label={mode === "dark" ? t.a11y.toLight : t.a11y.toDark}
+      sx={squareButton}
+    >
+      {mode === "dark" ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
+    </IconButton>
+  );
+
+  const langButton = (
+    <ButtonBase
+      onClick={toggleLang}
+      aria-label={t.a11y.switchLanguage}
       sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: theme.palette.background.default,
+        height: 40,
+        px: 1.5,
+        gap: 0.5,
+        borderRadius: "10px",
+        border: "1px solid",
+        borderColor: border,
+        fontSize: "0.8rem",
+        fontWeight: 700,
+        letterSpacing: "0.05em",
+        color: theme.palette.text.secondary,
+        "&:hover": { borderColor: primary },
       }}
     >
-      {/* Header */}
+      <Box component="span" sx={{ color: lang === "it" ? primary : "inherit" }}>IT</Box>
+      <Box component="span" sx={{ opacity: 0.4 }}>/</Box>
+      <Box component="span" sx={{ color: lang === "en" ? primary : "inherit" }}>EN</Box>
+    </ButtonBase>
+  );
+
+  const drawer = (
+    <Box sx={{ height: "100%", display: "flex", flexDirection: "column", backgroundColor: theme.palette.background.default }}>
       <Box
         sx={{
           display: "flex",
@@ -96,35 +114,16 @@ function Navbar() {
           justifyContent: "space-between",
           px: 3,
           py: 2.5,
-          borderBottom: `1px solid ${
-            theme.palette.mode === "dark"
-              ? "rgba(255,255,255,0.07)"
-              : "rgba(0,0,0,0.07)"
-          }`,
+          borderBottom: `1px solid ${divider}`,
         }}
       >
         <Logo fontSize={26} />
-        <IconButton
-          aria-label="Chiudi menu"
-          onClick={handleDrawerClose}
-          sx={{
-            color: theme.palette.text.secondary,
-            border: "1px solid",
-            borderColor:
-              theme.palette.mode === "dark"
-                ? "rgba(255,255,255,0.1)"
-                : "rgba(0,0,0,0.1)",
-            borderRadius: "10px",
-            width: 38,
-            height: 38,
-          }}
-        >
-          <FontAwesomeIcon icon={faXmark} size="sm" />
+        <IconButton aria-label={t.a11y.closeMenu} onClick={closeDrawer} sx={squareButton}>
+          <CloseIcon fontSize="small" />
         </IconButton>
       </Box>
 
-      {/* Nav links */}
-      <Box sx={{ flex: 1, px: 2, py: 3, display: "flex", flexDirection: "column", gap: 0.5 }}>
+      <Box component="nav" aria-label={t.a11y.mainNav} sx={{ flex: 1, px: 2, py: 3, display: "flex", flexDirection: "column", gap: 0.5 }}>
         {Links.map((link, i) => {
           const isActive = activeSection === link.id;
           return (
@@ -135,8 +134,9 @@ function Navbar() {
               transition={{ delay: i * 0.06, duration: 0.3 }}
             >
               <Link
-                href={`#${link.id}`}
-                onClick={handleDrawerClose}
+                href={`/#${link.id}`}
+                onClick={closeDrawer}
+                aria-current={isActive ? "true" : undefined}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -150,10 +150,7 @@ function Navbar() {
                   fontSize: "1rem",
                   backgroundColor: isActive ? `${primary}12` : "transparent",
                   transition: "background-color 0.2s, color 0.2s",
-                  "&:hover": {
-                    backgroundColor: `${primary}10`,
-                    color: primary,
-                  },
+                  "&:hover": { backgroundColor: `${primary}10`, color: primary },
                 }}
               >
                 <Box
@@ -164,38 +161,23 @@ function Navbar() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: isActive ? `${primary}20` : (
-                      theme.palette.mode === "dark"
-                        ? "rgba(255,255,255,0.05)"
-                        : "rgba(0,0,0,0.04)"
-                    ),
+                    backgroundColor: isActive
+                      ? `${primary}20`
+                      : theme.palette.mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
                     color: isActive ? primary : theme.palette.text.secondary,
                     flexShrink: 0,
-                    fontSize: "0.85rem",
-                    transition: "background-color 0.2s, color 0.2s",
                   }}
                 >
                   {link.icon}
                 </Box>
-                {navLabels[link.id] || link.label}
+                {t.nav[link.navKey]}
               </Link>
             </motion.div>
           );
         })}
       </Box>
 
-      {/* Footer: language toggle */}
-      <Box
-        sx={{
-          px: 3,
-          py: 3,
-          borderTop: `1px solid ${
-            theme.palette.mode === "dark"
-              ? "rgba(255,255,255,0.07)"
-              : "rgba(0,0,0,0.07)"
-          }`,
-        }}
-      >
+      <Box sx={{ px: 3, py: 3, borderTop: `1px solid ${divider}` }}>
         <Typography
           sx={{
             fontSize: "0.65rem",
@@ -206,248 +188,142 @@ function Navbar() {
             mb: 1.5,
           }}
         >
-          Language
+          {t.a11y.language}
         </Typography>
-        <Box
-          role="button"
-          aria-label={`Cambia lingua, attuale: ${lang.toUpperCase()}`}
-          onClick={toggleLang}
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0,
-            borderRadius: "10px",
-            border: "1px solid",
-            borderColor:
-              theme.palette.mode === "dark"
-                ? "rgba(255,255,255,0.1)"
-                : "rgba(0,0,0,0.1)",
-            overflow: "hidden",
-            cursor: "pointer",
-            userSelect: "none",
-          }}
-        >
-          {["IT", "EN"].map((l) => {
-            const active = lang === l.toLowerCase();
-            return (
-              <Box
-                key={l}
-                component="span"
-                sx={{
-                  px: 2.5,
-                  py: 1,
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  backgroundColor: active ? primary : "transparent",
-                  color: active ? "#fff" : theme.palette.text.secondary,
-                  transition: "background-color 0.2s, color 0.2s",
-                }}
-              >
-                {l}
-              </Box>
-            );
-          })}
+        <Box sx={{ display: "flex", gap: 1.5 }}>
+          {langButton}
+          {themeButton}
         </Box>
       </Box>
     </Box>
   );
 
-  const container =
-    undefined;
-
   return (
     <>
       <Box id="home" sx={{ height: 0 }} />
-      <CssBaseline />
 
       <motion.div
         animate={{ y: hidden ? -100 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1100 }}
       >
-          {/* Scroll progress bar */}
-          <motion.div
-            style={{
-              scaleX,
-              height: "3px",
-              background: primary,
-              transformOrigin: "left",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              zIndex: 1200,
-            }}
-          />
+        {/* Barra di avanzamento scroll */}
+        <motion.div
+          style={{
+            scaleX,
+            height: "3px",
+            background: primary,
+            transformOrigin: "left",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 1200,
+          }}
+        />
 
-          <AppBar
-            component="div"
-            position="static"
-            elevation={0}
-            sx={{
-              backgroundColor: bgColor,
-              backdropFilter: scrolled ? "blur(14px)" : "none",
-              WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
-              borderBottom: scrolled
-                ? `1px solid ${
-                    theme.palette.mode === "dark"
-                      ? "rgba(255,255,255,0.08)"
-                      : "rgba(0,0,0,0.08)"
-                  }`
-                : "1px solid transparent",
-              transition: "background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s",
-            }}
-          >
-            <Toolbar sx={{ height: "80px" }}>
-              <Container
-                maxWidth="xl"
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+        <AppBar
+          component="div"
+          position="static"
+          elevation={0}
+          sx={{
+            backgroundColor: bgColor(theme, scrolled),
+            backdropFilter: scrolled ? "blur(14px)" : "none",
+            WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+            borderBottom: `1px solid ${scrolled ? divider : "transparent"}`,
+            transition: "background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s",
+          }}
+        >
+          <Toolbar sx={{ height: "80px" }}>
+            <Container
+              maxWidth="xl"
+              sx={{ height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+            >
+              <Link href="/" aria-label="Marco De Demo, home" sx={{ textDecoration: "none" }}>
+                <Logo fontSize={32} />
+              </Link>
+
+              {/* Mobile */}
+              <IconButton
+                aria-label={t.a11y.openMenu}
+                aria-expanded={drawerOpen}
+                onClick={() => setDrawerOpen(true)}
+                sx={{ ...squareButton, display: { xs: "inline-flex", md: "none" } }}
               >
-                {/* Mobile */}
-                <Box
-                  sx={{
-                    display: { xs: "flex", md: "none" },
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <Logo fontSize={32} />
-                  <IconButton
-                    aria-label="Apri menu di navigazione"
-                    aria-expanded={drawerOpen}
-                    onClick={handleDrawerOpen}
-                    sx={{
-                      color: theme.palette.text.primary,
-                      border: "1px solid",
-                      borderColor:
-                        theme.palette.mode === "dark"
-                          ? "rgba(255,255,255,0.12)"
-                          : "rgba(0,0,0,0.12)",
-                      borderRadius: "10px",
-                      width: 40,
-                      height: 40,
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faBars} size="sm" />
-                  </IconButton>
+                <MenuIcon fontSize="small" />
+              </IconButton>
+
+              {/* Desktop */}
+              <Box
+                component="nav"
+                aria-label={t.a11y.mainNav}
+                sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 3 }}
+              >
+                {Links.map((link) => {
+                  const isActive = activeSection === link.id;
+                  return (
+                    <Link
+                      key={link.id}
+                      href={`/#${link.id}`}
+                      aria-current={isActive ? "true" : undefined}
+                      sx={{
+                        position: "relative",
+                        textDecoration: "none",
+                        color: isActive ? primary : theme.palette.text.primary,
+                        fontWeight: isActive ? 700 : 400,
+                        transition: "color 0.2s",
+                        "&:hover": { color: primary },
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          bottom: "-4px",
+                          left: 0,
+                          width: isActive ? "100%" : "0%",
+                          height: "2px",
+                          backgroundColor: primary,
+                          transition: "width 0.3s ease",
+                          borderRadius: "2px",
+                        },
+                        "&:hover::after": { width: "100%" },
+                      }}
+                    >
+                      {t.nav[link.navKey]}
+                    </Link>
+                  );
+                })}
+                <Box sx={{ display: "flex", gap: 1 }}>
+                  {langButton}
+                  {themeButton}
                 </Box>
+              </Box>
+            </Container>
+          </Toolbar>
+        </AppBar>
+      </motion.div>
 
-                {/* Desktop */}
-                <Box
-                  sx={{
-                    display: { xs: "none", md: "flex" },
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <Logo fontSize={32} />
-                  <Box component="nav" aria-label="Navigazione principale" sx={{ display: "flex", alignItems: "center", gap: theme.spacing(3) }}>
-                    {Links.map((link) => (
-                      <Link
-                        key={link.id}
-                        href={`#${link.id}`}
-                        aria-current={activeSection === link.id ? "true" : undefined}
-                        sx={{
-                          position: "relative",
-                          textDecoration: "none",
-                          color: activeSection === link.id ? primary : theme.palette.text.primary,
-                          fontWeight: activeSection === link.id ? 700 : 400,
-                          transition: "color 0.2s",
-                          "&:hover": { color: primary },
-                          "&::after": {
-                            content: '""',
-                            position: "absolute",
-                            bottom: "-4px",
-                            left: 0,
-                            width: activeSection === link.id ? "100%" : "0%",
-                            height: "2px",
-                            backgroundColor: primary,
-                            transition: "width 0.3s ease",
-                            borderRadius: "2px",
-                          },
-                          "&:hover::after": { width: "100%" },
-                        }}
-                      >
-                        {navLabels[link.id] || link.label}
-                      </Link>
-                    ))}
+      {/* Spazio per compensare la navbar fissa */}
+      <Box sx={{ height: "80px", width: "100%", flexShrink: 0 }} />
 
-                    {/* Language toggle */}
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Box
-                        role="button"
-                        aria-label={`Cambia lingua, attuale: ${lang.toUpperCase()}`}
-                        onClick={toggleLang}
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 0.5,
-                          px: 1.2,
-                          py: 0.5,
-                          borderRadius: "8px",
-                          border: "1px solid",
-                          borderColor: theme.palette.mode === "dark" ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)",
-                          cursor: "pointer",
-                          fontSize: "0.78rem",
-                          fontWeight: 700,
-                          color: theme.palette.text.secondary,
-                          letterSpacing: "0.05em",
-                          transition: "border-color 0.2s, color 0.2s",
-                          "&:hover": { borderColor: primary, color: primary },
-                          userSelect: "none",
-                        }}
-                      >
-                        <Box component="span" sx={{ color: lang === "it" ? primary : "inherit", fontWeight: lang === "it" ? 800 : 500 }}>IT</Box>
-                        <Box component="span" sx={{ opacity: 0.3 }}>/</Box>
-                        <Box component="span" sx={{ color: lang === "en" ? primary : "inherit", fontWeight: lang === "en" ? 800 : 500 }}>EN</Box>
-                      </Box>
-                    </motion.div>
-                  </Box>
-                </Box>
-              </Container>
-            </Toolbar>
-          </AppBar>
-        </motion.div>
-
-        {/* Spacer per compensare la navbar fixed */}
-        <Box sx={{ height: "80px", width: "100%", flexShrink: 0 }} />
-
-        <nav>
-          <Drawer
-            container={container}
-            anchor="right"
-            variant="temporary"
-            open={drawerOpen}
-            onClose={handleDrawerClose}
-            ModalProps={{ keepMounted: true }}
-            sx={{
-              display: { xs: "block", md: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: "80vw",
-                maxWidth: "320px",
-                border: "none",
-              },
-              "& .MuiBackdrop-root": {
-                backdropFilter: "blur(4px)",
-                backgroundColor: "rgba(0,0,0,0.4)",
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </nav>
-
+      <Drawer
+        anchor="right"
+        variant="temporary"
+        open={drawerOpen}
+        onClose={closeDrawer}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: "80vw", maxWidth: "320px", border: "none" },
+          "& .MuiBackdrop-root": { backdropFilter: "blur(4px)", backgroundColor: "rgba(0,0,0,0.4)" },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </>
   );
+}
+
+function bgColor(theme, scrolled) {
+  return alpha(theme.palette.background.default, scrolled ? 0.75 : 0);
 }
 
 export default Navbar;

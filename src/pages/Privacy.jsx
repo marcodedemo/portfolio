@@ -8,6 +8,7 @@ function Section({ title, children }) {
     <Box sx={{ mb: 4 }}>
       <Typography
         variant="h6"
+        component="h2"
         sx={{ fontWeight: 700, mb: 1.5, color: theme.palette.text.primary }}
       >
         {title}
@@ -29,112 +30,118 @@ function Privacy() {
     lineHeight: 1.75,
     fontSize: "0.95rem",
   };
+  const list = { ...text, pl: 3, mt: 1.5, mb: 1.5 };
+  const mail = (
+    <Link href="mailto:marco.dedemo@gmail.com" sx={{ color: theme.palette.primary.main }}>
+      marco.dedemo@gmail.com
+    </Link>
+  );
 
   return (
-    <Box sx={{ py: { xs: 8, md: 12 } }}>
+    <Box component="main" sx={{ py: { xs: 8, md: 12 } }}>
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 
           <Typography
-            variant="span"
             sx={{
               color: theme.palette.primary.main,
               fontWeight: 700,
               fontSize: "0.8rem",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              display: "block",
               mb: 1,
             }}
           >
             Informativa
           </Typography>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="h2" component="h1" sx={{ fontWeight: 700, mb: 1 }}>
             Privacy Policy
           </Typography>
           <Typography sx={{ ...text, mb: 6 }}>
-            Ultimo aggiornamento: maggio 2026
+            Ultimo aggiornamento: settembre 2026
           </Typography>
 
           <Section title="1. Titolare del trattamento">
             <Typography sx={text}>
-              Marco De Demo — Follina (TV), Italia
+              Marco De Demo, Follina (TV), Italia.
               <br />
-              Email:{" "}
-              <Link href="mailto:marco.dedemo@gmail.com" sx={{ color: theme.palette.primary.main }}>
-                marco.dedemo@gmail.com
-              </Link>
+              Email: {mail}
             </Typography>
           </Section>
 
-          <Section title="2. Dati raccolti e finalità">
+          <Section title="2. Modulo di contatto">
             <Typography sx={text}>
-              Questo sito raccoglie dati esclusivamente tramite <strong>Google Analytics</strong>,
-              uno strumento di analisi statistica fornito da Google LLC. I dati raccolti includono:
+              Se mi scrivi tramite il modulo di contatto raccolgo <strong>nome, email e messaggio</strong>.
+              Li uso solo per rispondere alla tua richiesta e, se lavoreremo insieme, per gestire il
+              rapporto professionale.
             </Typography>
-            <Box component="ul" sx={{ ...text, pl: 3, mt: 1.5, mb: 0 }}>
-              <li>Pagine visitate e durata della sessione</li>
-              <li>Paese e lingua del browser</li>
-              <li>Tipo di dispositivo e sistema operativo</li>
-              <li>Sorgente di traffico (es. motore di ricerca, link diretto)</li>
-            </Box>
             <Typography sx={{ ...text, mt: 1.5 }}>
-              L'indirizzo IP viene anonimizzato prima della trasmissione. Questi dati sono usati
-              esclusivamente per migliorare i contenuti del sito. Non vengono effettuate attività
-              di profilazione, né i dati vengono venduti o ceduti a terzi.
+              Il messaggio viene recapitato alla mia casella email tramite il servizio{" "}
+              <strong>EmailJS</strong>. La base giuridica è l&apos;esecuzione di misure precontrattuali
+              su tua richiesta (art. 6, par. 1, lett. b GDPR). Conservo i dati per il tempo necessario
+              a gestire la richiesta e gli eventuali obblighi di legge successivi.
             </Typography>
           </Section>
 
-          <Section title="3. Base giuridica">
+          <Section title="3. Statistiche di visita">
             <Typography sx={text}>
-              Il trattamento avviene sulla base del <strong>consenso esplicito</strong> dell'utente
-              (art. 6, par. 1, lett. a del GDPR), espresso tramite il banner cookie al primo accesso.
-              Google Analytics viene attivato solo dopo aver ricevuto tale consenso.
+              Solo se accetti dal banner, il sito usa <strong>Vercel Web Analytics</strong> e{" "}
+              <strong>Vercel Speed Insights</strong> per statistiche aggregate e anonime. Questi
+              strumenti non usano cookie. I dati raccolti sono:
             </Typography>
-          </Section>
-
-          <Section title="4. Conservazione dei dati">
-            <Typography sx={text}>
-              I dati raccolti tramite Google Analytics vengono conservati per un periodo massimo di
-              14 mesi, come configurato nelle impostazioni dell'account. La preferenza di consenso
-              espressa dall'utente viene salvata nel browser tramite localStorage e non ha scadenza
-              automatica.
-            </Typography>
-          </Section>
-
-          <Section title="5. Diritti dell'interessato">
-            <Typography sx={text}>
-              In qualità di interessato, hai il diritto di:
-            </Typography>
-            <Box component="ul" sx={{ ...text, pl: 3, mt: 1.5, mb: 1.5 }}>
-              <li>Accedere ai tuoi dati personali</li>
-              <li>Richiederne la rettifica o la cancellazione</li>
-              <li>Opporti al trattamento o richiederne la limitazione</li>
-              <li>Revocare il consenso in qualsiasi momento</li>
-              <li>Proporre reclamo al Garante per la Protezione dei Dati Personali</li>
+            <Box component="ul" sx={list}>
+              <li>pagina visitata e sito di provenienza</li>
+              <li>paese e area geografica approssimativa</li>
+              <li>tipo di dispositivo, sistema operativo e browser</li>
+              <li>tempi di caricamento della pagina</li>
             </Box>
             <Typography sx={text}>
-              Per esercitare questi diritti o revocare il consenso, scrivi a{" "}
-              <Link href="mailto:marco.dedemo@gmail.com" sx={{ color: theme.palette.primary.main }}>
-                marco.dedemo@gmail.com
-              </Link>{" "}
-              oppure utilizza il link "Gestisci preferenze cookie" nel footer del sito.
+              Il visitatore è riconosciuto solo tramite un codice ricavato dalla richiesta, che viene
+              scartato entro 24 ore. Non è possibile risalire alla tua identità. La base giuridica è
+              il consenso (art. 6, par. 1, lett. a GDPR), revocabile in qualsiasi momento.
             </Typography>
           </Section>
 
-          <Section title="6. Cookie">
+          <Section title="4. Hosting e dati tecnici">
             <Typography sx={text}>
-              Questo sito utilizza esclusivamente cookie tecnici (localStorage per tema e lingua)
-              e cookie analitici di Google Analytics, attivati solo previo consenso. Non vengono
-              utilizzati cookie di profilazione o marketing.
+              Il sito è ospitato da <strong>Vercel Inc.</strong> Per erogare le pagine e proteggere il
+              sito da abusi, il server tratta dati tecnici come l&apos;indirizzo IP. La base giuridica
+              è il legittimo interesse al funzionamento e alla sicurezza del sito (art. 6, par. 1,
+              lett. f GDPR).
             </Typography>
           </Section>
 
-          <Section title="7. Trasferimento dati">
+          <Section title="5. Destinatari e trasferimenti">
             <Typography sx={text}>
-              Google Analytics prevede il trasferimento di dati verso gli Stati Uniti. Google LLC
-              aderisce alle clausole contrattuali standard approvate dalla Commissione Europea,
-              garantendo un livello di protezione adeguato ai sensi del GDPR.
+              I dati sono trattati dai fornitori citati sopra: Vercel (hosting e statistiche), EmailJS
+              (invio dei messaggi) e Google (casella email del titolare). Alcuni di questi fornitori
+              possono trasferire dati fuori dall&apos;Unione Europea, sulla base delle garanzie previste
+              dal GDPR, come le clausole contrattuali standard o il Data Privacy Framework UE-USA. I
+              dati non vengono venduti né usati per profilazione o pubblicità.
+            </Typography>
+          </Section>
+
+          <Section title="6. Cookie e memoria del browser">
+            <Typography sx={text}>
+              Il sito non usa cookie di profilazione o di marketing. Salva nel browser, tramite
+              localStorage, solo le tue preferenze di tema, di lingua e la scelta fatta sul banner.
+            </Typography>
+          </Section>
+
+          <Section title="7. I tuoi diritti">
+            <Typography sx={text}>
+              Puoi chiedere in qualsiasi momento di:
+            </Typography>
+            <Box component="ul" sx={list}>
+              <li>accedere ai tuoi dati, rettificarli o cancellarli</li>
+              <li>limitare il trattamento od opporti</li>
+              <li>ricevere i dati in un formato portabile</li>
+              <li>revocare il consenso alle statistiche</li>
+              <li>proporre reclamo al Garante per la protezione dei dati personali</li>
+            </Box>
+            <Typography sx={text}>
+              Per esercitare questi diritti scrivi a {mail}. Per cambiare la scelta sulle statistiche
+              usa il link &quot;Gestisci cookie&quot; nel footer.
             </Typography>
           </Section>
 

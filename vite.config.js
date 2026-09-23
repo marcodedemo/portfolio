@@ -9,14 +9,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-mui': ['@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
+          'vendor-mui': ['@mui/material', '@emotion/react', '@emotion/styled'],
           'vendor-motion': ['framer-motion'],
-          'vendor-fontawesome': [
-            '@fortawesome/fontawesome-svg-core',
-            '@fortawesome/react-fontawesome',
-            '@fortawesome/free-solid-svg-icons',
-          ],
-          'vendor-cloudinary': ['@cloudinary/react', '@cloudinary/url-gen'],
         },
       },
     },

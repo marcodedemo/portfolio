@@ -10,7 +10,7 @@ function HomeAbout() {
   const primary = theme.palette.primary.main;
 
   return (
-    <Box component="section" aria-label="Chi sono" sx={{ pt: { xs: theme.spacing(8), md: theme.spacing(10) }, pb: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="about">
+    <Box component="section" aria-labelledby="about-title" sx={{ pt: { xs: theme.spacing(8), md: theme.spacing(10) }, pb: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="about">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 
@@ -31,7 +31,7 @@ function HomeAbout() {
           </AnimateOnView>
 
           <AnimateOnView variant="fade-right" delay={0.06}>
-            <Typography variant="h2" sx={{ fontWeight: "700", pb: 3 }}>
+            <Typography id="about-title" variant="h2" sx={{ fontWeight: "700", pb: 3 }}>
               {t.about.title}
             </Typography>
           </AnimateOnView>
@@ -53,7 +53,7 @@ function HomeAbout() {
               <Typography component="span" sx={{ color: primary, fontWeight: 600 }}>
                 {t.about.body1}
               </Typography>
-              , {t.about.body2}
+              {" "}{t.about.body2}
               <br /><br />
               {t.about.body3}
               <br /><br />

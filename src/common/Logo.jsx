@@ -6,7 +6,7 @@ function Logo({ fontSize }) {
 
   // Font
   const fontFamily =
-    'Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
+    '"Inter Variable",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"';
 
   // Stile Parentesi
   const logoBrackets = {

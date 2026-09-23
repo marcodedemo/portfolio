@@ -11,23 +11,29 @@ function CookieConsent({ onConsent }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("cookie-consent");
+    let stored = null;
+    try {
+      stored = localStorage.getItem("cookie-consent");
+    } catch {
+      // storage bloccato: chiediamo il consenso a ogni visita
+    }
     if (!stored) {
-      setTimeout(() => setVisible(true), 1200);
+      const id = setTimeout(() => setVisible(true), 1200);
+      return () => clearTimeout(id);
     }
   }, []);
 
-  const accept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    onConsent?.("accepted");
+  const choose = (value) => {
+    try {
+      localStorage.setItem("cookie-consent", value);
+    } catch {
+      // storage bloccato: la scelta vale solo per questa visita
+    }
+    onConsent?.(value);
     setVisible(false);
   };
-
-  const reject = () => {
-    localStorage.setItem("cookie-consent", "rejected");
-    onConsent?.("rejected");
-    setVisible(false);
-  };
+  const accept = () => choose("accepted");
+  const reject = () => choose("rejected");
 
   return (
     <AnimatePresence>
@@ -39,16 +45,16 @@ function CookieConsent({ onConsent }) {
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           style={{
             position: "fixed",
-            bottom: 20,
-            left: 20,
+            bottom: 16,
+            left: 16,
             zIndex: 9999,
             maxWidth: 420,
-            width: "calc(100vw - 40px)",
+            width: "calc(100vw - 32px)",
           }}
         >
           <Box
             sx={{
-              p: 3,
+              p: { xs: 2, sm: 3 },
               borderRadius: "16px",
               backgroundColor: theme.palette.background.paper,
               border: `1px solid ${
@@ -81,7 +87,6 @@ function CookieConsent({ onConsent }) {
                   textTransform: "none",
                   fontWeight: 700,
                   borderRadius: "8px",
-                  color: "#fff",
                   boxShadow: "none",
                   "&:hover": { boxShadow: "none", opacity: 0.9 },
                 }}

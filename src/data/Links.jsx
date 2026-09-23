@@ -1,37 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faUser, faBriefcase, faCode, faAt } from "@fortawesome/free-solid-svg-icons";
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import WorkIcon from "@mui/icons-material/Work";
+import CodeIcon from "@mui/icons-material/Code";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
+// Etichette in translations.js (nav.*)
 const Links = [
-  {
-    id: "home",
-    label: "Home",
-    path: "/",
-    icon: <FontAwesomeIcon icon={faHouse} />,
-  },
-  {
-    id: "about",
-    label: "Chi Sono",
-    path: "/",
-    icon: <FontAwesomeIcon icon={faUser} />,
-  },
-  {
-    id: "services",
-    label: "Servizi",
-    path: "/",
-    icon: <FontAwesomeIcon icon={faBriefcase} />,
-  },
-  {
-    id: "portfolio",
-    label: "Portfolio",
-    path: "/",
-    icon: <FontAwesomeIcon icon={faCode} />,
-  },
-  {
-    id: "contacts",
-    label: "Contatti",
-    path: "/contacts",
-    icon: <FontAwesomeIcon icon={faAt} />,
-  },
+  { id: "home", navKey: "home", icon: <HomeIcon fontSize="small" /> },
+  { id: "about", navKey: "whoAmI", icon: <PersonIcon fontSize="small" /> },
+  { id: "services", navKey: "services", icon: <WorkIcon fontSize="small" /> },
+  { id: "portfolio", navKey: "portfolio", icon: <CodeIcon fontSize="small" /> },
+  { id: "contacts", navKey: "contacts", icon: <AlternateEmailIcon fontSize="small" /> },
 ];
 
 export default Links;

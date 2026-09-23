@@ -1,22 +1,16 @@
 import { Box, Typography, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { useInView } from "framer-motion";
 
-import CodeIcon from "@mui/icons-material/Code";
-import StorageIcon from "@mui/icons-material/Storage";
 import WebIcon from "@mui/icons-material/Web";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import StorageIcon from "@mui/icons-material/Storage";
+import BuildIcon from "@mui/icons-material/Build";
 import AnimateOnView from "../common/AnimateOnView";
 import { useLang } from "../context/LanguageContext";
 
-const serviceIcons = [
-  <WebIcon sx={{ fontSize: 36 }} />,
-  <CodeIcon sx={{ fontSize: 36 }} />,
-  <StorageIcon sx={{ fontSize: 36 }} />,
-  <RocketLaunchIcon sx={{ fontSize: 36 }} />,
-];
+const serviceIcons = [WebIcon, RocketLaunchIcon, StorageIcon, BuildIcon];
 
 const containerVariants = {
   hidden: {},
@@ -30,8 +24,7 @@ const cardVariants = {
 
 function ServiceCard({ service }) {
   const theme = useTheme();
-  const ref = useRef(null);
-  const hovered = useRef(false);
+  const Icon = service.icon;
 
   return (
     <motion.div
@@ -91,12 +84,13 @@ function ServiceCard({ service }) {
             mb: 2.5,
           }}
         >
-          {service.icon}
+          <Icon sx={{ fontSize: 36 }} />
         </Box>
 
         {/* Title */}
         <Typography
           variant="h6"
+          component="h3"
           sx={{ fontWeight: 700, mb: 1.5, fontSize: { xs: "1.05rem", md: "1.15rem" } }}
         >
           {service.title}
@@ -155,7 +149,7 @@ function Services() {
   }));
 
   return (
-    <Box component="section" aria-label="Servizi" sx={{ py: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="services">
+    <Box component="section" aria-labelledby="services-title" sx={{ py: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }} id="services">
       <Container maxWidth="xl">
         <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 
@@ -177,7 +171,7 @@ function Services() {
           </AnimateOnView>
 
           <AnimateOnView variant="fade-right" delay={0.08}>
-            <Typography variant="h2" sx={{ fontWeight: 700, mb: 1.5 }}>
+            <Typography id="services-title" variant="h2" sx={{ fontWeight: 700, mb: 1.5 }}>
               {t.services.title}
             </Typography>
           </AnimateOnView>
@@ -250,7 +244,7 @@ function Services() {
                   py: 1.4,
                   borderRadius: "10px",
                   backgroundColor: theme.palette.primary.main,
-                  color: "#fff",
+                  color: theme.palette.primary.contrastText,
                   fontWeight: 700,
                   fontSize: "0.9rem",
                   textDecoration: "none",

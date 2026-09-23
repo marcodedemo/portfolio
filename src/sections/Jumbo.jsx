@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Button, useMediaQuery } from "@mui/material";
+import { Box, Typography, Container, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -9,30 +9,29 @@ import { useLang } from "../context/LanguageContext";
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.16, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
 function Jumbo() {
   const theme = useTheme();
   const { t } = useLang();
-  const is900Screen = useMediaQuery("(min-width:900px)");
   const primary = theme.palette.primary.main;
 
   return (
     <Box
       component="section"
-      aria-label="Hero"
       sx={{
-        paddingTop: theme.spacing(4),
+        pt: { xs: 3, md: 4 },
+        pb: { xs: 6, md: 8 },
         position: "relative",
         overflow: "hidden",
-        minHeight: { xs: "92vh", md: "88vh" },
+        minHeight: { md: "calc(100vh - 80px)" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -89,39 +88,29 @@ function Jumbo() {
                 variant="h1"
                 sx={{
                   fontWeight: "800",
-                  lineHeight: "95%",
-                  letterSpacing: "-1px",
+                  lineHeight: 1.02,
+                  letterSpacing: "-0.02em",
                   color: theme.palette.text.primary,
                 }}
               >
-                {t.jumbo.headline1}{" "}
-                <br style={{ display: is900Screen ? "none" : "block" }} />
-                {t.jumbo.headline2}{" "}
-                <Typography
-                  component="span"
-                  variant="h1"
-                  sx={{
-                    color: primary,
-                    fontWeight: "inherit",
-                    lineHeight: "inherit",
-                    letterSpacing: "inherit",
-                  }}
-                >
-                  {t.jumbo.headline3}
-                  <br />
-                  {t.jumbo.headline4}
-                </Typography>
+                {t.jumbo.headline}{" "}
+                <Box component="span" sx={{ color: primary }}>
+                  {t.jumbo.headlineAccent}
+                </Box>
               </Typography>
             </motion.div>
 
             {/* Sottotitolo statico */}
             <motion.div variants={itemVariants} style={{ marginTop: theme.spacing(3) }}>
               <Typography
-                variant="h2"
+                component="p"
                 sx={{
                   color: theme.palette.text.secondary,
                   fontWeight: 500,
                   letterSpacing: "-0.3px",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  lineHeight: 1.4,
+                  maxWidth: "640px",
                 }}
               >
                 {t.jumbo.subtitle}
@@ -157,7 +146,6 @@ function Jumbo() {
                   sx={{
                     textTransform: "none",
                     fontWeight: 700,
-                    color: "#fff",
                     px: 3,
                     py: 1.4,
                     borderRadius: "10px",

@@ -1,12 +1,13 @@
 import { useState, useRef } from "react";
 import {
-  Box, Typography, TextField, Button, Alert, CircularProgress,
+  Box, Typography, TextField, Button, Alert, CircularProgress, Link,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import emailjs from "@emailjs/browser";
+import { track } from "@vercel/analytics";
 import { useLang } from "../context/LanguageContext";
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -82,9 +83,17 @@ function ContactForm() {
     setErrors(validationErrors);
     if (Object.values(validationErrors).some(Boolean)) return;
 
+    // Honeypot: un utente vero non vede il campo "website", un bot lo compila.
+    // Al bot mostriamo il successo senza inviare nulla.
+    if (formRef.current.website.value) {
+      setStatus("success");
+      return;
+    }
+
     setStatus("sending");
     try {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY });
+      track("contact_form_submit");
       setStatus("success");
       setValues(initialValues);
       setTouched({ name: false, email: false, message: false });
@@ -148,6 +157,7 @@ function ContactForm() {
       onSubmit={handleSubmit}
       noValidate
       sx={{
+        position: "relative",
         display: "flex",
         flexDirection: "column",
         gap: 2.5,
@@ -167,6 +177,13 @@ function ContactForm() {
       <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
         {t.form.title}
       </Typography>
+
+      <Box aria-hidden="true" sx={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Website
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </Box>
 
       <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
         <TextField
@@ -241,7 +258,6 @@ function ContactForm() {
           sx={{
             textTransform: "none",
             fontWeight: 700,
-            color: "#fff",
             borderRadius: "10px",
             px: 3.5,
             py: 1.4,
@@ -253,6 +269,14 @@ function ContactForm() {
           {status === "sending" ? t.form.sending : t.form.submit}
         </Button>
       </motion.div>
+
+      <Typography variant="body2" sx={{ color: theme.palette.text.secondary, fontSize: "0.8rem" }}>
+        {t.form.privacyNote}{" "}
+        <Link href="/privacy" sx={{ color: primary, fontWeight: 600 }}>
+          Privacy Policy
+        </Link>
+        .
+      </Typography>
     </Box>
   );
 }

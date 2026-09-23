@@ -2,31 +2,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-
-/* ── Gear rotation (settings button) ── */
-@keyframes rotating {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.rotating {
-  animation: rotating 8s linear infinite;
-}
-
-
-
-/* ── Scroll indicator bounce ── */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(10px); }
-}
-
-.scroll-indicator {
-  animation: bounce 1.8s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }

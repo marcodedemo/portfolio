@@ -2,14 +2,12 @@ import { useState } from "react";
 import { Box, Typography, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { AdvancedImage } from "@cloudinary/react";
+
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 import AnimateOnView from "../common/AnimateOnView";
 import { useLang } from "../context/LanguageContext";
 import projects from "../data/projects";
-
-const cld = new Cloudinary({ cloud: { cloudName: "dzqk808cv" } });
 
 const cardVariants = {
   hidden: { opacity: 0, y: 32 },
@@ -18,7 +16,7 @@ const cardVariants = {
 
 function ProjectCard({ project }) {
   const theme = useTheme();
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const primary = theme.palette.primary.main;
   const [hovered, setHovered] = useState(false);
 
@@ -50,19 +48,21 @@ function ProjectCard({ project }) {
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ width: "100%", height: "100%" }}
         >
-          <AdvancedImage
-            cldImg={cld
-              .image(`${project.slug}`)}
+          <img
+            src={project.image}
+            width={960}
+            height={533}
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-            alt={description}
+            alt={`${project.title}: ${description}`}
             loading="lazy"
+            decoding="async"
           />
         </motion.div>
       </Box>
 
       {/* Content */}
       <Box sx={{ p: { xs: 2.5, md: 3 }, display: "flex", flexDirection: "column", flexGrow: 1 }}>
-        <Typography sx={{ fontWeight: 700, fontSize: "1.05rem", mb: 1 }}>
+        <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.05rem", mb: 1 }}>
           {project.title}
         </Typography>
         <Typography
@@ -71,6 +71,14 @@ function ProjectCard({ project }) {
         >
           {description}
         </Typography>
+        {project.liveUrl && (
+          <Typography
+            sx={{ mt: "auto", pt: 2, display: "flex", alignItems: "center", gap: 0.5, fontSize: "0.85rem", fontWeight: 700, color: primary }}
+          >
+            {t.portfolio.visit}
+            <OpenInNewIcon sx={{ fontSize: 16 }} />
+          </Typography>
+        )}
       </Box>
     </Box>
   );
@@ -109,7 +117,7 @@ function Portfolio() {
   return (
     <Box
       component="section"
-      aria-label="Portfolio"
+      aria-labelledby="portfolio-title"
       sx={{ py: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }}
       id="portfolio"
     >
@@ -133,7 +141,7 @@ function Portfolio() {
           </AnimateOnView>
 
           <AnimateOnView variant="fade-right" delay={0.06}>
-            <Typography variant="h2" sx={{ fontWeight: 700, mb: 1.5 }}>
+            <Typography id="portfolio-title" variant="h2" sx={{ fontWeight: 700, mb: 1.5 }}>
               {t.portfolio.title}
             </Typography>
           </AnimateOnView>

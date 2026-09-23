@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Divider, Link } from "@mui/material";
+import { Box, Typography, Container, Divider, Link, ButtonBase } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -67,7 +67,7 @@ function Footer() {
                   color: theme.palette.text.secondary,
                   mt: 1,
                   fontSize: "0.8rem",
-                  maxWidth: "220px",
+                  maxWidth: "280px",
                   lineHeight: 1.6,
                 }}
               >
@@ -101,17 +101,10 @@ function Footer() {
                 {t.footer.navLabel}
               </Typography>
               {Links.map((link) => {
-                const navLabels = {
-                  Homepage: t.nav.home,
-                  WhoAmI: t.nav.whoAmI,
-                  Services: t.nav.services,
-                  HowIWork: t.nav.howIWork,
-                  Contacts: t.nav.contacts,
-                };
                 return (
                   <Link
                     key={link.id}
-                    href={`#${link.id}`}
+                    href={`/#${link.id}`}
                     sx={{
                       fontSize: "0.85rem",
                       color: theme.palette.text.secondary,
@@ -120,7 +113,7 @@ function Footer() {
                       "&:hover": { color: primary },
                     }}
                   >
-                    {navLabels[link.id] || link.label}
+                    {t.nav[link.navKey]}
                   </Link>
                 );
               })}
@@ -218,24 +211,27 @@ function Footer() {
                     transition: "color 0.2s",
                   }}
                 >
-                  Privacy Policy
+                  {t.footer.privacy}
                 </Link>
-                <Typography
-                  component="span"
+                <ButtonBase
                   onClick={() => {
-                    localStorage.removeItem("cookie-consent");
+                    try {
+                      localStorage.removeItem("cookie-consent");
+                    } catch {
+                      // storage bloccato: il banner ricompare comunque al prossimo caricamento
+                    }
                     window.location.reload();
                   }}
                   sx={{
                     fontSize: "0.75rem",
+                    fontFamily: "inherit",
                     color: theme.palette.text.secondary,
-                    cursor: "pointer",
                     "&:hover": { color: primary },
                     transition: "color 0.2s",
                   }}
                 >
-                  Gestisci cookie
-                </Typography>
+                  {t.footer.manageCookies}
+                </ButtonBase>
               </Box>
             </Box>
 

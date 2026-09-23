@@ -4,6 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useLang } from "../context/LanguageContext";
 
 const containerVariants = {
   hidden: {},
@@ -18,6 +19,7 @@ const itemVariants = {
 function NotFound() {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
+  const { t } = useLang();
 
   useEffect(() => {
     const meta = document.createElement("meta");
@@ -29,8 +31,9 @@ function NotFound() {
 
   return (
     <Box
+      component="main"
       sx={{
-        minHeight: "100dvh",
+        minHeight: "calc(100dvh - 80px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -38,10 +41,6 @@ function NotFound() {
         overflow: "hidden",
       }}
     >
-      {/* Blobs */}
-      <div className="hero-blob hero-blob-1" style={{ background: primary, opacity: 0.12 }} />
-      <div className="hero-blob hero-blob-3" style={{ background: primary, opacity: 0.08 }} />
-
       <Container maxWidth="sm" sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
 
@@ -82,9 +81,10 @@ function NotFound() {
           <motion.div variants={itemVariants}>
             <Typography
               variant="h2"
+              component="h1"
               sx={{ fontWeight: 700, mb: 2, fontSize: { xs: "1.4rem", md: "1.8rem" } }}
             >
-              Pagina non trovata
+              {t.notFound.title}
             </Typography>
           </motion.div>
 
@@ -100,8 +100,7 @@ function NotFound() {
                 mx: "auto",
               }}
             >
-              La pagina che cerchi non esiste o è stata spostata.
-              Torna alla home e riparti da lì.
+              {t.notFound.description}
             </Typography>
           </motion.div>
 
@@ -126,7 +125,7 @@ function NotFound() {
                   transition: "box-shadow 0.2s",
                 }}
               >
-                Torna alla home
+                {t.notFound.back}
               </Button>
             </motion.div>
           </motion.div>

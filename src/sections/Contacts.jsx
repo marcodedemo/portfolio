@@ -3,7 +3,6 @@ import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import ContactPageIcon from "@mui/icons-material/ContactPage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import AnimateOnView from "../common/AnimateOnView";
@@ -13,17 +12,16 @@ import { useLang } from "../context/LanguageContext";
 const quickLinkIcons = [
   <EmailIcon key="email" sx={{ fontSize: 22 }} />,
   <LinkedInIcon key="linkedin" sx={{ fontSize: 22 }} />,
-  // <ContactPageIcon key="cv" sx={{ fontSize: 22 }} />,
 ];
 const quickLinkHrefs = [
   "mailto:marco.dedemo@gmail.com",
   "https://www.linkedin.com/in/marcodedemo/",
-  // "https://drive.google.com/file/d/1bAUGRwo0uvQSR5I-21XyCH8Vm2uKdyWA/view?usp=drive_link",
 ];
 function Contacts() {
   const theme = useTheme();
   const { t } = useLang();
   const primary = theme.palette.primary.main;
+  const green = theme.palette.mode === "dark" ? "#34D399" : "#047857";
 
   const quickLinks = t.contacts.quickLinks.map((link, i) => ({
     icon: quickLinkIcons[i],
@@ -36,7 +34,7 @@ function Contacts() {
   return (
     <Box
       component="section"
-      aria-label="Contatti"
+      aria-labelledby="contacts-title"
       sx={{ py: { xs: theme.spacing(8), md: theme.spacing(10) }, scrollMarginTop: "80px" }}
       id="contacts"
     >
@@ -61,7 +59,7 @@ function Contacts() {
           </AnimateOnView>
 
           <AnimateOnView variant="fade-up" delay={0.08}>
-            <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, lineHeight: 1.2 }}>
+            <Typography id="contacts-title" variant="h2" sx={{ fontWeight: 800, mb: 2, lineHeight: 1.2 }}>
               {t.contacts.title}{" "}
               <Typography
                 component="span"
@@ -206,7 +204,7 @@ function Contacts() {
                         width: 8,
                         height: 8,
                         borderRadius: "50%",
-                        backgroundColor: "#34D399",
+                        backgroundColor: green,
                         animation: "pulse 2s infinite",
                         "@keyframes pulse": {
                           "0%, 100%": { opacity: 1 },
@@ -214,7 +212,7 @@ function Contacts() {
                         },
                       }}
                     />
-                    <Typography sx={{ fontSize: "0.78rem", fontWeight: 700, color: "#34D399" }}>
+                    <Typography sx={{ fontSize: "0.78rem", fontWeight: 700, color: green }}>
                       {t.contacts.available}
                     </Typography>
                   </Box>
