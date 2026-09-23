@@ -11,6 +11,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useTheme, alpha } from "@mui/material/styles";
+import { useLocation } from "react-router-dom";
 
 import Logo from "../common/Logo";
 import Links from "../data/Links";
@@ -23,6 +24,9 @@ function Navbar({ mode, toggleMode }) {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const { pathname } = useLocation();
+  // Le sezioni esistono solo in home: altrove nessun link è attivo
+  const current = pathname === "/" ? activeSection : "";
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -53,7 +57,7 @@ function Navbar({ mode, toggleMode }) {
       return obs;
     });
     return () => observers.forEach((o) => o?.disconnect());
-  }, []);
+  }, [pathname]);
 
   const closeDrawer = () => setDrawerOpen(false);
 
@@ -125,7 +129,7 @@ function Navbar({ mode, toggleMode }) {
 
       <Box component="nav" aria-label={t.a11y.mainNav} sx={{ flex: 1, px: 2, py: 3, display: "flex", flexDirection: "column", gap: 0.5 }}>
         {Links.map((link, i) => {
-          const isActive = activeSection === link.id;
+          const isActive = current === link.id;
           return (
             <motion.div
               key={link.id}
@@ -260,7 +264,7 @@ function Navbar({ mode, toggleMode }) {
                 sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 3 }}
               >
                 {Links.map((link) => {
-                  const isActive = activeSection === link.id;
+                  const isActive = current === link.id;
                   return (
                     <Link
                       key={link.id}

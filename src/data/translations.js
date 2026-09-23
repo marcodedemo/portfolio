@@ -1,5 +1,6 @@
 const translations = {
   it: {
+    whatsappText: "Ciao Marco, ti scrivo dal tuo sito per un progetto.",
     nav: {
       home: "Home",
       whoAmI: "Chi Sono",
@@ -19,9 +20,9 @@ const translations = {
     },
     jumbo: {
       available: "Disponibile per nuovi progetti",
-      headline: "Siti web che portano clienti",
-      headlineAccent: "a studi e aziende del Trevigiano.",
-      subtitle: "Progetto e sviluppo siti veloci e curati, pensati per trasformare le visite in richieste di contatto.",
+      headline: "Trasformo la tua idea",
+      headlineAccent: "in una soluzione su misura.",
+      subtitle: "Progetto e sviluppo siti veloci e curati, pensati per convertire le visite in richieste di contatto.",
       intro: "Sono",
       description: "sviluppatore web freelance a Follina (TV). Lavori direttamente con me, dal primo incontro alla messa online.",
       cta1: "Parliamo del tuo progetto",
@@ -36,6 +37,7 @@ const translations = {
       body3: "Prima di scrivere una riga di codice cerco di capire la tua attività e i tuoi clienti. Poi costruisco un sito veloce, chiaro e facile da trovare su Google.",
       body4: "Sono disponibile per nuove collaborazioni.",
       body5: "Se hai un progetto in mente, parliamone.",
+      photoAlt: "Marco De Demo, sviluppatore web freelance a Follina",
     },
     portfolio: {
       label: "I miei lavori",
@@ -88,7 +90,7 @@ const translations = {
       label: "Lavoriamo insieme",
       title: "Hai un progetto in mente?",
       titleAccent: "Parliamone.",
-      subtitle: "Compila il form oppure scrivimi direttamente. Rispondo entro un giorno lavorativo.",
+      subtitle: "Compila il form, scrivimi su WhatsApp o via email. Rispondo entro un giorno lavorativo.",
       quickLinks: [
         { label: "Email", value: "marco.dedemo@gmail.com" },
         { label: "LinkedIn", value: "/in/marcodedemo" },
@@ -118,7 +120,7 @@ const translations = {
       },
     },
     footer: {
-      tagline: "Sviluppatore web freelance a Follina (TV).\nSiti per studi e aziende del Trevigiano.",
+      tagline: "Sviluppatore web freelance a Follina (TV).",
       navLabel: "Navigazione",
       contactLabel: "Contatti",
       copyright: "Tutti i diritti riservati.",
@@ -140,6 +142,7 @@ const translations = {
   },
 
   en: {
+    whatsappText: "Hi Marco, I'm writing from your website about a project.",
     nav: {
       home: "Home",
       whoAmI: "About",
@@ -159,9 +162,9 @@ const translations = {
     },
     jumbo: {
       available: "Available for new projects",
-      headline: "Websites that bring clients",
-      headlineAccent: "to firms and businesses around Treviso.",
-      subtitle: "I design and build fast, polished websites that turn visits into enquiries.",
+      headline: "I turn your idea",
+      headlineAccent: "into a tailored solution.",
+      subtitle: "I design and build fast, polished websites that convert visits into enquiries.",
       intro: "I'm",
       description: "a freelance web developer based in Follina, near Treviso, Italy. You work directly with me, from the first meeting to launch.",
       cta1: "Let's discuss your project",
@@ -176,6 +179,7 @@ const translations = {
       body3: "Before writing a single line of code, I get to know your business and your customers. Then I build a site that is fast, clear and easy to find on Google.",
       body4: "I'm available for new collaborations.",
       body5: "If you have a project in mind, let's talk.",
+      photoAlt: "Marco De Demo, freelance web developer in Follina",
     },
     portfolio: {
       label: "My work",
@@ -228,7 +232,7 @@ const translations = {
       label: "Let's work together",
       title: "Got a project in mind?",
       titleAccent: "Let's talk.",
-      subtitle: "Fill out the form or reach out directly. I reply within one business day.",
+      subtitle: "Fill out the form, message me on WhatsApp or send an email. I reply within one business day.",
       quickLinks: [
         { label: "Email", value: "marco.dedemo@gmail.com" },
         { label: "LinkedIn", value: "/in/marcodedemo" },
@@ -258,7 +262,7 @@ const translations = {
       },
     },
     footer: {
-      tagline: "Freelance web developer in Follina, Treviso.\nWebsites for firms and businesses.",
+      tagline: "Freelance web developer in Follina, Treviso.",
       navLabel: "Navigation",
       contactLabel: "Contact",
       copyright: "All rights reserved.",

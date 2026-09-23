@@ -69,7 +69,7 @@ function Privacy() {
             </Typography>
           </Section>
 
-          <Section title="2. Modulo di contatto">
+          <Section title="2. Modulo di contatto e WhatsApp">
             <Typography sx={text}>
               Se mi scrivi tramite il modulo di contatto raccolgo <strong>nome, email e messaggio</strong>.
               Li uso solo per rispondere alla tua richiesta e, se lavoreremo insieme, per gestire il
@@ -80,6 +80,11 @@ function Privacy() {
               <strong>EmailJS</strong>. La base giuridica è l&apos;esecuzione di misure precontrattuali
               su tua richiesta (art. 6, par. 1, lett. b GDPR). Conservo i dati per il tempo necessario
               a gestire la richiesta e gli eventuali obblighi di legge successivi.
+            </Typography>
+            <Typography sx={{ ...text, mt: 1.5 }}>
+              Se mi scrivi su <strong>WhatsApp</strong>, il tuo numero e i messaggi sono trattati anche
+              da WhatsApp (gruppo Meta) secondo la sua informativa. Li uso solo per rispondere alla tua
+              richiesta, con la stessa base giuridica e gli stessi tempi di conservazione del modulo.
             </Typography>
           </Section>
 
@@ -114,7 +119,8 @@ function Privacy() {
           <Section title="5. Destinatari e trasferimenti">
             <Typography sx={text}>
               I dati sono trattati dai fornitori citati sopra: Vercel (hosting e statistiche), EmailJS
-              (invio dei messaggi) e Google (casella email del titolare). Alcuni di questi fornitori
+              (invio dei messaggi), WhatsApp del gruppo Meta (se mi contatti su WhatsApp) e Google (casella email
+              del titolare). Alcuni di questi fornitori
               possono trasferire dati fuori dall&apos;Unione Europea, sulla base delle garanzie previste
               dal GDPR, come le clausole contrattuali standard o il Data Privacy Framework UE-USA. I
               dati non vengono venduti né usati per profilazione o pubblicità.

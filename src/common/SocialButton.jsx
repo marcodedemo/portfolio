@@ -1,16 +1,20 @@
 import { Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-const links = {
-  Github: { href: "https://github.com/marcodedemo", icon: <GitHubIcon /> },
-  LinkedIn: { href: "https://www.linkedin.com/in/marcodedemo/", icon: <LinkedInIcon /> },
-};
+import { useLang } from "../context/LanguageContext";
+import { whatsappUrl, trackWhatsApp } from "../data/contact";
 
 function SocialButton({ text }) {
   const theme = useTheme();
-  const { href, icon } = links[text];
+  const { t } = useLang();
+
+  const links = {
+    WhatsApp: { href: whatsappUrl(t.whatsappText), icon: <WhatsAppIcon />, onClick: () => trackWhatsApp("hero") },
+    LinkedIn: { href: "https://www.linkedin.com/in/marcodedemo/", icon: <LinkedInIcon /> },
+  };
+  const { href, icon, onClick } = links[text];
 
   return (
     <Button
@@ -19,6 +23,7 @@ function SocialButton({ text }) {
       target="_blank"
       rel="noopener noreferrer"
       startIcon={icon}
+      onClick={onClick}
       sx={{
         color: theme.palette.text.primary,
         textTransform: "none",

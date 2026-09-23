@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 import AnimateOnView from "../common/AnimateOnView";
 import ContactForm from "../components/ContactForm";
 import { useLang } from "../context/LanguageContext";
+import { WHATSAPP_DISPLAY, whatsappUrl, trackWhatsApp } from "../data/contact";
 
 const quickLinkIcons = [
   <EmailIcon key="email" sx={{ fontSize: 22 }} />,
@@ -23,13 +25,21 @@ function Contacts() {
   const primary = theme.palette.primary.main;
   const green = theme.palette.mode === "dark" ? "#34D399" : "#047857";
 
-  const quickLinks = t.contacts.quickLinks.map((link, i) => ({
-    icon: quickLinkIcons[i],
-    label: link.label,
-    value: link.value,
-    href: quickLinkHrefs[i],
-    accent: primary,
-  }));
+  const quickLinks = [
+    {
+      icon: <WhatsAppIcon sx={{ fontSize: 22 }} />,
+      label: "WhatsApp",
+      value: WHATSAPP_DISPLAY,
+      href: whatsappUrl(t.whatsappText),
+      onClick: () => trackWhatsApp("contacts"),
+    },
+    ...t.contacts.quickLinks.map((link, i) => ({
+      icon: quickLinkIcons[i],
+      label: link.label,
+      value: link.value,
+      href: quickLinkHrefs[i],
+    })),
+  ].map((link) => ({ ...link, accent: primary }));
 
   return (
     <Box
@@ -111,6 +121,7 @@ function Contacts() {
                     <Box
                       component="a"
                       href={opt.href}
+                      onClick={opt.onClick}
                       target={opt.href.startsWith("mailto") ? "_self" : "_blank"}
                       rel="noopener noreferrer"
                       sx={{

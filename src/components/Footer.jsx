@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 import Logo from "../common/Logo";
 import Links from "../data/Links";
 import { useLang } from "../context/LanguageContext";
+import { whatsappUrl, trackWhatsApp } from "../data/contact";
 
 const socials = [
   {
@@ -32,6 +34,11 @@ function Footer() {
   const { t } = useLang();
   const primary = theme.palette.primary.main;
   const year = new Date().getFullYear();
+  const whatsapp = whatsappUrl(t.whatsappText);
+  const allSocials = [
+    { icon: <WhatsAppIcon sx={{ fontSize: 20 }} />, href: whatsapp, label: "WhatsApp", onClick: () => trackWhatsApp("footer") },
+    ...socials,
+  ];
 
   return (
     <Box
@@ -133,6 +140,21 @@ function Footer() {
               >
                 {t.footer.contactLabel}
               </Typography>
+              <Link
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsApp("footer")}
+                sx={{
+                  fontSize: "0.85rem",
+                  color: theme.palette.text.secondary,
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                  "&:hover": { color: primary },
+                }}
+              >
+                WhatsApp
+              </Link>
               <Link
                 href="mailto:marco.dedemo@gmail.com"
                 sx={{
@@ -238,7 +260,7 @@ function Footer() {
 
             {/* Social icons */}
             <Box sx={{ display: "flex", gap: 1.5 }}>
-              {socials.map((s) => (
+              {allSocials.map((s) => (
                 <motion.div
                   key={s.label}
                   whileHover={{ y: -3 }}
@@ -249,6 +271,7 @@ function Footer() {
                     target={s.href.startsWith("mailto") ? "_self" : "_blank"}
                     rel="noopener noreferrer"
                     aria-label={s.label}
+                    onClick={s.onClick}
                     sx={{
                       display: "flex",
                       alignItems: "center",

@@ -94,7 +94,8 @@ function Jumbo() {
                 }}
               >
                 {t.jumbo.headline}{" "}
-                <Box component="span" sx={{ color: primary }}>
+                {/* Su desktop la parte blu va a capo, con righe bilanciate */}
+                <Box component="span" sx={{ color: primary, display: { md: "block" }, textWrap: { md: "balance" } }}>
                   {t.jumbo.headlineAccent}
                 </Box>
               </Typography>
@@ -190,7 +191,7 @@ function Jumbo() {
             {/* Social links */}
             <motion.div variants={itemVariants} style={{ marginTop: theme.spacing(4) }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: "wrap" }}>
-                <SocialButton text="Github" />
+                <SocialButton text="WhatsApp" />
                 <SocialButton text="LinkedIn" />
               </Box>
             </motion.div>
