@@ -22,6 +22,16 @@ function Jumbo() {
   const theme = useTheme();
   const { t } = useLang();
   const primary = theme.palette.primary.main;
+  // Stile unico per sottotitolo e presentazione
+  const leadSx = {
+    color: theme.palette.text.secondary,
+    fontWeight: 500,
+    letterSpacing: "-0.2px",
+    fontSize: { xs: "1.1rem", md: "1.25rem" },
+    lineHeight: 1.55,
+    maxWidth: "600px",
+    textWrap: "pretty",
+  };
 
   return (
     <Box
@@ -41,47 +51,6 @@ function Jumbo() {
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <Box maxWidth="md" sx={{ margin: { xs: 0, md: "0 auto" } }}>
 
-            {/* Tag line */}
-            <motion.div variants={itemVariants}>
-              <Box
-                sx={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 1,
-                  px: 1.5,
-                  py: 0.6,
-                  borderRadius: "100px",
-                  border: `1px solid ${primary}50`,
-                  backgroundColor: `${primary}12`,
-                  mb: 2,
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    backgroundColor: primary,
-                    animation: "pulse 2s infinite",
-                    "@keyframes pulse": {
-                      "0%, 100%": { opacity: 1 },
-                      "50%": { opacity: 0.4 },
-                    },
-                  }}
-                />
-                <Typography
-                  sx={{
-                    fontSize: "0.8rem",
-                    fontWeight: 600,
-                    color: primary,
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  {t.jumbo.available}
-                </Typography>
-              </Box>
-            </motion.div>
-
             {/* Headline */}
             <motion.div variants={itemVariants}>
               <Typography
@@ -91,6 +60,7 @@ function Jumbo() {
                   lineHeight: 1.02,
                   letterSpacing: "-0.02em",
                   color: theme.palette.text.primary,
+                  textWrap: "balance",
                 }}
               >
                 {t.jumbo.headline}{" "}
@@ -103,32 +73,14 @@ function Jumbo() {
 
             {/* Sottotitolo statico */}
             <motion.div variants={itemVariants} style={{ marginTop: theme.spacing(3) }}>
-              <Typography
-                component="p"
-                sx={{
-                  color: theme.palette.text.secondary,
-                  fontWeight: 500,
-                  letterSpacing: "-0.3px",
-                  fontSize: { xs: "1.2rem", md: "1.5rem" },
-                  lineHeight: 1.4,
-                  maxWidth: "640px",
-                }}
-              >
+              <Typography component="p" sx={leadSx}>
                 {t.jumbo.subtitle}
               </Typography>
             </motion.div>
 
             {/* Descrizione breve */}
             <motion.div variants={itemVariants} style={{ marginTop: theme.spacing(2.5) }}>
-              <Typography
-                variant="p"
-                sx={{
-                  display: "block",
-                  color: theme.palette.text.secondary,
-                  maxWidth: "520px",
-                  lineHeight: 1.7,
-                }}
-              >
+              <Typography component="p" sx={leadSx}>
                 {t.jumbo.intro}{" "}
                 <strong style={{ color: theme.palette.text.primary }}>Marco De Demo</strong>,{" "}
                 {t.jumbo.description}
@@ -186,6 +138,12 @@ function Jumbo() {
                   {t.jumbo.cta2}
                 </Button>
               </Box>
+              <Typography
+                component="p"
+                sx={{ mt: 1.5, fontSize: "0.95rem", color: theme.palette.text.secondary, maxWidth: "600px", textWrap: "pretty" }}
+              >
+                {t.jumbo.ctaNote}
+              </Typography>
             </motion.div>
 
             {/* Social links */}

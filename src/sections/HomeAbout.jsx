@@ -84,16 +84,16 @@ function HomeAbout() {
                 }}
               >
                 {t.about.intro}{" "}
-                <Typography component="span" sx={{ color: primary, fontWeight: 600 }}>
+                <Box component="span" sx={{ color: primary, fontWeight: 600 }}>
                   {t.about.body1}
-                </Typography>
+                </Box>
                 {" "}{t.about.body2}
                 <br /><br />
                 {t.about.body3}
                 <br /><br />
-                <Typography component="span" sx={{ color: primary, fontWeight: 600 }}>
+                <Box component="span" sx={{ color: primary, fontWeight: 600 }}>
                   {t.about.body4}
-                </Typography>
+                </Box>
                 {" "}{t.about.body5}
               </Typography>
             </AnimateOnView>

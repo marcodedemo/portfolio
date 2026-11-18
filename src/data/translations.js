@@ -1,6 +1,6 @@
 const translations = {
   it: {
-    whatsappText: "Ciao Marco, ti scrivo dal tuo sito per un progetto.",
+    whatsappText: "Ciao Marco, vorrei prenotare l'analisi gratuita di 30 minuti.",
     nav: {
       home: "Home",
       whoAmI: "Chi Sono",
@@ -19,13 +19,13 @@ const translations = {
       backToTop: "Torna all'inizio",
     },
     jumbo: {
-      available: "Disponibile per nuovi progetti",
-      headline: "Trasformo la tua idea",
-      headlineAccent: "in una soluzione su misura.",
+      headline: "Siti, gestionali e automazioni AI",
+      headlineAccent: "per studi professionali e PMI.",
       subtitle: "Progetto e sviluppo siti veloci e curati, pensati per convertire le visite in richieste di contatto.",
       intro: "Sono",
-      description: "sviluppatore web freelance a Follina (TV). Lavori direttamente con me, dal primo incontro alla messa online.",
-      cta1: "Parliamo del tuo progetto",
+      description: "sviluppatore web freelance a Follina\u00a0(TV). Lavori direttamente con me, dal primo incontro alla messa online.",
+      cta1: "Prenota l'analisi gratuita",
+      ctaNote: "30 minuti, senza impegno: ti mostro dove la tua attività può risparmiare tempo con l'AI.",
       cta2: "Guarda i miei lavori",
     },
     about: {
@@ -35,8 +35,8 @@ const translations = {
       body1: "Marco De Demo",
       body2: "e sviluppo siti e applicazioni web da oltre cinque anni. Lavoro in prima persona: parli sempre con chi scrive il codice, senza intermediari.",
       body3: "Prima di scrivere una riga di codice cerco di capire la tua attività e i tuoi clienti. Poi costruisco un sito veloce, chiaro e facile da trovare su Google.",
-      body4: "Sono disponibile per nuove collaborazioni.",
-      body5: "Se hai un progetto in mente, parliamone.",
+      body4: "Non sai da dove partire?",
+      body5: "Prenota un'analisi gratuita di 30 minuti: ti mostro dove puoi risparmiare tempo.",
       photoAlt: "Marco De Demo, sviluppatore web freelance a Follina",
     },
     portfolio: {
@@ -80,7 +80,7 @@ const translations = {
       title: "Dal primo contatto alla messa online",
       subtitle: "Un percorso semplice, con tempi e costi chiari fin dall'inizio.",
       steps: [
-        { title: "Ascolto", description: "Una chiamata gratuita per capire la tua attività, gli obiettivi e il budget." },
+        { title: "Analisi gratuita", description: "30 minuti per capire la tua attività e i tuoi obiettivi, e mostrarti dove puoi risparmiare tempo." },
         { title: "Progetto", description: "Definiamo struttura, contenuti e stile. Ricevi un preventivo chiaro con tempi e costi." },
         { title: "Sviluppo", description: "Costruisco il sito e ti mostro i progressi. Puoi dare feedback in ogni fase." },
         { title: "Lancio e supporto", description: "Pubblico il sito, ti spiego come usarlo e resto disponibile per modifiche e assistenza." },
@@ -88,9 +88,9 @@ const translations = {
     },
     contacts: {
       label: "Lavoriamo insieme",
-      title: "Hai un progetto in mente?",
-      titleAccent: "Parliamone.",
-      subtitle: "Compila il form, scrivimi su WhatsApp o via email. Rispondo entro un giorno lavorativo.",
+      title: "Prenota un'analisi",
+      titleAccent: "gratuita di 30 minuti.",
+      subtitle: "Ti mostro dove la tua attività può risparmiare tempo con l'AI, senza impegno. Scrivimi dal form, su WhatsApp o via email: rispondo entro un giorno lavorativo.",
       quickLinks: [
         { label: "Email", value: "marco.dedemo@gmail.com" },
         { label: "LinkedIn", value: "/in/marcodedemo" },
@@ -103,7 +103,7 @@ const translations = {
       name: "Nome",
       email: "Email",
       message: "Messaggio",
-      messagePlaceholder: "Raccontami il tuo progetto: cosa vuoi realizzare, tempistiche, budget orientativo...",
+      messagePlaceholder: "Raccontami la tua attività e cosa vorresti migliorare: ti propongo un orario per l'analisi gratuita.",
       submit: "Invia messaggio",
       sending: "Invio in corso...",
       successTitle: "Messaggio inviato!",
@@ -142,7 +142,7 @@ const translations = {
   },
 
   en: {
-    whatsappText: "Hi Marco, I'm writing from your website about a project.",
+    whatsappText: "Hi Marco, I'd like to book the free 30-minute assessment.",
     nav: {
       home: "Home",
       whoAmI: "About",
@@ -161,13 +161,13 @@ const translations = {
       backToTop: "Back to top",
     },
     jumbo: {
-      available: "Available for new projects",
-      headline: "I turn your idea",
-      headlineAccent: "into a tailored solution.",
+      headline: "Websites, business software and AI automations",
+      headlineAccent: "for professional firms and small businesses.",
       subtitle: "I design and build fast, polished websites that convert visits into enquiries.",
       intro: "I'm",
       description: "a freelance web developer based in Follina, near Treviso, Italy. You work directly with me, from the first meeting to launch.",
-      cta1: "Let's discuss your project",
+      cta1: "Book your free assessment",
+      ctaNote: "30 minutes, no strings attached: I'll show you where your business can save time with AI.",
       cta2: "View my work",
     },
     about: {
@@ -177,8 +177,8 @@ const translations = {
       body1: "Marco De Demo",
       body2: "and I've been building websites and web applications for over five years. I work hands-on: you always talk to the person writing the code, with no middlemen.",
       body3: "Before writing a single line of code, I get to know your business and your customers. Then I build a site that is fast, clear and easy to find on Google.",
-      body4: "I'm available for new collaborations.",
-      body5: "If you have a project in mind, let's talk.",
+      body4: "Not sure where to start?",
+      body5: "Book a free 30-minute assessment and I'll show you where you can save time.",
       photoAlt: "Marco De Demo, freelance web developer in Follina",
     },
     portfolio: {
@@ -222,7 +222,7 @@ const translations = {
       title: "From first contact to launch",
       subtitle: "A simple process, with clear timing and costs from the start.",
       steps: [
-        { title: "Listen", description: "A free call to understand your business, goals and budget." },
+        { title: "Free assessment", description: "30 minutes to understand your business and goals, and show you where you can save time." },
         { title: "Plan", description: "We define structure, content and style. You get a clear quote with timing and costs." },
         { title: "Build", description: "I build the site and share progress. You can give feedback at every step." },
         { title: "Launch and support", description: "I publish the site, show you how to use it and stay available for changes and support." },
@@ -230,9 +230,9 @@ const translations = {
     },
     contacts: {
       label: "Let's work together",
-      title: "Got a project in mind?",
-      titleAccent: "Let's talk.",
-      subtitle: "Fill out the form, message me on WhatsApp or send an email. I reply within one business day.",
+      title: "Book a free",
+      titleAccent: "30-minute assessment.",
+      subtitle: "I'll show you where your business can save time with AI, no strings attached. Use the form, WhatsApp or email: I reply within one business day.",
       quickLinks: [
         { label: "Email", value: "marco.dedemo@gmail.com" },
         { label: "LinkedIn", value: "/in/marcodedemo" },
@@ -245,7 +245,7 @@ const translations = {
       name: "Name",
       email: "Email",
       message: "Message",
-      messagePlaceholder: "Tell me about your project: what you want to build, timelines, rough budget...",
+      messagePlaceholder: "Tell me about your business and what you'd like to improve: I'll suggest a time for the free assessment.",
       submit: "Send message",
       sending: "Sending...",
       successTitle: "Message sent!",
