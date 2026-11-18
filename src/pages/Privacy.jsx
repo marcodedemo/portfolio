@@ -58,7 +58,7 @@ function Privacy() {
             Privacy Policy
           </Typography>
           <Typography sx={{ ...text, mb: 6 }}>
-            Ultimo aggiornamento: settembre 2026
+            Ultimo aggiornamento: novembre 2026
           </Typography>
 
           <Section title="1. Titolare del trattamento">
@@ -88,7 +88,33 @@ function Privacy() {
             </Typography>
           </Section>
 
-          <Section title="3. Statistiche di visita">
+          <Section title="3. Assistente AI (demo)">
+            <Typography sx={text}>
+              Dal portfolio puoi aprire la demo di un <strong>assistente virtuale basato
+              sull&apos;intelligenza artificiale</strong>, pubblicata su assistente-demo.netlify.app.
+              Le risposte sono generate automaticamente e possono contenere errori.
+            </Typography>
+            <Typography sx={{ ...text, mt: 1.5 }}>
+              I messaggi che scrivi in chat vengono inviati ad <strong>Anthropic</strong>, che fornisce
+              il modello di intelligenza artificiale (Claude) e genera le risposte. Non salvo le
+              conversazioni: nei log del server registro solo la quantità di testo elaborato (token),
+              per stimare i costi, senza il contenuto dei messaggi. Anthropic tratta i messaggi secondo
+              i propri termini commerciali e non li usa per addestrare i suoi modelli. Ti chiedo di non
+              scrivere in chat dati personali o sensibili. La base giuridica è l&apos;esecuzione di
+              misure precontrattuali su tua richiesta, cioè rispondere alle tue domande sui miei servizi
+              (art. 6, par. 1, lett. b GDPR).
+            </Typography>
+            <Typography sx={{ ...text, mt: 1.5 }}>
+              Se usi il pulsante <strong>«Lascia un contatto»</strong> raccolgo{" "}
+              <strong>nome, recapito (email o telefono) e messaggio</strong>, insieme alla{" "}
+              <strong>conversazione avuta in chat</strong>, così posso risponderti sapendo cosa hai già
+              chiesto. I dati vengono recapitati alla mia casella email tramite il servizio{" "}
+              <strong>Resend</strong>. Base giuridica e tempi di conservazione sono gli stessi del modulo
+              di contatto (sezione 2).
+            </Typography>
+          </Section>
+
+          <Section title="4. Statistiche di visita">
             <Typography sx={text}>
               Solo se accetti dal banner, il sito usa <strong>Vercel Web Analytics</strong> e{" "}
               <strong>Vercel Speed Insights</strong> per statistiche aggregate e anonime. Questi
@@ -107,34 +133,37 @@ function Privacy() {
             </Typography>
           </Section>
 
-          <Section title="4. Hosting e dati tecnici">
+          <Section title="5. Hosting e dati tecnici">
             <Typography sx={text}>
-              Il sito è ospitato da <strong>Vercel Inc.</strong> Per erogare le pagine e proteggere il
-              sito da abusi, il server tratta dati tecnici come l&apos;indirizzo IP. La base giuridica
+              Il sito è ospitato da <strong>Vercel Inc.</strong>, la demo dell&apos;assistente AI da{" "}
+              <strong>Netlify, Inc.</strong> Per erogare le pagine e proteggerle da abusi, i server
+              trattano dati tecnici come l&apos;indirizzo IP. La base giuridica
               è il legittimo interesse al funzionamento e alla sicurezza del sito (art. 6, par. 1,
               lett. f GDPR).
             </Typography>
           </Section>
 
-          <Section title="5. Destinatari e trasferimenti">
+          <Section title="6. Destinatari e trasferimenti">
             <Typography sx={text}>
-              I dati sono trattati dai fornitori citati sopra: Vercel (hosting e statistiche), EmailJS
-              (invio dei messaggi), WhatsApp del gruppo Meta (se mi contatti su WhatsApp) e Google (casella email
-              del titolare). Alcuni di questi fornitori
+              I dati sono trattati dai fornitori citati sopra: Vercel (hosting e statistiche), Netlify
+              (hosting della demo), Anthropic (risposte dell&apos;assistente AI), Resend (invio delle
+              richieste lasciate nella demo), EmailJS (invio dei messaggi del modulo), WhatsApp del
+              gruppo Meta (se mi contatti su WhatsApp) e Google (casella email del titolare). Alcuni di questi fornitori
               possono trasferire dati fuori dall&apos;Unione Europea, sulla base delle garanzie previste
               dal GDPR, come le clausole contrattuali standard o il Data Privacy Framework UE-USA. I
               dati non vengono venduti né usati per profilazione o pubblicità.
             </Typography>
           </Section>
 
-          <Section title="6. Cookie e memoria del browser">
+          <Section title="7. Cookie e memoria del browser">
             <Typography sx={text}>
               Il sito non usa cookie di profilazione o di marketing. Salva nel browser, tramite
-              localStorage, solo le tue preferenze di tema, di lingua e la scelta fatta sul banner.
+              localStorage, solo le tue preferenze di tema, di lingua e la scelta fatta sul banner. La
+              demo dell&apos;assistente AI non usa cookie e non salva dati nel browser.
             </Typography>
           </Section>
 
-          <Section title="7. I tuoi diritti">
+          <Section title="8. I tuoi diritti">
             <Typography sx={text}>
               Puoi chiedere in qualsiasi momento di:
             </Typography>
