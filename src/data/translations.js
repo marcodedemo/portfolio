@@ -42,8 +42,9 @@ const translations = {
     portfolio: {
       label: "I miei lavori",
       title: "Portfolio",
-      subtitle: "Alcuni progetti realizzati per clienti reali.",
+      subtitle: "Alcuni progetti realizzati per clienti reali, e una demo da provare.",
       visit: "Visita il sito",
+      tryDemo: "Prova la demo",
     },
     services: {
       label: "Cosa posso fare per te",
@@ -184,8 +185,9 @@ const translations = {
     portfolio: {
       label: "My work",
       title: "Portfolio",
-      subtitle: "Some projects built for real clients.",
+      subtitle: "Some projects built for real clients, plus a demo you can try.",
       visit: "Visit the website",
+      tryDemo: "Try the demo",
     },
     services: {
       label: "What I can do for you",

@@ -21,6 +21,12 @@ function ProjectCard({ project }) {
   const [hovered, setHovered] = useState(false);
 
   const description = lang === "it" ? project.shortDescription : project.shortDescriptionEn;
+  const title = lang === "it" ? project.title : project.titleEn ?? project.title;
+  const isDark = theme.palette.mode === "dark";
+  const image = isDark && project.imageDark ? project.imageDark : project.image;
+  // La demo si apre con lo stesso tema (chiaro/scuro) attivo sul sito.
+  const href = project.isDemo ? `${project.liveUrl}?tema=${isDark ? "scuro" : "chiaro"}` : project.liveUrl;
+  const linkLabel = project.isDemo ? t.portfolio.tryDemo : t.portfolio.visit;
 
   const cardContent = (
     <Box
@@ -49,11 +55,11 @@ function ProjectCard({ project }) {
           style={{ width: "100%", height: "100%" }}
         >
           <img
-            src={project.image}
+            src={image}
             width={960}
             height={533}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-            alt={`${project.title}: ${description}`}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            alt={`Logo ${title}`}
             loading="lazy"
             decoding="async"
           />
@@ -63,7 +69,7 @@ function ProjectCard({ project }) {
       {/* Content */}
       <Box sx={{ p: { xs: 2.5, md: 3 }, display: "flex", flexDirection: "column", flexGrow: 1 }}>
         <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.05rem", mb: 1 }}>
-          {project.title}
+          {title}
         </Typography>
         <Typography
           variant="body2"
@@ -75,7 +81,7 @@ function ProjectCard({ project }) {
           <Typography
             sx={{ mt: "auto", pt: 2, display: "flex", alignItems: "center", gap: 0.5, fontSize: "0.85rem", fontWeight: 700, color: primary }}
           >
-            {t.portfolio.visit}
+            {linkLabel}
             <OpenInNewIcon sx={{ fontSize: 16 }} />
           </Typography>
         )}
@@ -95,7 +101,7 @@ function ProjectCard({ project }) {
       {project.liveUrl ? (
         <Box
           component="a"
-          href={project.liveUrl}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
           sx={{ display: "block", height: "100%", textDecoration: "none", color: "inherit" }}
